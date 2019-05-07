@@ -17,9 +17,9 @@
   <link href="/blog/feed.xml" type="application/rss+xml" rel="alternate" title="Latest 10 blog posts (atom)" />
 
   {% if page.url == '/index.html' %}
-    <link rel="alternate" hreflang="cn" href="/" />
-  {% elsif page.url == '/cn/index.html' %}
     <link rel="alternate" hreflang="en" href="/en/" />
+  {% elsif page.url == '/cn/index.html' %}
+    <link rel="alternate" hreflang="cn" href="/" />
   {% endif %}
 
   {{ page.extra_head }}
