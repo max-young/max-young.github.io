@@ -3,7 +3,7 @@ function DoubanApi() {
 		place:"douban",
 		user:"alvysinger",
 		api:"08242004429e34bb186c600cc7da9e31",
-		book:[{status:"reading",maxnum:100},{status:"read",maxnum:100},{status:"wish",maxnum:400}],
+		book:[{status:"reading",maxnum:6},{status:"read",maxnum:20},{status:"wish",maxnum:20}],
 		bookreadingtitle:"在读...",
 		bookreadtitle:"读过...",
 		bookwishtitle:"想读..."
