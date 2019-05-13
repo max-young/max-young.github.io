@@ -1,8 +1,11 @@
-# Django REST Framework单元测试以及Gitlab CI(持续集成)
-
-
-
-[TOC]
+---
+layout: post
+title: 单元测试
+categories: Life
+tags: 
+    - Life
+    - Python
+---
 
 ## 单元测试
 

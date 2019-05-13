@@ -8,10 +8,11 @@ category: blog
 <div class="subheader-container">
 <div class = "inner">
 <nav class = "sub-nav">
-    <a class="{% if page.category == 'blog' %} selected {% endif %}" href="/blog/">Home</a>
-    <a class="{% if page.category == 'categories' %} selected {% endif %}" href="/blog/categories.html">Categories</a>
+    <a class="{% if page.category == 'blog' %} selected {% endif %}" href="/blog/">博客主页</a>
+    <a class="{% if page.category == 'categories' %} selected {% endif %}" href="/blog/categories.html">分类</a>
+    <a class="{% if page.category == 'categories' %} selected {% endif %}" href="/blog/tags.html">标签</a>
     <!---<a class="{% if page.category == 'donate' %} selected {% endif %}" href="/blog/donate.html">Donate</a>-->
-    <a class="{% if page.category == 'rss' %} selected {% endif %}" href="/blog/feed.xml">RSS</a>
+    <!-- <a class="{% if page.category == 'rss' %} selected {% endif %}" href="/blog/feed.xml">RSS</a> -->
 </nav>
 </div>
 </div>
