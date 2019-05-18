@@ -90,8 +90,9 @@ layout: default
 <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
+var page_title = "{{ page.title }}"
 var gitment = new Gitment({
-  id: '页面 ID', // 可选。默认为 location.href
+  id: page_title, // 可选。默认为 location.href
   owner: 'max-young',
   repo: 'max-young.github.io',
   oauth: {
@@ -135,5 +136,3 @@ MathJax.Hub.Config({
     }
 });
 </script>
-
-
