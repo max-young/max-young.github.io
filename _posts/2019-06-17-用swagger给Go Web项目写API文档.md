@@ -153,6 +153,8 @@ $ swagger generate spec -o ./swagger.yml
 
 在编辑器里点击`file-->import file`, 在编辑器右侧即可看到效果:
 
+<img src="/images/posts/2019/go-swagger.png">
+
 ### 部署
 
 // TODO
