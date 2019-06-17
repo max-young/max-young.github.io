@@ -11,6 +11,13 @@ tags:
     - Go
 ---
 
+[swagger](#swagger)
+[go-swagger安装](#go-swagger安装)
+[文档编写](#文档编写)
+[生成文档](#生成文档)
+[部署](#部署)
+[参考资料](#参考资料)
+
 ### swagger
 
 简而言之, swagger就是让你更好更方便的写API文档的框架, 支持多种语言
