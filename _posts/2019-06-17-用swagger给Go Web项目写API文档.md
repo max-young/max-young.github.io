@@ -2,11 +2,8 @@
 layout:     post
 title:      "用swagger给Go Web项目写API文档"
 subtitle:   ""
-date:       2019-06-17 00:00:00
-author:     "max"
-header-img: "img/post-bg-database1.jpg"
-header-mask: 0.3
-catalog:    true
+date:       2019-06-17
+categories: backend
 tags:
     - Go
 ---
