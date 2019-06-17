@@ -11,19 +11,19 @@ tags:
     - Go
 ---
 
-##### swagger
+### swagger
 
 简而言之, swagger就是让你更好更方便的写API文档的框架, 支持多种语言
 
 编写格式和含义, 可以参照这篇文章:
 
-##### go swagger安装
+### go swagger安装
 
 GITHUB地址: <https://github.com/go-swagger/go-swagger>
 
 安装方法参照这里: <https://goswagger.io/install.html>
 
-##### 文档编写
+### 文档编写
 
 以一个get返回list数据的接口做一个简单的示例:
 
@@ -135,7 +135,7 @@ GITHUB地址: <https://github.com/go-swagger/go-swagger>
 
 写了那么多, 怎么看写的对不对呢, 生成的文档界面是什么样的呢? 我们看下一节
 
-##### 生成文档
+### 生成文档
 
 上一节我们只是参照go swagger的文档和格式写了一个接口的文档, 到底我们写的对不对呢? 我们用此命令生成一个json或者yaml文件:
 
@@ -149,10 +149,10 @@ $ swagger generate spec -o ./swagger.yml
 
 在编辑器里点击`file-->import file`, 在编辑器右侧即可看到效果:
 
-##### 部署
+### 部署
 
 // TODO
 
-##### 参考资料
+### 参考资料
 
 <https://juejin.im/post/5b05138cf265da0ba7701a37>
