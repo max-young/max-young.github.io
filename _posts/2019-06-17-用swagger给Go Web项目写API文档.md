@@ -44,18 +44,18 @@ GITHUB地址: <https://github.com/go-swagger/go-swagger>
 - 这个接口对应的view函数是:
 
   ```go
-  // PackageView is a view function return Package data                                  1
+  // PackageView is a view function return Package data                    1
   func PackageView(c *gin.Context) {
-  	// swagger:route GET /plutus-package/ package package_list                           2
+  	// swagger:route GET /plutus-package/ package package_list         2
   	//
-  	// Package Model list 接口                                                            3
-  	// 当查询参数是package_id_list或者count和update_time一起查询时                            4
-  	// 直接返回数据数组, 不再返回count, next_url和previous_url                                5
+  	// Package Model list 接口                                         3
+  	// 当查询参数是package_id_list或者count和update_time一起查询时     4
+  	// 直接返回数据数组, 不再返回count, next_url和previous_url         5
   	//
-  	//     Schemes: http, https                                                           6
+  	//     Schemes: http, https                                        6
   	//
-  	//     Responses:                                                                     7
-  	//       200: package_list_response                                                   8
+  	//     Responses:                                                  7
+  	//       200: package_list_response                                8
     ......
     response := PackageResponse{}
     c.JSON(http.StatusBadRequest, response)
@@ -75,16 +75,16 @@ GITHUB地址: <https://github.com/go-swagger/go-swagger>
 - 对应的查询参数是:
 
   ```go
-  // package view query args                                                              1
-  // swagger:parameters package_list                                                      2
+  // package view query args                                 1
+  // swagger:parameters package_list                         2
   type packageQuery struct {
   	Limit  uint `form:"limit"`
   	Offset uint `form:"offset"`
-  	// 示例: [1, 2, 3]                                                                    3
+  	// 示例: [1, 2, 3]                                   3
   	PackageIDList string `form:"package_id_list"`
   	Count         uint   `form:"count"`
   	CompanyID     uint   `form:"company_id"`
-  	// 示例: 2019-05-05 00:00:00                                                          4
+  	// 示例: 2019-05-05 00:00:00                         4
   	Updated time.Time `form:"update_time" time_format:"2006-01-02 00:00:00" time_utc:"8"`
   }
   ```
@@ -98,7 +98,7 @@ GITHUB地址: <https://github.com/go-swagger/go-swagger>
 - 返回的数据格式是:
 
   ```go
-  // PackagesResponse PackagesView response data struct                                   1
+  // PackagesResponse PackagesView response data struct             1
   type PackagesResponse struct {
   	Count    int               `json:"count"`
   	Next     string            `json:"next"`
@@ -116,13 +116,13 @@ GITHUB地址: <https://github.com/go-swagger/go-swagger>
   我们可以在包里新建一个`doc.go`的文件, 在这个文件里写文档:
 
   ```go
-  // Package orderpackage 包括package相关的接口                                             1
+  // Package orderpackage 包括package相关的接口                      1
   package orderpackage
   
-  // package list response                                                                2
-  // swagger:response package_list_response                                               3
+  // package list response                                           2
+  // swagger:response package_list_response                          3
   type packageResponseWrapper struct {                               
-  	// in: body                                                                           4
+  	// in: body                                                  4
   	Body PackagesResponse
   }
   ```
