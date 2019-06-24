@@ -1,9 +1,10 @@
 ---
 layout: post
-title: 单元测试
-categories: Life
+title: Django REST Framework单元测试以及Gitlab CI(持续集成)
+subtitle:   ""
+date:       2019-06-24
+categories: backend
 tags: 
-    - Life
     - Python
 ---
 
