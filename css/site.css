@@ -108,7 +108,8 @@ header {
 .header-container {
   /*border-bottom: 1px solid #eee;*/
   margin-bottom: 1.5em;
-  background: #48C9B0; /*#f3f3f3;*/
+  /* background: #227d51; [>#f3f3f3;<] */
+  background: #227d51
 }
 
 header nav {
@@ -120,10 +121,11 @@ nav a {
   display: inline-block;
   margin-right: 1.2em;
   padding-bottom: 0.2em;
-  font-weight: 700;
+  font-weight: 500;
   border-bottom: 3px solid transparent;
   font-size: 0.9rem;
-  color: #404040;
+  /* color: #404040; */
+  color: #fffffb;
 }
 
 nav a:last-child {
@@ -202,7 +204,7 @@ section ul{
 blockquote {
   margin: 1em 0 1em 0em;
   color: #666;
-  border-left: 0.4em solid #48C9B0;
+  border-left: 0.4em solid #227d51;
   padding-left: 0.6em;
   font-style: italic;
 }
@@ -469,7 +471,7 @@ header h1.title a:hover {
   -webkit-font-smoothing: subpixel-antialiased;
   -webkit-transition: 0.25s linear;
   transition: 0.25s linear;
-  background-color: #48C9B0;
+  background-color: #227d51;
   color: #ffffff !important;
   text-decoration: none;
 }
