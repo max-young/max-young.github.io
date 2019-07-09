@@ -15,6 +15,7 @@ tags:
 - [Celery应用](#celery应用)
 - [启动celery worker](#启动celery-worker)
 - [触发任务](#触发任务)
+- [测试](#测试)
 
 
 ### 参考资料
@@ -115,3 +116,6 @@ Darwin-17.7.0-x86_64-i386-64bit 2019-06-27 11:21:57
 [2019-06-27 11:37:14,047: INFO/ForkPoolWorker-2] Task mmflowproject.tasks.add[d4ab8105-d267-4deb-9957-505d8810cddc] succeeded in 0.0011335039999949004s: 3
 ```
 这样就是一个基本的Celery+RabbitMQ的一个基本的过程
+
+### 测试
+测试采用mock的方式, task函数单独测试, 参照官方文档<https://docs.celeryproject.org/en/latest/userguide/testing.html>
