@@ -2,7 +2,7 @@
 layout:     post
 title:      "Celery + RabbitMQ实现异步队列"
 subtitle:   ""
-date:       2019-06-27
+date:       2019-07-09
 categories: backend
 tags:
     - Python
