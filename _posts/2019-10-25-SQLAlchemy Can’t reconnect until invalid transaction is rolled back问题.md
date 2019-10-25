@@ -90,9 +90,9 @@ mysql有interactive_timeout参数, 查询到数值是7200, 也就是2小时, 当
 
 参考资料:
 
-<https://docs.sqlalchemy.org/en/13/core/connections.html>
-<https://docs.djangoproject.com/en/2.2/topics/db/sql/>
-<https://laucyun.com/e246f190cb33e80f18278189722bb633.html>
-<http://einverne.github.io/post/2017/05/sqlalchemy-session.html>
-<https://djangostars.com/blog/merging-django-orm-with-sqlalchemy-for-easier-data-analysis/>
+<https://docs.sqlalchemy.org/en/13/core/connections.html>  
+<https://docs.djangoproject.com/en/2.2/topics/db/sql/>  
+<https://laucyun.com/e246f190cb33e80f18278189722bb633.html>  
+<http://einverne.github.io/post/2017/05/sqlalchemy-session.html>  
+<https://djangostars.com/blog/merging-django-orm-with-sqlalchemy-for-easier-data-analysis/>  
 <https://farer.org/2017/10/28/sqlalchemy_scoped_session/>
