@@ -50,49 +50,70 @@ settings.BASE_DB_SESSION.execute(activity_sql).fetchall()
 我这样配置的话, 这个web应用所有的数据库事务都是用的同一个session连接, 且使用的是连接池管理(默认)
 连接池管理意味着就算手动session.close()也是没有用的, 因为管理权限已经交给了连接池
 mysql有interactive_timeout参数, 查询到数值是7200, 也就是2小时, 当一个连接空闲超过2小时时, 连接就会被回收
-被回收之后, 这个session是错误状态, 再次使用此session来进行操作时, 就会报上面的错误
+被回收之后, 这个session是错误状态, 没有rolledback, committed, 或者closed, 再次使用此session来进行操作时, 就会报上面的错误
+
+在sqlalchemy的文档里是这样说的:
+> 1. As a general rule, keep the lifecycle of the session separate and external from functions and objects that access and/or manipulate database data. This will greatly help with achieving a predictable and consistent transactional scope.
+> 2. Make sure you have a clear notion of where transactions begin and end, and keep transactions short, meaning, they end at the series of a sequence of operations, instead of being held open indefinitely.
+
+简单的说, 我们需要掌控session的lifecysle, 不要让session一直是open的状态
+
+那么我就知道上面的代码最大的问题就是: 在整个web项目中, 我使用的都是同一个session, 用于所有的web请求和逻辑模块中, 且一直是open的状态, 一直到数据库会收到连接池.
 
 那么我们应该怎么处理呢, 有3种方法:
 
-1. 不使用连接池管理
+1. 增加重连参数配置
 
-    在create_engine里增加`poolclass=NullPool`的配置, 示例如下:
+    增加`pool_recycle`, 把这个时间设置小于数据库的`interactive_timeout`时间, 在空闲时间timeout之前, 就断开重连, 不要让数据库回收.
+    例如:
     ```python
-    from sqlalchemy.pool import NullPool
-    engine = create_engine(
-              'postgresql+psycopg2://scott:tiger@localhost/test',
-              poolclass=NullPool)
+    from sqlalchemy import create_engine
+    e = create_engine("mysql://scott:tiger@localhost/test", pool_recycle=3600)
     ```
-    但是这样的话我们就需要手动干预, 每次执行完事务之后都执行session.close(), 以免再次空闲时间过长, 导致上面的错误
-    但是这样增加了太多业务代码, 且容易出错
 
-2. 增加重连参数配置
+    查询数据库`interactive_timeout`参数可以在MySQL shell里使用命令`SHOW SESSION VARIABLES LIKE "%timeout%";`
 
-    增加`pool_recycle`, 把这个时间设置小于数据库的`interactive_timeout`时间, 在空闲时间timeout之前, 就断开重连
+2. 搞清楚session的scope范围
 
-    好像很完美的解决了这个问题, 但是这样的话, 我们还是只用到了一个session, 没用充分利用到数据库的连接池
+    在web项目中这个范围很好确定, 就是一个request请求, 或者一个逻辑模块, 在开始阶段
 
-    如果手动再去创建多个session来用的话, 也增加了业务代码复杂度
+3. 代码如何实现呢
 
-3. 交给Django去处理
-
-    我们交给Django去处理岂不是更好, 框架已经提供了完整的session管理机制, 我们就不用手动去做管理了.
-    之所以我的代码里会手写session, 一是因为我的Django项目里没有写model, 连接是别的项目的数据库, 二是因为还是学艺不精, 对Django不熟啊!! 那么怎样不依赖model来执行数据库事务呢, 示例如下:
+    举个例子, 我们在class里实例化session, class里的所有数据库操作都用这个session, 这是一个逻辑单元
     ```python
-    from django.db import connections
-    with connections['base_data'].cursor() as cursor:
-        cursor.execute('select * from sale limit 1')
-        row = cursor.fetchone()
-    ```
-    用with的话执行完之后会自动执行cursor.close()
+    from django.conf import settings
 
-嗯, 学艺不精的情况下, 还是相信框架吧
+
+    class BasicReport:
+
+    def __init__(self):
+        self._session = settings.BASE_DB_SESSION_MAKER()
+
+    def _query_activity_data(self)
+        activity_sql = f'''
+        select * from sale_item_activity
+        '''
+        activity_data = self._session.execute(activity_sql).fetchall()
+        ...
+    ```
+    在调用这个class的函数里, 手动close这个class的session
+    ```python
+    def export_report():
+        ......
+        report_instance = BasicReport()
+        ...
+        report_instance._session.close()
+        ...
+    ```
+
+上面说的是在直接用sqlalchemy的状况下的解决办法, 有一些框架提供了解决方案, 比如flask-alchemy之类, 就不用管这么多细节了.
 
 参考资料:
 
-<https://docs.sqlalchemy.org/en/13/core/connections.html>  
-<https://docs.djangoproject.com/en/2.2/topics/db/sql/>  
-<https://laucyun.com/e246f190cb33e80f18278189722bb633.html>  
-<http://einverne.github.io/post/2017/05/sqlalchemy-session.html>  
-<https://djangostars.com/blog/merging-django-orm-with-sqlalchemy-for-easier-data-analysis/>  
+<https://docs.sqlalchemy.org/en/13/orm/session_basics.html>
+<https://docs.sqlalchemy.org/en/13/core/connections.html>
+<https://docs.djangoproject.com/en/2.2/topics/db/sql/>
+<https://laucyun.com/e246f190cb33e80f18278189722bb633.html>
+<http://einverne.github.io/post/2017/05/sqlalchemy-session.html>
+<https://djangostars.com/blog/merging-django-orm-with-sqlalchemy-for-easier-data-analysis/>
 <https://farer.org/2017/10/28/sqlalchemy_scoped_session/>
