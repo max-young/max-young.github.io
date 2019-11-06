@@ -1,13 +1,14 @@
 ---
 layout:     post
-title:      "Django input form Please Fill In this Field"
+title:      "SQLAlchemy Can’t reconnect until invalid transaction is rolled back问题"
 subtitle:   ""
 date:       2019-10-31
 categories: Python
 tags:
     - Python
-    - Django
-    - HTML
+    - Database
+    - MySQL
+    - ORM
 ---
 
 用Django form生成的input form里, 我们不输入内容直接回车的话, 会出现popup, 内容是:Please Fill In this Field
