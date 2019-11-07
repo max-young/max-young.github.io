@@ -17,7 +17,7 @@ tags:
 那么我们怎么能去掉这个popup呢? 只需在form里加入`novalidate`即可
 
 ```html
-<form method="POST" novalidate action="{% block form_action %}{% endblock %}">
+<form method="POST" novalidate>
 	{{ form.text }}
 </form>
 ```
