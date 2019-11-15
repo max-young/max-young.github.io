@@ -100,13 +100,13 @@ web微服务项目中需要将用户操作记录存储到数据库里
                # 处理错误, 为了不影响正常业务
                self.handleError(record)
 
-
-   # 实例化logger, 其他服务引入此logger来记录
-   audit_logger = logging.getLogger('audit')
-   # 设置handler
-   audit_logger.addHandler(AuditLoggingHandler())
-   # 设置level
-   audit_logger.setLevel(logging.INFO)
+   def audit_logger():
+	   # 实例化logger, 其他服务引入此logger来记录
+	   logger = logging.getLogger('audit')
+	   # 设置handler
+	   logger.addHandler(AuditLoggingHandler())
+	   # 设置level
+	   logger.setLevel(logging.INFO)
    ```
 
 3. 使用
@@ -118,6 +118,6 @@ web微服务项目中需要将用户操作记录存储到数据库里
 
    # 第一个参数'导出报表'就是record.msg, 第二个字典参数就是record.args
    ...
-   audit_logger.info('导出报表', {'system': 'fsp', 'user_id': request.user.id, 'action': 'EXPORT', 'keyword': '报表'})
+   audit_logger().info('导出报表', {'system': 'fsp', 'user_id': request.user.id, 'action': 'EXPORT', 'keyword': '报表'})
    ...
    ```
