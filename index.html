@@ -7,9 +7,9 @@ description:
 
 <section class="about-me inner">
   <h1>
-    <!-- <div class="book-me"> -->
-    <!--   <a class="btn btn-lg" href="/en/">英语</a> -->
-    <!-- </div> -->
+    <div class="book-me">
+      <a class="btn btn-lg" href="/en/">ENG</a>
+    </div>
     <span class="hello">
       <em>Keep</em>
       <small>on fighting.
@@ -18,7 +18,7 @@ description:
 
   <blockquote>
   <p>
-  短信替代思念，遊戲替代幻想，瞬間替代悠長，我習慣了替代，卻懷念沒被替代的過往....</br>
+  不断完善自我...</br>
   </p>
   </blockquote>
 
@@ -27,15 +27,15 @@ description:
   </p>
 
   <p>
-  曾经是一名水利工程师, 现在是一名web后端开发工程师
+  曾经是一名水利工程师, 现在是一名软件开发工程师, 主要工作是web后端开发, 也会做前端开发和devops的工作.
   </p>
 
   <p>
-  主要技术栈: Python, Django, Golang
+  主要编程语言: Python, Go
   </p>
 
   <p>
-  TDD爱好者
+  TDD爱好者. 努力成为一名胜任的程序员, 能在工作中游刃有余, 能给雇主带来价值, 得到公司和同事的认可.
   </p>
 </section>
 
@@ -45,7 +45,7 @@ description:
   </div>
   <blockquote>
     <ul>
-      {% for post in site.posts limit:3 %}
+      {% for post in site.posts limit:5 %}
       <li class="post-list-in-index">
       <small class="post-list-date-in-index">{{ post.date | date_to_string }}</small><a  href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
       </li>
