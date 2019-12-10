@@ -21,7 +21,7 @@ tags:
   代码示例：
 
   ```python
-  session.query(cls).filter(cls.id.in_(ids)).update({"password": new_password})
+  session.query(cls).filter(cls.id.in_(ids)).update({"password": ******})
   ```
 
   查询时采用`in_`时，update会报错，错误信息如下:
@@ -33,7 +33,7 @@ tags:
   设置synchronize_session的值为False或者fetch即可
 
   ```python
-  session.query(cls).filter_by(id=id).update({"password": new_password}, synchronize_session=False)
+  session.query(cls).filter_by(id=id).update({"password": ******}, synchronize_session=False)
   ```
 
   官方文档参照：<http://docs.sqlalchemy.org/en/latest/orm/query.html?highlight=query.update#sqlalchemy.orm.query.Query.update.params.synchronize_session>

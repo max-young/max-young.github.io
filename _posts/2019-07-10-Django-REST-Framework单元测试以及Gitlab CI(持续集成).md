@@ -319,8 +319,8 @@ $ coverage report --fail-under=5
     LABEL maintainer="yangle@luojilab.com"
 
     # 初始化用户和数据库
-    ENV POSTGRES_USER="rock2018"
-    ENV POSTGRES_DB="rock2018"
+    ENV POSTGRES_USER="******"
+    ENV POSTGRES_DB="******"
 
     # 初始化脚本, 启动此镜像时会执行pg_init.sql脚本
     COPY pg_init.sql /docker-entrypoint-initdb.d/
@@ -520,13 +520,13 @@ def translate_number(number):
 
 假如我们在本地这样启动broker服务:
 ```sh
-$ docker run --rm --name pactbroker --link pactbroker-db:postgres -e PACT_BROKER_DATABASE_USERNAME=pactbrokeruser -e PACT_BROKER_DATABASE_PASSWORD=TheUserPassword -e PACT_BROKER_DATABASE_HOST=postgres -e PACT_BROKER_DATABASE_NAME=pactbroker -p 8443:80 dius/pact-broker
+$ docker run --rm --name pactbroker --link pactbroker-db:postgres -e PACT_BROKER_DATABASE_USERNAME=pactbrokeruser -e PACT_BROKER_DATABASE_PASSWORD=****** -e PACT_BROKER_DATABASE_HOST=postgres -e PACT_BROKER_DATABASE_NAME=pactbroker -p 8443:80 dius/pact-broker
 ```
 这样broker的地址就是`http://localhost:8443`, 我们可以在浏览器上访问查看相关信息
 
 > 在192.168.0.71上启动了一个pactbroker服务, 启动命令如下:
 > ```sh
-> $ docker run --rm --name pactbroker -e PACT_BROKER_DATABASE_USERNAME=rock2018 -e PACT_BROKER_DATABASE_PASSWORD=rock2018 -e PACT_BROKER_DATABASE_HOST=192.168.0.71 -e PACT_BROKER_DATABASE_NAME=pactbroker -d -p 8443:80 dius/pact-broker
+> $ docker run --rm --name pactbroker -e PACT_BROKER_DATABASE_USERNAME=****** -e PACT_BROKER_DATABASE_PASSWORD=****** -e PACT_BROKER_DATABASE_HOST=192.168.0.71 -e PACT_BROKER_DATABASE_NAME=pactbroker -d -p 8443:80 dius/pact-broker
 > ```
 
 </br>
@@ -610,11 +610,11 @@ test:
   script:
     - docker network create test-network || true
     - docker stop postgres-test || true && docker stop tether-test || true && docker stop chronosphere-test || true
-    - docker run -d --rm --network test-network --name postgres-test registry.cn-beijing.aliyuncs.com/rock2018/phasmatodea:45a86dbc64c4a09f9da058af04e667da9a5b47d2
-    - docker run -d --rm --network test-network --name tether-test  -p 8000:8000 registry.cn-beijing.aliyuncs.com/rock2018/tether:6eb9b6cd713ddf5dfc5ac68f1737ee2de0d660f6 mock
+    - docker run -d --rm --network test-network --name postgres-test registry.cn-beijing.aliyuncs.com/myproject/phasmatodea:45a86dbc64c4a09f9da058af04e667da9a5b47d2
+    - docker run -d --rm --network test-network --name tether-test  -p 8000:8000 registry.cn-beijing.aliyuncs.com/myproject/tether:6eb9b6cd713ddf5dfc5ac68f1737ee2de0d660f6 mock
     - docker run --rm --env-file=.test-env --network test-network --name chronosphere-test $CONTAINER_IMAGE:$CI_BUILD_REF test
   tags:
-    - rock2018
+    - myproject
   only:
     - test-yangle
 
