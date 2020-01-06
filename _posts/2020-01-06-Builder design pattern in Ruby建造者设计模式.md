@@ -3,9 +3,9 @@ layout:     post
 title:      "Builder design pattern in Ruby建造者设计模式"
 subtitle:   ""
 date:       2020-01-06
-categories: Read
+categories: Program
 tags:
-    - Personal
+    - Design Pattern
 ---
 
 假设我们要组装一台电脑, 我们可以这样写:
