@@ -8,8 +8,8 @@ tags:
     - Design Pattern
 ---
 
-![Design patterns in Ruby](https://img3.doubanio.com/view/subject/l/public/s4263121.jpg)
-[Design patterns in Ruby](https://book.douban.com/subject/2365029/)
+[![Design patterns in Ruby](https://img3.doubanio.com/view/subject/l/public/s4263121.jpg)](https://book.douban.com/subject/2365029/)
+
 
 ## PART I: Patterns and Ruby
 
