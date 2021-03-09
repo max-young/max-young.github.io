@@ -4,7 +4,7 @@
 
 ### 博客地址
 
-[max young's homepage'](https://max-young.github.io/)
+[max young's homepage](https://max-young.github.io/)
 
 
 ### 安装步骤
@@ -32,3 +32,7 @@ function DoubanApi() {
 bundle exec jekyll build
 bundle exec jekyll serve
 ```
+
+### 发布博文
+
+在_post下增加markdown文件即可
