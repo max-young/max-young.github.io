@@ -1,0 +1,26 @@
+---
+layout:     post
+title:      "csvode使用方法"
+subtitle:   ""
+date:       2021-03-09 00:00:00
+author:     "max"
+header-img: "img/post-bg-database1.jpg"
+header-mask: 0.3
+catalog:    true
+tags:
+    - tool
+---
+
+## 快捷键
+
+### 代码相关
+
+- 编译 command + shift +b
+
+### 操作相关
+
+- Terminal ctrl + ` 
+
+###  MARKDOWN
+
+- Preview
