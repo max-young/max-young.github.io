@@ -4,7 +4,7 @@
 
 ### 博客地址
 
-[max young's homepage'](http://www.maxyoung.online)
+[max young's homepage'](https://max-young.github.io/)
 
 
 ### 安装步骤
@@ -32,4 +32,3 @@ function DoubanApi() {
 bundle exec jekyll build
 bundle exec jekyll serve
 ```
-
