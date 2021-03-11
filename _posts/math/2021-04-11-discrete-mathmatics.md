@@ -2,7 +2,7 @@
 layout:     post
 title:      "Discrete Mathematics with Application"
 subtitle:   ""
-date:       2021-03-11 00:00:00
+date:       2021-05-11 00:00:00
 author:     "alvy"
 header-img: "img/post-bg-database1.jpg"
 header-mask: 0.3
