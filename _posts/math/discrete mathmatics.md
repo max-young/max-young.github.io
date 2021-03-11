@@ -1,3 +1,16 @@
+---
+layout:     post
+title:      "Discrete Mathematics with Application"
+subtitle:   ""
+date:       2021-03-11 00:00:00
+author:     "alvy"
+header-img: "img/post-bg-database1.jpg"
+header-mask: 0.3
+catalog:    true
+tags:
+    - Math
+    - Algorithm
+---
 
 ## Discrete Mathematics with Application
 
