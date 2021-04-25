@@ -1,7 +1,8 @@
-@import url("font.css");*,*:after,*:before{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;padding:0;margin:0}.clearfix:before,.clearfix:after{content:" ";display:table}.clearfix:after{clear:both}
+/* @import url("font.css");*,*:after,*:before{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;padding:0;margin:0}.clearfix:before,.clearfix:after{content:" ";display:table}.clearfix:after{clear:both} */
 .fancy, article {
   /*font-family: 'lucida grande', 'lucida sans unicode', lucida, 'Helvetica Neue', helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;*/
   font-family: Georgia, "Linux Libertine",-apple-system,"Helvetica Neue",Helvetica,"Nimbus Sans L",Arial,"Liberation Sans","PingFang SC","Hiragino Sans GB","Source Han Sans CN","Source Han Sans SC","Microsoft YaHei","Wenquanyi Micro Hei","WenQuanYi Zen Hei","ST Heiti",SimHei,"WenQuanYi Zen Hei Sharp",sans-serif;
+  font-family: Source Sans Pro,Helvetica Neue,Arial,sans-serif;
   line-height: 170%;
 }
 section {
@@ -76,6 +77,7 @@ ul{margin:0;padding:0}
     text-align: justify;
     /* list-style-type: none; */
     margin-left: 20px;
+    line-height: 2.0rem;
 }
 }
 
@@ -157,7 +159,8 @@ nav a:last-child {
 
 nav a:hover {
   text-decoration: none;
-  border-bottom: 3px solid #E74C3C;
+  /* border-bottom: 3px solid #E74C3C; */
+  border-bottom: 3px solid #404040;
 }
 
 nav a.selected {
@@ -293,8 +296,9 @@ padding-top: 20px;
   letter-spacing: .01em;
   cursor: pointer;
   margin: 0 4px 7px 0;
-  color: #e74c3c!important;
-  border: 1px solid #227d51;
+  /* color: #e74c3c!important; */
+  color: #404040!important;
+  /* border: 1px solid #227d51; */
   padding: 1px 6px;
   text-decoration: none;
 }
@@ -341,7 +345,7 @@ img[alt=drawing] { width: 60%; }
     margin-bottom: 20px;
 }
 
-.category-listing-seperator:nth-child(5n+0) {
+/* .category-listing-seperator:nth-child(5n+0) {
     color: #e74c3c;
 }
 
@@ -359,7 +363,7 @@ img[alt=drawing] { width: 60%; }
 
 .category-listing-seperator:nth-child(5n+4) {
     color: #e67e22;
-}
+} */
 
 .listing-item li:nth-child(4n+1){
     position: relative;
@@ -517,7 +521,8 @@ img[alt=drawing] { width: 60%; }
 }
 
 .previous>a, .next>a {
-    color: rgba(0,179,179,0.83333);
+    /* color: rgba(0,179,179,0.83333); */
+    color: #404040;
 }
 
 .pager .next>a, .pager .next>span {
@@ -547,7 +552,7 @@ img[alt=drawing] { width: 60%; }
   .pager li > a,
   .pager li > span {
     font-size: 14px;
-    padding: 15px 25px;
+    padding: 10px 20px;
   }
 }
 
