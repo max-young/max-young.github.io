@@ -8,20 +8,20 @@ category: blog
 <div class="subheader-container">
 <div class = "inner">
 <nav class = "sub-nav">
-    <a class="{% if page.category == 'blog' %} selected {% endif %}" href="/blog/">博客主页</a>
-    <a class="{% if page.category == 'categories' %} selected {% endif %}" href="/blog/categories.html">分类</a>
-    <a class="{% if page.category == 'categories' %} selected {% endif %}" href="/blog/tags.html">标签</a>
+    <a class="{% if page.category == 'blog' %}selected{% endif %}" href="/blog/">Home</a>
+    <a class="{% if page.category == 'categories' %} selected {% endif %}" href="/blog/categories.html">Category</a>
+    <a class="{% if page.category == 'categories' %} selected {% endif %}" href="/blog/tags.html">Tag</a>
     <!---<a class="{% if page.category == 'donate' %} selected {% endif %}" href="/blog/donate.html">Donate</a>-->
     <!-- <a class="{% if page.category == 'rss' %} selected {% endif %}" href="/blog/feed.xml">RSS</a> -->
 </nav>
 </div>
 </div>
 <section class="inner">
-  <div class="pidex">
+  <!-- <div class="pidex">
     <blockquote>
       <p>极致的幸福，存在于孤独的深海。在这样日复一日的生活里，我逐渐和自己达成和解。</p>
     </blockquote>
-  <div>
+  <div> -->
   <ul class="posts">
     {% for post in site.posts %}
 	  {% capture y %}{{post.date | date:"%Y"}}{% endcapture %}
