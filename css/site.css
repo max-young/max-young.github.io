@@ -56,7 +56,7 @@ table td, table th {
 
 a {
   /* color: #e74c3c; */
-  color: #404040;
+  color: #42b983;
   text-decoration: none;
 }
 
@@ -181,7 +181,7 @@ h2 {
 }
 
 h3 {
-    font-size:1.17em;
+    font-size:1.5em;
 }
 
 .post-recents-in-index{
