@@ -3,24 +3,24 @@ layout: post
 title: Django REST Framework单元测试以及Gitlab CI(持续集成)
 subtitle:   ""
 date:       2019-07-10
-categories: backend
+categories: Backend
 tags: 
     - Python
     - Django
 ---
 
 - [单元测试](#单元测试)
-    - [基本单元测试](#基本单元测试)
-    - [使用已有数据库进行测试](#使用已有数据库进行测试)
-    - [mock第三方API接口](#mock第三方api接口)
-    - [测试覆盖率](#测试覆盖率)
+  - [基本单元测试](#基本单元测试)
+  - [使用已有数据库进行测试](#使用已有数据库进行测试)
+  - [mock第三方API接口](#mock第三方api接口)
+  - [测试覆盖率](#测试覆盖率)
 - [集成测试](#集成测试)
 - [消费者驱动契约测试CDCT](#消费者驱动契约测试cdct)
-    - [CDCT的概念和原理](#cdct的概念和原理)
-    - [CDCT的具体实现](#cdct的具体实现)
+  - [CDCT的概念和原理](#cdct的概念和原理)
+  - [CDCT的具体实现](#cdct的具体实现)
 - [持续集成](#持续集成)
-    - [Gitlab持续集成配置文件](#gitlab持续集成配置文件)
-    - [Docker自定义命令EntryPoint](#docker自定义命令entrypoint)
+  - [Gitlab持续集成配置文件](#gitlab持续集成配置文件)
+  - [Docker自定义命令EntryPoint](#docker自定义命令entrypoint)
 - [参考资料](#参考资料)
 
 ## 单元测试

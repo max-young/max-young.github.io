@@ -8,7 +8,7 @@ header-img: "img/post-bg-database.jpg"
 header-mask: 0.3
 catalog:    true
 tags:
-    - database
+    - Database
     - MySQL
 ---
 ##### 背景

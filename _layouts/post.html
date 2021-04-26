@@ -4,10 +4,10 @@ layout: default
 
 <link rel="stylesheet" href="../css/blog.css">
 
-{% if page.photo %}
-<div class="post-photo" style="background-image: url('/imgs/posts/{{ page.photo }}')">
+<!-- {% if page.header-img %}
+<div class="post-photo" style="background-image: url('/imgs/posts/{{ page.header-img }}')">
 </div>
-{% endif %}
+{% endif %} -->
 
 <div id="container">
 <article>
@@ -18,7 +18,7 @@ layout: default
   </h1>
   <ul class="meta">
   	<i class="fa fa-calendar"></i>
-  	{{ page.date | date: "%Y" }}年{{ page.date | date: "%m" }}月{{ page.date | date: "%d" }}日
+  	{{ page.date | date: "%Y" }}-{{ page.date | date: "%m" }}-{{ page.date | date: "%d" }}
   	<i class="space"></i>
   	<i class="fa fa-archive"></i>
   	<a class="tag" href="{{ site.url }}/blog/categories.html#{{ page.categories }}">{{ page.categories }}</a>
@@ -28,7 +28,7 @@ layout: default
   	    <a class="tag" href="{{ site.url }}/blog/tags.html#{{ tag }}">{{ tag }}</a>
   	    <i class="space"></i>
   	{% endfor %}
-  	<i class="space"></i> 字数:{{page.content | size |divided_by:2}}
+  	<!-- <i class="space"></i> 字数:{{page.content | size |divided_by:2}} -->
   </ul>
 </div>
 </div>

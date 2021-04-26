@@ -3,7 +3,7 @@ layout:     post
 title:      "Docker创建MongoDB replicaset实例"
 subtitle:   ""
 date:       2019-06-24
-categories: database
+categories: Database
 tags:
     - Docker
     - MongoDB

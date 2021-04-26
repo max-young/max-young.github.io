@@ -3,7 +3,7 @@ layout:     post
 title:      "用PyMongo连接MongoDB服务"
 subtitle:   ""
 date:       2019-05-20
-categories: database
+categories: Database
 tags:
     - MongoDB
     - Python

@@ -3,7 +3,7 @@ layout:     post
 title:      "Python-Django脚本实现PostgreSQL到MongoDB千万数据的迁移"
 subtitle:   ""
 date:       2019-06-19
-categories: backend
+categories: Backend
 tags:
     - Python
     - Database

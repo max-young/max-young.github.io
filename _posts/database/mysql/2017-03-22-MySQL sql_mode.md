@@ -8,7 +8,7 @@ header-img: "img/post-bg-database.jpg"
 header-mask: 0.3
 catalog:    true
 tags:
-    - database
+    - Database
     - MySQL
 ---
 在往数据库写入数据的时候，有时会出现错误Data truncate，例如：    
