@@ -25,10 +25,13 @@ p{
 
 /*添加段与段之间的分割线样式*/
 hr {
-    border-bottom: 1px dashed #f9f9f9;
+    /* border-bottom: 1px dashed #f9f9f9;
     border-top: 2px dashed #22c3aa;
     margin-top:2em;
-    margin-bottom: 2em;
+    margin-bottom: 2em; */
+    border: 0;
+    padding-top: 1px;
+    background: linear-gradient(to right, transparent, #d0d0d5, transparent);
 }
 
 p {
