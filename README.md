@@ -1,6 +1,6 @@
 ### 关于
 
-个人播客, 参(chao)照(xi)了[Sébastien Saunier](https://raw.github.com/ssaunier/ssaunier.github.io/)和[YongYuan's Homepage](http://yongyuan.name/)两位的博客, 非常感谢
+个人博客, 参(chao)照(xi)了[Sébastien Saunier](https://raw.github.com/ssaunier/ssaunier.github.io/)和[YongYuan's Homepage](http://yongyuan.name/)两位的博客, 非常感谢
 
 ### 博客地址
 
