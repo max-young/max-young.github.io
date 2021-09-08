@@ -13,6 +13,7 @@ tags:
 
 - [编译compile](#编译compile)
 - [调试debug](#调试debug)
+- [CMAKE](#cmake)
 
 <!-- /TOC -->
 
@@ -82,3 +83,28 @@ $ clang++ ./*.cpp -o main
 - n: 下一步
 - q: 退出
 
+### CMAKE
+
+CMAKE是跨平台的编译工具  
+在项目下新建一个CMakeLists.txt的文件  
+常见的语法是:  
+```cmake
+# CMAKE最下版本要求
+cmake_minimum_required(VERSION 3.10)
+# 工程名称
+project(Rasterizer)
+
+# 引入非官方包OpenCV
+find_package(OpenCV REQUIRED)
+
+# 定义变量CMAKE_CXX_STANDARD的值为17, 相当于-std=c++17
+set(CMAKE_CXX_STANDARD 17)
+
+# 头文件搜索路径
+include_directories(/usr/local/include)
+
+# 生成可执行文件, 将5个cpp文件生成一个名叫Rasterizer的可执行文件
+add_executable(Rasterizer main.cpp rasterizer.hpp rasterizer.cpp Triangle.hpp Triangle.cpp)
+# 添加需要链接的共享库, 将opencv的库链接到可执行文件Rasterizer
+target_link_libraries(Rasterizer ${OpenCV_LIBRARIES})
+```
