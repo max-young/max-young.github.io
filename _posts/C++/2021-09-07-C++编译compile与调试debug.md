@@ -14,6 +14,8 @@ tags:
 - [编译compile](#编译compile)
 - [调试debug](#调试debug)
 - [CMAKE](#cmake)
+  - [编译流程](#编译流程)
+  - [CMAKE语法](#cmake语法)
 
 <!-- /TOC -->
 
@@ -86,7 +88,26 @@ $ clang++ ./*.cpp -o main
 ### CMAKE
 
 CMAKE是跨平台的编译工具  
-在项目下新建一个CMakeLists.txt的文件  
+
+#### 编译流程
+
+1. 在项目顶层目录下新建一个CMakeLists.txt的文件  
+2. 生成Makefile等文件: `cmake .`  
+  在目录下就会多出来Makefile等文件  
+3. 编译: `make`  
+
+这种方式会在工程项目下生成很多文件, 比较杂乱  
+推荐新建一个文件夹, 把生成和编译的文件都放在此文件夹下, 步骤是:  
+
+1. 在项目顶层目录下新建一个文件夹: `mkdir build`  
+2. 进入此文件夹: `cd build`  
+3. 生成Makefile等文件: `cmake ..`   
+  注意是两个点, 因为CMakeLists.txt文件在上级目录  
+  在build目录下就会多出来Makefile等文件  
+4. 编译: `make`
+
+#### CMAKE语法
+
 常见的语法是:  
 ```cmake
 # CMAKE最下版本要求
