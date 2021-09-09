@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      "C++编译compile与调试debug"
-subtitle:   "mac环境下"
+title:      "C++开发环境配置"
+subtitle:   "编译compile与调试debug"
 date:       2021-09-07
 author:     max
 categories: C++
@@ -16,6 +16,7 @@ tags:
 - [CMAKE](#cmake)
   - [编译流程](#编译流程)
   - [CMAKE语法](#cmake语法)
+- [参考资料](#参考资料)
 
 <!-- /TOC -->
 
@@ -71,7 +72,8 @@ $ clang++ ./*.cpp -o main
   输出warning信息, 比如代码里有一个未使用的变量, 编译时就会提示, 但是不影响编译结果
 
 - -g
-  编译时加上这个命令生成的可执行文件支持debug, 否则不支持
+  编译时加上这个命令生成的可执行文件支持debug, 否则不支持  
+  加上这个参数后, 会在当前目录下多出来一个*.dSYM的文件夹, 这里面存的就是debug需要的相关信息
 
 ### 调试debug
 
@@ -129,3 +131,7 @@ add_executable(Rasterizer main.cpp rasterizer.hpp rasterizer.cpp Triangle.hpp Tr
 # 添加需要链接的共享库, 将opencv的库链接到可执行文件Rasterizer
 target_link_libraries(Rasterizer ${OpenCV_LIBRARIES})
 ```
+
+### 参考资料 
+
+[基于VSCode和CMake实现C/C++开发 \| Linux篇](https://www.bilibili.com/video/BV1fy4y1b7TC?p=20&spm_id_from=pageDriver)
