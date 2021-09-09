@@ -106,11 +106,21 @@ CMAKE是跨平台的编译工具
 3. 生成Makefile等文件: `cmake ..`   
   注意是两个点, 因为CMakeLists.txt文件在上级目录  
   在build目录下就会多出来Makefile等文件  
-4. 编译: `make`
+4. 编译: `make`  
 
-#### CMAKE语法
+#### CMAKE语法  
+这里假设文件目录是这样的:  
+include里是头文件, src是库文件:  
+├── CMakeLists.txt  
+├── main.cpp  
+├── include  
+│   ├── Triangle.hpp  
+│   └── rasterizer.hpp  
+└── src  
+    ├── Triangle.cpp  
+    └── rasterizer.cpp  
 
-常见的语法是:  
+CMakeLists.txt的内容是:  
 ```cmake
 # CMAKE最下版本要求
 cmake_minimum_required(VERSION 3.10)
@@ -120,14 +130,14 @@ project(Rasterizer)
 # 引入非官方包OpenCV
 find_package(OpenCV REQUIRED)
 
-# 定义变量CMAKE_CXX_STANDARD的值为17, 相当于-std=c++17
+# 定义变量CMAKE_CXX_STANDARD的值为17
 set(CMAKE_CXX_STANDARD 17)
 
-# 头文件搜索路径
-include_directories(/usr/local/include)
+# 头文件搜索路径: include是相对路径  
+include_directories(/usr/local/include include)
 
-# 生成可执行文件, 将5个cpp文件生成一个名叫Rasterizer的可执行文件
-add_executable(Rasterizer main.cpp rasterizer.hpp rasterizer.cpp Triangle.hpp Triangle.cpp)
+# 生成可执行文件, 将cpp文件生成一个名叫Rasterizer的可执行文件
+add_executable(Rasterizer main.cpp src/rasterizer.cpp src/Triangle.cpp)
 # 添加需要链接的共享库, 将opencv的库链接到可执行文件Rasterizer
 target_link_libraries(Rasterizer ${OpenCV_LIBRARIES})
 ```
