@@ -90,6 +90,11 @@ $ clang++ ./*.cpp -o main
 - n: 下一步
 - q: 退出
 
+我在调试某个图形学项目时, 特别慢, 卡在variables-locals那, 一直转圈, 几分钟之后才出来  
+用命令行debug是没问题的   
+后来加上日志后, 在debug console里显示卡在request variable这一步  
+github上有人给vscode提issue了, 说能不能根据用户的需要来显示变量, 如同命令行p一样
+
 ### CMAKE
 
 CMAKE是跨平台的编译工具  
