@@ -152,4 +152,4 @@ target_link_libraries(Rasterizer ${OpenCV_LIBRARIES})
 
 ### 参考资料 
 
-[基于VSCode和CMake实现C/C++开发 \| Linux篇](https://www.bilibili.com/video/BV1fy4y1b7TC?p=20&spm_id_from=pageDriver)
+上面是一些tips, 要系统的搞清楚开发环境, 看这个课程: [基于VSCode和CMake实现C/C++开发 \| Linux篇](https://www.bilibili.com/video/BV1fy4y1b7TC?p=20&spm_id_from=pageDriver)
