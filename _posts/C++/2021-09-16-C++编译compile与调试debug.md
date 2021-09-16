@@ -2,7 +2,7 @@
 layout:     post
 title:      "C++开发环境配置"
 subtitle:   "编译compile与调试debug"
-date:       2021-09-07
+date:       2021-09-16
 author:     max
 categories: C++
 tags:  
@@ -89,6 +89,9 @@ $ clang++ ./*.cpp -o main
 - p <var>: 打印某个变量
 - n: 下一步
 - q: 退出
+- s: 进入当前行的执行函数
+
+参照<https://linuxtools-rst.readthedocs.io/zh_CN/latest/tool/gdb.html>  
 
 我在调试某个图形学项目时, 特别慢, 卡在variables-locals那, 一直转圈, 几分钟之后才出来  
 用命令行debug是没问题的   
