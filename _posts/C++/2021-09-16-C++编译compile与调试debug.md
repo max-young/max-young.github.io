@@ -90,9 +90,11 @@ $ clang++ ./*.cpp -o main
 - n: 下一步
 - q: 退出
 - s: 进入当前行的执行函数
+- finish: 退出当前执行的函数到主函数
 - thread until <num>: 跳过循环之类的代码运行到此行
 - br l: 列出所有break
 - br del <num>: 删除指定break, num指br l列出来的号码
+- r: restart
 
 参照<https://linuxtools-rst.readthedocs.io/zh_CN/latest/tool/gdb.html>  
 <https://lldb.llvm.org/use/map.html>
