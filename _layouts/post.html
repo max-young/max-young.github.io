@@ -3,7 +3,7 @@ layout: default
 ---
 
 <link rel="stylesheet" href="../css/blog.css">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
 
 {% if page.header-img %}
 <div class="post-photo" style="background-image: url('/images/posts/{{ page.header-img }}')">
@@ -104,8 +104,7 @@ MathJax.Hub.Config({
 </script>
 
 <!-- Gitalk start -->
-<script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script> 
 <script>
     const gitalk  = new Gitalk ({
         id: decodeURI(window.location.pathname),
