@@ -4,3 +4,4 @@ _site
 
 .DS_Store
 *.icloud
+_config.yml
