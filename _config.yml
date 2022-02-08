@@ -1,0 +1,38 @@
+title: Max Young
+
+name: MaxYoung's homepage
+description:  I am Max Young
+# url: https://max-young.github.io
+# url: .
+
+# 自定义post url
+permalink: /blog/:title.html
+timezone: Asia/Beijing
+
+# Overriden by GitHub Pages: https://help.github.com/articles/using-jekyll-with-pages#configuring-jekyll
+safe: true
+lsi: false
+
+markdown: kramdown
+kramdown:
+    input: GFM # Enable GitHub Flavored Markdown (fenced code blocks)
+    extensions:
+    - autolink
+    - footnotes
+    - smart
+hard_wrap: false
+#  use_coderay: true
+syntax_highlighter: rouge
+#  coderay:
+#  coderay_line_numbers:  nil
+
+# White-listed plugins
+# gems:
+plugins:
+  - jekyll-sitemap
+
+# Gitalk settings
+comment_gitalk_clientId: 50c778ee7ea8fe21c780
+comment_gitalk_clientSecret: f6a9cae9fdbf10b2721e75bf5bb656d12dd0f862
+comment_gitalk_repo: max-young.github.io
+github_username: max-young
