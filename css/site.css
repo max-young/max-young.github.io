@@ -60,7 +60,8 @@ table td, table th {
 
 a {
   /* color: #e74c3c; */
-  color: #42b983;
+  /* color: #42b983; */
+  color: #F9564F;
   text-decoration: none;
 }
 
@@ -114,8 +115,8 @@ header {
 .header-container {
   border-bottom: 1px solid #ddd;
   margin-bottom: 1.5em;
-  /* background: #227d51; [>#f3f3f3;<] */
-  /* background: #227d51 */
+  background: #F0F0F0
+  /* background: #F9564F; */
 }
 
 header nav {
