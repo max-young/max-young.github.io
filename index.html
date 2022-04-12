@@ -2,7 +2,7 @@
 layout: default
 category: about
 title: Max Young's homepage
-description: 
+description: Max Young, an software engineer focus on computer graphics.
 ---
 
 <section class="about-me inner">
@@ -27,36 +27,38 @@ description:
   </blockquote>
 
   <p>
-  Hi, 我是<a href="/"><span itemprop="name">Max</span></a>, 一名程序员.
-  </p>
-
-  <!-- <p>
-  曾经是一名水利工程师, 现在是一名软件开发工程师, 主要工作是web后端开发, 也会做前端开发和devops的工作.
+  Hi, I am <a href="/"><span itemprop="name">Max Young</span></a>, a software engineer.
   </p>
 
   <p>
-  主要编程语言: Python, Go, C++
+  I am focusing on computer graphics with great enthusiasm. <br>
+  This is the website of my study notes: <a href="/computer_graphics/">Computer Graphics Notes</a>, it would be a great honor for me if it makes help to someone. <br>
+  I am also very familiar with web application development and have a lot of experience.
   </p>
 
   <p>
-  TDD爱好者. 努力成为一名胜任的程序员, 能在工作中游刃有余, 能给雇主带来价值, 得到公司和同事的认可.
-  </p> -->
+    My tools: C++, OpenGL, GLS, Python(Django, Flask), Golang(Gin), MySQL, MongoDB, JavaScript(React, JQuery), HTML...
+  </p>
 
   <p>
-    可以通过微信找到我: alvysinger
-  </p>
-  <p>
-    这里主要是学习工作记录, 记录能让思路清晰, 再次遇到类似也能查阅, 若能有助于他人那就更好了.
+    contact me via: 
+    <a class="thumb" href="#">
+      wechat
+      <i class="fa fa-weixin" aria-hidden="true"></i>
+			<span>
+			<img src="images/wechat.jpeg" alt="" style="width: 70%">
+			</span>
+    </a>
   </p>
 </section>
 
 <section class="inner">
   <div class="post-recents-in-index">
-    <strong>最近文章:</strong>
+    recent articles:
   </div>
   <blockquote>
     <ul>
-      {% for post in site.posts limit:10 %}
+      {% for post in site.posts limit:7 %}
       <li class="post-list-in-index">
       <small class="post-list-date-in-index">{{ post.date | date_to_string }}</small><a  href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
       </li>

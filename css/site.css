@@ -369,7 +369,7 @@ footer {
   line-height: 2em;
   color: #858585;
   text-align: center;
-  margin-top: 3em;
+  /* margin-top: 3em; */
 }
 
 footer p {
@@ -598,4 +598,14 @@ header h1.title a:hover {
 #return-to-top:hover i {
     color: #fff;
     top: 5px;
+}
+
+.thumb span { 
+	position:absolute;
+	visibility:hidden;
+}
+.thumb:hover, .thumb:hover span { 
+	visibility:visible;
+  text-align: center;
+	z-index:1;
 }
