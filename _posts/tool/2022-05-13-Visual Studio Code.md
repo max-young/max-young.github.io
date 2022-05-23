@@ -1,5 +1,3 @@
-
-<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 ---
 layout:     post
 title:      "Visual Studio Code"
@@ -9,6 +7,8 @@ tags:
     - VSCode
 ---
 
+<!-- TOC -->
+
 - [操作](#操作)
 - [快捷键](#快捷键)
   - [代码相关](#代码相关)
@@ -16,11 +16,12 @@ tags:
   - [Markdown](#markdown)
 - [自定义配置](#自定义配置)
 - [Extensions](#extensions)
-- [problems](#problems)
-  - [ipch空间过大, 导致文件无法保存](#ipch空间过大-导致文件无法保存)
+
+<!-- /TOC -->
 
 环境: macos
 
+<a id="markdown-操作" name="操作"></a>
 ### 操作
 
 - workspace  
@@ -31,11 +32,13 @@ tags:
     这样我们就把两个folder组织在一个workspace里了, 我们还可以保存此workspace, 下次就直接打开这个workspace即可, 不用重复上面的操作  
     同时, 我们可以对workspace进行配置, 而不用对每个folder(repo)进行配置
 
+<a id="markdown-快捷键" name="快捷键"></a>
 ### 快捷键
 
 **这个命令非常关键, 可以查到相关操作, 以及快捷键, 并自定义快捷键**  
 显示我能操作的命令: `command + shift + p`  
 
+<a id="markdown-代码相关" name="代码相关"></a>
 #### 代码相关
 
 - 编译  
@@ -50,6 +53,7 @@ tags:
 - 回退到之前的代码位置  
 `cmd + o`或者`alt + -`
 
+<a id="markdown-操作相关" name="操作相关"></a>
 #### 操作相关
 
 - Terminal切换  
@@ -75,11 +79,13 @@ tags:
 其实是toggle side bar visibbility  
 `command + b`
 
+<a id="markdown-markdown" name="markdown"></a>
 #### Markdown
 
 - Preview  
   command + k, v
 
+<a id="markdown-自定义配置" name="自定义配置"></a>
 ### 自定义配置
 
 - 切换窗口快捷键 switch window shortcut  
@@ -101,6 +107,7 @@ command + shift + p 搜索quick switch window
   红色框里的提示可能不显示, 是因为Snippets Prevent Quick Suggestions这个配置给勾上了, 去掉就可以了  
   之后可能还是不显示, 但是多出来一个大于号, 点击大于号就出来了, 之后也就自动出来了
 
+<a id="markdown-extensions" name="extensions"></a>
 ### Extensions
 
 - Copilot  
