@@ -18,11 +18,6 @@ body {
   font-size: 100%;
 }
 
-p{
-  text-align: justify;
-  margin: 1em 0;
-  }
-
 /*添加段与段之间的分割线样式*/
 hr {
     /* border-bottom: 1px dashed #f9f9f9;
@@ -36,11 +31,10 @@ hr {
 }
 
 p {
-    margin: 0px 0px 10px;
-    /*使左右两边对齐*/
-    text-align:justify;
-    -webkit-text-align-last:justify;/*chrome 20+*/
-    font-size: 0.9rem;
+    text-align: left;
+    margin: 0.5em 0;
+    -webkit-text-align-last:justify;
+    word-spacing: 0.2rem;
     }
 
 table {
@@ -115,7 +109,7 @@ header {
 .header-container {
   border-bottom: 1px solid #ddd;
   margin-bottom: 1.5em;
-  background: #F0F0F0
+  /* background: #F0F0F0 */
   /* background: #F9564F; */
 }
 
@@ -130,9 +124,7 @@ nav a {
   padding-bottom: 0.2em;
   font-weight: 500;
   border-bottom: 3px solid transparent;
-  font-size: 0.9rem;
   color: #404040;
-  /* color: #fffffb; */
 }
 
 nav a:last-child {
@@ -147,6 +139,7 @@ nav a:hover {
 
 nav a.selected {
   color: black;
+  font-size: 1.3rem;
 }
 
 nav a.selected:hover {
@@ -167,6 +160,8 @@ h1, h2, h3 {
     font-family: Georgia,"Xin Gothic","Hiragino Sans GB","Droid Sans Fallback","Microsoft YaHei",sans-serif;
     /*定义标题,字标题字体颜色*/
     color:#3d4657;
+    font-weight: 400;
+    margin-top: 2em;
 }
 
 h1 {
@@ -182,10 +177,6 @@ h1 small {
 }
 
 h2 {
-    font-size:1.5em;
-}
-
-h3 {
     font-size:1.5em;
 }
 
@@ -243,7 +234,7 @@ header .logo a, header .logo a:hover {
 }
 
 .inner, pre code, .post > * {
-  max-width: 760px; /*680*/
+  max-width: 680px;
   margin-left: auto;
   margin-right: auto;
   text-align: left;
@@ -608,4 +599,42 @@ header h1.title a:hover {
 	visibility:visible;
   text-align: center;
 	z-index:1;
+}
+
+.portfolio-nav {
+  text-align: center;
+  list-style-type: none;
+  margin: 3em 0 2em 0;
+}
+
+.portfolio-nav li {
+  display: inline-block;
+  border: 1px solid #F9564F;
+  border-right-width: 0;
+}
+
+.portfolio-nav .active {
+  background-color: #3073b3;
+}
+
+.portfolio-nav .active a {
+  color: white;
+}
+
+.portfolio-nav li a {
+  width: 5em;
+  padding: 0.7em 0.4em;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.portfolio-nav li:first-child {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.portfolio-nav li:last-child {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-right-width: 1px;
 }

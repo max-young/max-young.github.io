@@ -6,19 +6,6 @@ description: Max Young, an software engineer focus on computer graphics.
 ---
 
 <section class="about-me inner">
-  <!-- <h1> -->
-    <!-- <div class="book-me">
-      <a class="btn btn-lg" href="/en/">ENG</a>
-    </div> -->
-    <!-- <span class="hello">
-      <em>Keep</em>
-      <small>on fighting. </small>
-    </span> -->
-  <!-- </h1> -->
-
-  <!-- <div class="book-me">
-    <a class="btn btn-lg" href="/en/">ENG</a>
-  </div> -->
 
   <blockquote>
   <p>
@@ -27,46 +14,40 @@ description: Max Young, an software engineer focus on computer graphics.
   </blockquote>
 
   <p>
-  Hi, I am <a href="/"><span itemprop="name">Max Young</span></a>, a software engineer.
+  Hi, I am <span itemprop="name">Max Young</span>, a software engineer.
   </p>
 
   <p>
-  I am focusing on computer graphics with great enthusiasm. <br>
-  This is the website of my study notes: <a href="/computer_graphics/" target="_blank">Computer Graphics Notes</a>, it would be a great honor for me if it makes help to someone. <br>
-  I am also very familiar with web application development and have a lot of experience.
+  I'm focusing on computer graphics and familiar with <strong>C++</strong>, <strong>OpenGL</strong>, GLSL etc. <br>
+  more infomation on these websites: <a href="/computer_graphics/" target="_blank">Computer Graphics Notes</a> and <a href="/cpp_study" target="_blank">C++ Notes</a>.
   </p>
 
   <p>
-    My tools: C++, OpenGL, GLSL, Python(Django, Flask), Golang(Gin), MySQL, MongoDB, JavaScript(React, JQuery)...
+  And I have a lot of experience on web application development as a full stack engineer. <br>
+  I'm familiar with backend, database, frontend, devops etc.<br>
+  My tools: <strong>Python</strong>(Django, Flask), Golang(Gin), MySQL, MongoDB, <br>
+  and html, JavaScript(React, JQuery)...
   </p>
 
   <p>
-    Here's my <a href="https://github.com/max-young/resume/raw/master/max-resume-en.pdf">resume</a> and <a href="https://github.com/max-young/resume/raw/master/max-resume.pdf">简历</a><br>
-    contact me via <a href="mailto: alvysurvey@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i>alvysurvey@gmail.com</a> or 
+    Here's my resume: <a href="https://github.com/max-young/resume/raw/master/max-resume-en.pdf">english</a> <a href="https://github.com/max-young/resume/raw/master/max-resume.pdf">中文</a>, 
+    contact me via  
     <a class="thumb" href="#">
       <i class="fa fa-weixin" aria-hidden="true"></i>
       wechat
 			<span>
 			<img src="images/wechat.jpeg" alt="" style="width: 70%">
 			</span>
-    </a>
+    </a><a href="mailto: alvysurvey@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i> alvysurvey@gmail.com</a>
   </p>
-</section>
-
-<section class="inner">
-  <div class="post-recents-in-index">
-    latest articles:
-  </div>
+  <p>latest articles:</p>
   <blockquote>
     <ul>
-      {% for post in site.posts limit:7 %}
+      {% for post in site.posts limit: 9 %}
       <li class="post-list-in-index">
       <small class="post-list-date-in-index">{{ post.date | date_to_string }}</small><a  href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
       </li>
       {% endfor %}
     </ul>
   </blockquote>
-  <!-- <p>
-  这是我的<a href="{{ site.url }}/max_resume.pdf"><strong>简历</strong></a>
-  </p> -->
 </section>

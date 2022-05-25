@@ -34,48 +34,13 @@
 <body>
   <div class="header-container">
     <header class="inner">
-      {% if page.url == '/en/' %}
       <nav>
-        <a class="{% if page.category == 'about' %} selected {% endif %}" href="/">Home</a>
-        <a class="{% if page.category == 'project' %} selected {% endif %}" href="/project/">Project</a>
-        <!--<a class="{% if page.category == 'resume' %} selected {% endif %}" href="/resume/">Resume</a>-->
-	      <!--<a href="/yuanyong_resume_cn.pdf">Resume</a>-->
-        <a href="/max_resume.pdf">Resume</a>
-        <!--<a class="{% if page.category == 'publication' %} selected {% endif %}" href="/publication/">Publication</a>-->
+        <a class="{% if page.url == '/' %}selected{% endif %}" href="/">Home</a>
+        <a class="{% if page.category == 'portfolio' %} selected {% endif %}" href="/portfolio/">Portfolio</a>
         <a class="{% if page.category == 'blog' %} selected {% endif %}" href="/blog/">Blog</a>
-        <a href="/books/">Book</a>
-        <a href="/timeline/">Times</a>
-        <!-- <a href="https://github.com/max-young">GitHub</a> -->
+        <a href="https://max-young.github.io/computer_graphics/" target="_blank">ComputerGraphics</a>
+        <a href="https://max-young.github.io/cpp_study/" target="_blank">C++</a>
       </nav>
-      {% elsif page.url == '/project' %}
-      <nav>
-        <a class="{% if page.category == 'about-zh' %} selected {% endif %}" href="/">Home</a>
-        <a class="{% if page.category == 'project-zh' %} selected {% endif %}" href="/project">项目</a>
-        <!--<a class="{% if page.category == 'resume' %} selected {% endif %}" href="/resume/">Resume</a>-->
-        <!--<a href="/yuanyong_resume_cn.pdf">简历</a>-->
-	      <a href="/max_resume.pdf">简历</a>
-        <!--<a class="{% if page.category == 'publication' %} selected {% endif %}" href="/publication/">出版</a>-->
-        <a class="{% if page.category == 'blog' %} selected {% endif %}" href="/blog/">博客</a>
-	      <a href="/books/">书单</a>
-		    <a href="/timeline/">时间线</a>
-        <!-- <a href="https://github.com/max-young">GitHub</a> -->
-      </nav>
-      {% else %}
-      <nav>
-        <a class="{% if page.category == 'about-zh' %} selected {% endif %}" href="/">Home</a>
-        <!-- <a class="{% if page.category == 'project-zh' %} selected {% endif %}" href="/project">项目</a> -->
-        <!--<a class="{% if page.category == 'resume' %} selected {% endif %}" href="/resume/">Resume</a>-->
-        <!--<a href="/resume/">简历</a>-->
-        <!-- <a href="/max_resume.pdf">简历</a> -->
-        <!--<a class="{% if page.category == 'publication' %} selected {% endif %}" href="/publication/">出版</a>-->
-        <a class="{% if page.category == 'blog' %} selected {% endif %}" href="/blog/">Blog</a>
-        <!-- <a href="/books/">书单</a> -->
-        <!-- <a href="/timeline/">时间线</a> -->
-        <a href="https://max-young.github.io/computer_graphics/">ComputerGraphics</a>
-        <a href="https://max-young.github.io/cpp_study/">C++</a>
-        <!-- <a href="https://max-young.github.io/algorithm/">Algorithm</a> -->
-      </nav>
-      {% endif %}
 
       <div class="pull-right right logo">
         <div class="name">
@@ -94,54 +59,24 @@
   </div>
 
   {{ content }}
-  <!--<div class="separator"></div>-->
 
   <footer>
     <div  style="border-bottom: 1px solid #eee"></div>
-    <!-- <p class="linkings"> -->
-    <!-- Friend: <a href="https://sites.google.com/site/raphaelitemou/">Lichao</a>&nbsp&nbsp&nbsp&nbsp<a href="http://cmp.felk.cvut.cz/~toliageo/publi.html">Tolias</a>&nbsp&nbsp&nbsp&nbsp<a href="http://www.heyuhang.com/">heyuhang</a>&nbsp&nbsp&nbsp&nbsp<a href="https://blog.yuanbin.me/">yuanbin</a>&nbsp&nbsp&nbsp&nbsp<a href="http://freemind.pluskid.org/">pluskid</a> -->
-    <!-- </p> -->
-    <!--p class="linkings">
-        Utils: <a href="http://rogerioferis.com/VisualRecognitionAndSearch2014/Resources.html">rogerioferis</a>&nbsp&nbsp&nbsp&nbsp<a href="http://caffe.berkeleyvision.org/">Caffe</a>&nbsp&nbsp&nbsp&nbsp<a href="http://scikit-learn.org/stable/index.html">scikit-learn</a>&nbsp&nbsp&nbsp&nbsp<a href="http://www.astroml.org/index.html">AstroML</a></a>&nbsp&nbsp&nbsp&nbsp<a href="http://scikit-image.org/">scikit-image</a></a>&nbsp&nbsp&nbsp&nbsp<a href="http://gitxiv.com/">GitXiv</a>
-    </p-->
     <p>
       Made with <a href="http://jekyllrb.com/">Jekyll</a>,
-      hosted on <a href="https://github.com/max-young/max-young.github.io">Github Pages</a>. Inspired by <a href="https://sebastien.saunier.me/">Sébastien Saunier</a> and <a href="http://yongyuan.name/">yong yuan</a>
+      hosted on <a href="https://github.com/max-young/max-young.github.io">Github Pages</a>. Inspired by <a href="https://sebastien.saunier.me/">Sébastien Saunier</a> and <a href="https://yongyuan.name/">yong yuan</a>
     </p>
-    <!-- <p> -->
-    <!--   <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Attribution-NonCommercial-ShareAlike 4.0 International</a> 2013-2019 -->
-    <!-- </p> -->
     <ul class="links">
       <li>
         <a href="https://github.com/max-young" target="_blank" title="See my code on GitHub">
           <i class="icon-github"></i>
         </a>
       </li>
-      <!-- <li>
-        <a href="https://twitter.com/intent/follow?screen_name=yongyuan001" title="Follow me on Twitter">
-          <i class="icon-twitter"></i>
-        </a>
-      </li> -->
       <li>
         <a href="https://www.linkedin.com/in/max-young-16b690143/" target="_blank" title="Connect with me on LinkedIn">
           <i class="icon-linkedin"></i>
         </a>
       </li>
-      <!-- <li>
-        <a href="https://plus.google.com/+SebastienSaunier?rel=author" title="I need this link for authorship reasons">
-          <i class="icon-google-plus"></i>
-        </a>
-      </li> -->
-      <!-- <li>
-        <a href="https://pinboard.in/u:ssaunier" title="Browse my bookmarks about Programming">
-          <i class="icon-bookmarks"></i>
-        </a>
-      </li> -->
-      <!-- <li>
-        <a href="/feed.xml" title="Subscribe to my blog with RSS">
-          <i class="icon-feed"></i>
-        </a>
-      </li> -->
     </ul>
   </footer>
 

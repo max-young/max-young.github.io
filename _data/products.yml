@@ -1,0 +1,42 @@
+- name: Hit Bricks Game
+  image: hitbricksgame.png
+  url: https://github.com/max-young/hit-bricks-game
+  oneliner: A simple 2D game
+  role: Lead Developer
+  description:
+    A 2D game developed with C++ and OpenGL, although it is 2D, this project reflects a lot of knowledge of computer graphics and OpenGL development methods.
+    This project uses framebuffer and irrKlang to achieve some interesting effects, it's fun.
+  technologies:
+    - C++
+    - OpenGL
+
+- name: KaoShiXing
+  image: kaoshixing.png
+  url: https://www.kaoshixing.com/
+  oneliner: Online Exam System
+  role: Lead Developer
+  description: >
+    KaoShiXing is a toB online exam system, which can meet the requirements of employee training exams, dealer exams, recruitment exams, knowledge contests, homework, practice exams, etc.
+    I lead the design, construction and development of this project, and have gone through the process from zero to 1,000 enterprise users. The work includes system design, front-end and back-end development, deployment, operation and maintenance.
+  technologies:
+    - Python
+    - Flask
+    - MySQL
+    - MongoDB
+    - JQuery
+    - AliYun
+
+- name: MMFlow
+  image: mmflow.png
+  url: https://github.com/max-young/MMFlow
+  oneliner: Enterprise Contract Approval Workflow System
+  role: Lead Developer / Product Owner
+  description:
+    Enterprise-oriented SAAS products, enterprises can use this product to achieve online collaborative editing of contracts,
+    standardize complex approval processes, and trace, manage and archive contracts.
+    I do all the development work independently.
+  technologies:
+    - Python
+    - Django
+    - MySQL
+    - React

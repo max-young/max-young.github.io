@@ -1,0 +1,29 @@
+---
+layout: portfolio
+category: portfolio
+title: Max Young - Code
+description:
+---
+
+<p class="fancy">
+  Here is some code I share on GitHub.
+</p>
+
+{% for code in site.data.code %}
+  <section>
+    <div class="pull-right">
+      {% if code.technology == 'C++' %}
+        <img src="/images/portfolio/C++.png" height="10" />
+      {% endif %}
+      {{ code.technology }}
+    </div>
+    <h3>
+      <a href="https://github.com/{{ code.github }}">
+        {{ code.name }}
+      </a>
+    </h3>
+    <p>
+      {{ code.description }}
+    </p>
+  </section>
+{% endfor %}
