@@ -12,11 +12,11 @@ category: portfolio
 {% for product in site.data.products %}
   <section>
     <a id="{{ product.name}}"></a>
-    <a href="{{ product.url }}">
+    <a href="{{ product.url }}" target="_blank">
       <img class="inline pull-right" src="/images/portfolio/{{ product.image }}"
            alt="{{ product.name }} Screenshot" width="280">
     </a>
-    <h2><a href="{{ product.url }}">{{ product.name }}</a></h2>
+    <h2><a href="{{ product.url }}" target="_blank">{{ product.name }}</a></h2>
     <h3>{{ product.oneliner }}</h3>
     <p><strong>My role:</strong> {{ product.role }}</p>
     <p>{{ product.description}}</p>
