@@ -164,12 +164,6 @@ nav a:last-child {
   margin-right: 0;
 }
 
-nav a:hover {
-  text-decoration: none;
-  /* border-bottom: 3px solid #E74C3C; */
-  border-bottom: 3px solid #404040;
-}
-
 nav a.selected:hover {
   border-bottom: none;
 }
