@@ -10,7 +10,7 @@ category: portfolio
 </p>
 
 {% for product in site.data.products %}
-  <section>
+  <section class="project">
     <a id="{{ product.name}}"></a>
     <a href="{{ product.url }}" target="_blank">
       <img class="inline pull-right" src="/images/portfolio/{{ product.image }}"

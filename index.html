@@ -43,7 +43,7 @@ description: Max Young, an software engineer focus on computer graphics.
   <p>latest articles:</p>
   <blockquote>
     <ul>
-      {% for post in site.posts limit: 9 %}
+      {% for post in site.posts limit: 10 %}
       <li class="post-list-in-index">
       <small class="post-list-date-in-index">{{ post.date | date_to_string }}</small><a  href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
       </li>
