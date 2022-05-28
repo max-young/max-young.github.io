@@ -10,7 +10,8 @@ body {
   /* color: #222; */
   color: #555;
   text-align: center;
-  font-family:"Avenir Next", Helvetica, Arial, "Lantinghei SC", "Microsoft YaHei", sans-serif;
+  /* font-family:"Avenir Next", Helvetica, Arial, "Lantinghei SC", "Microsoft YaHei", sans-serif; */
+  font-family: Helvetica,Arial,sans-serif;
   text-rendering: optimizeLegibility;
   background-color: #ffffff;
   margin-bottom: 5px;  /*自定义段落与段落之间的间距*/
@@ -93,8 +94,8 @@ section{
 .center { text-align: center !important; }
 .right { text-align: right; }
 .spacer {
-  border-top: 1px solid #E6E6E6;
-  margin: 2em auto;
+  border-top: 1px dashed #E6E6E6;
+  margin: 20px auto;
 }
 .without-border {
   border: none;
@@ -102,15 +103,14 @@ section{
 
 /* Header and navigation */
 header {
-  font-family: "Avenir Next", Helvetica, Arial, "Lantinghei SC", "Microsoft YaHei", sans-serif;
+  /* font-family: "Avenir Next", Helvetica, Arial, "Lantinghei SC", "Microsoft YaHei", sans-serif; */
+  font-family: Helvetica,Arial,sans-serif;
   /*font-weight: bold;*/
 }
 
 .header-container {
-  border-bottom: 1px solid #ddd;
   margin-bottom: 1.5em;
-  /* background: #F0F0F0 */
-  /* background: #F9564F; */
+  background: #edf4ed
 }
 
 header nav {
@@ -118,13 +118,17 @@ header nav {
   padding-top: 14px;
 }
 
+header nav a {
+  color: #072;
+}
+
 nav a {
  display: inline-block;
   margin-right: 1.2em;
   padding-bottom: 0.2em;
-  font-weight: 500;
   border-bottom: 3px solid transparent;
   color: #404040;
+  font-size: 16px;
 }
 
 nav a:last-child {
@@ -138,8 +142,7 @@ nav a:hover {
 }
 
 nav a.selected {
-  color: black;
-  font-size: 1.3rem;
+  font-weight: bold;
 }
 
 nav a.selected:hover {
@@ -188,7 +191,7 @@ h2 {
   margin-top: 0px;
   margin-bottom: opx;
   list-style: none;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .post-list-date-in-index{
@@ -203,10 +206,8 @@ section ul{
 blockquote {
   margin: 1em 0 1em 0em;
   color: #666;
-  /* border-left: 0.4em solid #227d51; */
-  border-left: 0.2em solid #ddd;
+  border-left: 0.1em dotted #ddd;
   padding-left: 0.6em;
-  font-style: italic;
 }
 
 @media(max-width: 400px) {
@@ -358,7 +359,7 @@ header .logo a, header .logo a:hover {
 footer {
   font-size: small;
   line-height: 2em;
-  color: #858585;
+  color: #999;
   text-align: center;
   /* margin-top: 3em; */
 }
@@ -401,6 +402,11 @@ footer .links a:hover {
 .sub-nav {
   float: right;
 }
+
+.sub-nav a {
+  font-size: 15px;
+}
+
 .inner .sub-inner{
   text-align: right;
 }
