@@ -1,30 +1,20 @@
 @import url('font/icomoon79565/style.css');
 
-/* Global Reset */
 * {
   margin: 0;
-  /*padding: 0;*/
 }
 
 body {
-  /* color: #222; */
   color: #555;
   text-align: center;
-  /* font-family:"Avenir Next", Helvetica, Arial, "Lantinghei SC", "Microsoft YaHei", sans-serif; */
   font-family: Helvetica,Arial,sans-serif;
   text-rendering: optimizeLegibility;
   background-color: #ffffff;
-  margin-bottom: 5px;  /*自定义段落与段落之间的间距*/
-  /*自定义line-height: 170%; body对象行与行的间距*/
+  margin-bottom: 5px;
   font-size: 100%;
 }
 
-/*添加段与段之间的分割线样式*/
 hr {
-    /* border-bottom: 1px dashed #f9f9f9;
-    border-top: 2px dashed #22c3aa;
-    margin-top:2em;
-    margin-bottom: 2em; */
     border: 0;
     padding-top: 1px;
     background: linear-gradient(to right, transparent, #d0d0d5, transparent);
@@ -51,22 +41,9 @@ table td, table th {
   padding: 0.4em;
 }
 
-
-/* Common */
-
 a {
   color: #37a;
   text-decoration: none;
-}
-
-a:active {
-  /* color: #255b96; */
-  /*color: #e0115f;*/
-}
-
-a:visited {
-  /*color: #255b96;
-  color: #e0115f;*/
 }
 
 a:hover {
@@ -78,7 +55,6 @@ a.discreet {
 }
 
 .fancy, section, article {
-  /* font-family: Bitter, Georgia, "Helvetica Neue","Hiragino Sans GB",Arial,"微软雅黑",sans-serif; */
   font-family: Helvetica, Arial, sans-serif;
   line-height: 170%;
 }
@@ -107,11 +83,8 @@ section{
   border: none;
 }
 
-/* Header and navigation */
 header {
-  /* font-family: "Avenir Next", Helvetica, Arial, "Lantinghei SC", "Microsoft YaHei", sans-serif; */
   font-family: Helvetica,Arial,sans-serif;
-  /*font-weight: bold;*/
 }
 
 .header-container {
@@ -143,7 +116,6 @@ nav a:last-child {
 
 header nav a:hover {
   text-decoration: none;
-  /* border-bottom: 3px solid black; */
   background-color: #072;
   color: #fff;
 }
@@ -166,9 +138,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 h1, h2, h3 {
-    /*定义标题,字标题字体大小*/
     font-family: Georgia,"Xin Gothic","Hiragino Sans GB","Droid Sans Fallback","Microsoft YaHei",sans-serif;
-    /*定义标题,字标题字体颜色*/
     color:#3d4657;
     font-weight: 400;
     margin-top: 2em;
@@ -209,7 +179,6 @@ section ul{
   padding-left: 0em;
 }
 
-/**设置引用格式**/
 blockquote {
   margin: 1em 0 1em 0em;
   color: #666;
@@ -255,11 +224,9 @@ header .logo a, header .logo a:hover {
 }
 
 .post > .highlight {
-  /*max-width: 100% !important;  代码块区域宽度*/
   word-wrap: break-word;
 }
 
-/*设置移动端样式*/
 @media (max-width: 700px) {
   .inner, pre code, footer, .post > * {
     margin-left: 18px !important;
@@ -280,8 +247,6 @@ header .logo a, header .logo a:hover {
   header .avatar {
     margin-top: 0em;
     max-width: 80px;
-    /*vertical-align: -20px;
-    margin-left: 0*/
   }
 
   header nav {
@@ -294,7 +259,6 @@ header .logo a, header .logo a:hover {
   }
 }
 
-/**设置导航中头像样式**/
 .avatar {
   border-radius: 50%;
   max-width: 50px;
@@ -303,7 +267,6 @@ header .logo a, header .logo a:hover {
   box-shadow: 0px 0px 0px 4px #FFF, 0px 0px 4px 4px #4D4D4D;
 }
 
-/*图像旋转*/
 .avatar:hover {
     -webkit-animation: spin 2s linear infinite;
     -moz-animation: spin 2s linear infinite;
@@ -362,13 +325,11 @@ header .logo a, header .logo a:hover {
   line-height: 3.8em;
 }
 
-/* Footer */
 footer {
   font-size: small;
   line-height: 2em;
   color: #999;
   text-align: center;
-  /* margin-top: 3em; */
 }
 
 footer p {
@@ -401,7 +362,6 @@ footer .links a:hover {
   text-decoration: none;
 }
 
-/*添加博客首页为谢一挥的模板样式——开始*/
 .subheader-container {
   margin-bottom: 3.5em;
 }
@@ -439,8 +399,6 @@ header h1.title a:hover {
   color: #000;
 }
 
-.convinced { /*margin: 6em 0 4em 0;*/}
-
 .suggest-translate {
   font-style: italic;
 }
@@ -472,8 +430,6 @@ header h1.title a:hover {
   }
 }
 
-/*按钮开始*/
-/* From http://designmodo.github.io/Flat-UI/*/
 .btn {
   border: none;
   font-size: 15px;
@@ -513,7 +469,6 @@ header h1.title a:hover {
   box-sizing: padding-box;
 }
 
-/* Register*/
 .post-footer-self-promotion input {
   -moz-box-sizing: content-box;
   -webkit-box-sizing: content-box;
@@ -557,7 +512,6 @@ header h1.title a:hover {
     margin-top: 1em;
   }
 }
-/*按钮结束*/
 
 .jiathis_custom{
     margin-top:25px;

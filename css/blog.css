@@ -1,12 +1,9 @@
-/* @import url("font.css");*,*:after,*:before{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;padding:0;margin:0}.clearfix:before,.clearfix:after{content:" ";display:table}.clearfix:after{clear:both} */
 .fancy, article {
-  /*font-family: 'lucida grande', 'lucida sans unicode', lucida, 'Helvetica Neue', helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;*/
   font-family: Georgia, "Linux Libertine",-apple-system,"Helvetica Neue",Helvetica,"Nimbus Sans L",Arial,"Liberation Sans","PingFang SC","Hiragino Sans GB","Source Han Sans CN","Source Han Sans SC","Microsoft YaHei","Wenquanyi Micro Hei","WenQuanYi Zen Hei","ST Heiti",SimHei,"WenQuanYi Zen Hei Sharp",sans-serif;
   font-family: Source Sans Pro,Helvetica Neue,Arial,sans-serif;
   line-height: 170%;
 }
 section {
-  /* font-family: "Linux Libertine",-apple-system,"Helvetica Neue",Helvetica,"Nimbus Sans L",Arial,"Liberation Sans","PingFang SC","Hiragino Sans GB","Source Han Sans CN","Source Han Sans SC","Microsoft YaHei","Wenquanyi Micro Hei","WenQuanYi Zen Hei","ST Heiti",SimHei,"WenQuanYi Zen Hei Sharp",sans-serif; */
   font-family:  Helvetica, Arial, sans-serif;
   line-height: 170%;
 }
@@ -20,10 +17,8 @@ h5,
 h6,
 .ui.header {
   font-family: Source Sans Pro,Helvetica Neue,Arial,sans-serif
-  /* font-family: "Linux Libertine", Baskerville, Georgia, "Liberation Serif", "Kaiti SC", STKaiti, "AR PL UKai CN", "AR PL UKai HK", "AR PL UKai TW", "AR PL UKai TW MBE", "AR PL KaitiM GB", KaiTi, KaiTi_GB2312, "TW-Kai", serif; */
 }
 
-/*post index blockquote*/
 .pidex {
   margin: 5em 0 1em 0em;
 }
@@ -36,7 +31,6 @@ article h1 {
 
 .meta {
   color: #666;
-  /*border-top: 1px solid #ccc;*/
   font-size: 0.9rem;
   margin-top: 4px;
   padding: 4px 8px;
@@ -49,7 +43,6 @@ p{
 }
 
 .post ul, .post ol ,p{
-  /*padding-left: 2.5em;*/
   font-size: 0.9rem;
   line-height: 30px;
 }
@@ -69,33 +62,17 @@ h2 {
     margin-bottom: 30px;
 }
 
-/* h2:before {
-    content: "#";
-    color: #227d51;
-    display: inline-block;
-    float: left;
-    padding: 3px 10px 0px 0px;
-    margin-top: -0.3em;
-    font-size: 1.4em;
-    font-weight: bold;
-} */
-
 ul{margin:0;padding:0}
 .post ul, .post ol {
     text-align: justify;
-    /* list-style-type: none; */
     margin-left: 20px;
     line-height: 2.0rem;
 }
-}
 
-/*设置博文的容器*/
 #container{
     display: block;
     padding: 10px;
     background-color: rgba(255,255,255,1);
-    /**border: 1px solid rgba(0,0,0,0.16667);
-    box-shadow: 0 1px 10px rgba(0,0,0,0.33333);**/
     position:relative;
     width:96%;
     max-width:840px;
@@ -126,7 +103,6 @@ ul.posts {
 }
 
 .post > .highlight {
-  /*max-width: 100% !important;  代码块区域宽度*/
   word-wrap: break-word;
 }
 
@@ -240,7 +216,6 @@ ul.posts li {
   padding: 0em 0 1em -4em;
 }
 .listing-seperator {
-    /**background: url(../images/timeline_century_tick.gif) left center no-repeat;**/
     font-family: 'lucida grande', 'lucida sans unicode', lucida, 'Helvetica Neue', helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
     font-weight: 500;
     padding: 4px 4px 4px 0px;
@@ -288,9 +263,7 @@ padding-top: 20px;
   letter-spacing: .01em;
   cursor: pointer;
   margin: 0 4px 7px 0;
-  /* color: #e74c3c!important; */
   color: #404040!important;
-  /* border: 1px solid #227d51; */
   padding: 1px 6px;
   text-decoration: none;
   font-size: 13px;
@@ -300,7 +273,6 @@ padding-top: 20px;
   text-decoration:none;
 }
 
-/*添加博客首页为谢一挥的模板样式——结束*/
 
 ul.posts .date {
   margin-right: 0.3em;
@@ -312,11 +284,6 @@ ul.posts .description {
   color: #666;
 }
 
-/*
- * Equations with KaTeX
- *
- * Center the equation content.
- */
 .equation {
   padding-bottom:  1rem;
   padding-top:     1rem;
@@ -327,7 +294,6 @@ ul.posts .description {
 img[alt=drawing] { width: 60%; }
 
 .category-listing-seperator {
-    /* font-family: 'lucida grande', 'lucida sans unicode', lucida, 'Helvetica Neue', helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif; */
     font-size: 15px;
     font-weight: bold;
     list-style-type: none;
@@ -336,26 +302,6 @@ img[alt=drawing] { width: 60%; }
     margin-top: 20px;
     margin-bottom: 20px;
 }
-
-/* .category-listing-seperator:nth-child(5n+0) {
-    color: #e74c3c;
-}
-
-.category-listing-seperator:nth-child(5n+1) {
-    color: #1abc9c;
-}
-
-.category-listing-seperator:nth-child(5n+2) {
-    color: #3498db;
-}
-
-.category-listing-seperator:nth-child(5n+3) {
-    color: #9b59b6;
-}
-
-.category-listing-seperator:nth-child(5n+4) {
-    color: #e67e22;
-} */
 
 .listing-item li:nth-child(4n+1){
     position: relative;
@@ -435,7 +381,6 @@ img[alt=drawing] { width: 60%; }
     padding: 0.4em 0px 0.4em 0px;
     text-decoration: none;
     border-bottom: 1px dashed #d0d0d0;
-    /* color: #a00; */
     color: #555;
 }
 
@@ -464,10 +409,6 @@ img[alt=drawing] { width: 60%; }
 	font-size: 14px;
 }
 
-.post-link-in-posts:hover .article {
-    /* color: #227d51;; */
-}
-
 .tag-in-index-post {
     float: right;
     color: #939aa1;
@@ -492,7 +433,6 @@ img[alt=drawing] { width: 60%; }
     float: right;
 }
 
-/*添加博文上一篇下一篇功能*/
 .pager {
     padding-left: 0;
     margin: 20px 0;
@@ -512,7 +452,6 @@ img[alt=drawing] { width: 60%; }
 }
 
 .previous>a, .next>a {
-    /* color: rgba(0,179,179,0.83333); */
     color: #404040;
 }
 
@@ -525,10 +464,7 @@ img[alt=drawing] { width: 60%; }
 }
 
 .pager li > a,
-.pager li > span {/* Hux learn from
-     *     TypeIsBeautiful,
-     *     [This Post](http://zhuanlan.zhihu.com/ibuick/20186806) etc.
-     */
+.pager li > span {
      font-family: "Helvetica Neue", "Arial", "PingFang SC", "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif;
      line-height: 1.7;
      font-size: 14px;
@@ -547,12 +483,10 @@ img[alt=drawing] { width: 60%; }
   }
 }
 
-/*添加多说样式*/
 .duoshuo{
   margin-top:5em;;
 }
 
-/**文章代码格式**/
 .post pre {
     display: block;
     padding: 9.5px;
@@ -565,20 +499,19 @@ img[alt=drawing] { width: 60%; }
     word-break: break-all;
     word-wrap: break-word;
     background-color: #F5F5F5;
-    white-space: pre-wrap; /*防止一行太长*/
+    white-space: pre-wrap;
 }
 .post pre{
-    font-size:.8rem;  /*设置代码字体大小*/
-    font-family: Consolas,"Liberation Mono",Courier,monospace;/*设置代码字体类型*/
+    font-size:.8rem;
+    font-family: Consolas,"Liberation Mono",Courier,monospace;
 }
 .post pre code{
-    font-size:.8rem;  /*设置代码字体大小*/
+    font-size:.8rem;
     font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
     border: none;
     line-height: 170%;
 }
 .post code {
-  /*font-size: 18px;原主题定义的代码字体大小*/
   font-size: 90%;
   background-color: #F4F4F4;
   border: 1px solid #eee;
@@ -587,7 +520,6 @@ img[alt=drawing] { width: 60%; }
   border-radius: 4px;
 }
 
-/* terminal */
 .post pre.terminal {
   border: 1px solid #000;
   background-color: #333;
@@ -628,7 +560,6 @@ figure .two-third {
   margin-bottom: 0.3em;
   font-style: italic;
   margin-top: 4em;
-  /*margin-bottom: 6em;*/
   border: 1px solid #eee;
   border-radius: 5px;
   padding: 0 1em;
@@ -664,7 +595,6 @@ code.has-jax {font: inherit;
 
 .post > .highlight .lineno { color: #ccc; display:inline-block; padding: 0 5px; border-right:1px solid #ccc; }
 .post > .highlight pre code { display: block; white-space: pre; overflow-x: auto; word-wrap: normal; }
-
 
 .highlight  { background: #ffffff; }
 .highlight .c { color: #999988; font-style: italic } /* Comment */
