@@ -50,7 +50,10 @@ description: Max Young, an software engineer focus on computer graphics.
   <p>latest articles:</p>
   <blockquote>
     <ul>
-      {% for post in site.posts limit: 7 %}
+      <li class="post-list-in-index" target="_blank">
+      <small class="post-list-date-in-index">07 May 2022</small><a  href="https://maxyoung.fun/cpp_study/#/docs/chapter_9_sequential_containers/9.6.container_adaptors">C++ Container Adaptors</a>
+      </li>
+      {% for post in site.posts limit: 6 %}
       <li class="post-list-in-index">
       <small class="post-list-date-in-index">{{ post.date | date_to_string }}</small><a  href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
       </li>
