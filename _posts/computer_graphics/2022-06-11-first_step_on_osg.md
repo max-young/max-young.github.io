@@ -90,3 +90,8 @@ $ ./main
 ```
 
 我看很多文章里都是OSG+QT的GUI环境配置, 我对QT不熟, 对GUI操作也不太感冒, 之后可能换到Windows环境下再试试.
+
+#### References
+
+<https://blog.csdn.net/afgqwjgfjqwgfg/article/details/116296423>  
+<https://menyifan.com/2017/05/08/Mac_OSG_Xcode/>
