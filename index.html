@@ -45,15 +45,18 @@ description: Max Young, an software engineer focus on computer graphics.
   <p>latest articles:</p>
   <blockquote>
     <ul>
+
+      <li class="post-list-in-index">
+      <small class="post-list-date-in-index">11 June 2022</small>
+      <a href="https://maxyoung.fun/cpp_study/#/docs/chapter_2_viariables_and_basic_types/2.5.dealing_with_types" target="_blank">C++ Dealing with Types</a>
+      </li>
+
       {% for post in site.posts limit: 6 %}
       <li class="post-list-in-index">
       <small class="post-list-date-in-index">{{ post.date | date_to_string }}</small><a  href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
       </li>
       {% endfor %}
-      <li class="post-list-in-index">
-      <small class="post-list-date-in-index">07 May 2022</small>
-      <a href="https://maxyoung.fun/cpp_study/#/docs/chapter_9_sequential_containers/9.6.container_adaptors" target="_blank">C++ Container Adaptors</a>
-      </li>
+
     </ul>
   </blockquote>
 </section>
