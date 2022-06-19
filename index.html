@@ -47,11 +47,16 @@ description: Max Young, an software engineer focus on computer graphics.
     <ul>
 
       <li class="post-list-in-index">
+      <small class="post-list-date-in-index">19 Jun 2022</small>
+      <a href="https://maxyoung.fun/algorithm/#/docs/design_and_analysis_of_lgorithms/2_fundamentals_of_the_analysis_of_algorithm_efficiency/2.3_mathematical_analysis_of_nonrecursive_algorithms" target="_blank">mathematical analysis of nonrecursive algorithms</a>
+      </li>
+
+      <li class="post-list-in-index">
       <small class="post-list-date-in-index">16 Jun 2022</small>
       <a href="https://maxyoung.fun/cpp_study/#/docs/chapter_15_object_oriented_programming/15.3.virtual_functions" target="_blank">C++ Virtual Function</a>
       </li>
 
-      {% for post in site.posts limit: 4 %}
+      {% for post in site.posts limit: 3 %}
       <li class="post-list-in-index">
       <small class="post-list-date-in-index">{{ post.date | date_to_string }}</small><a  href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
       </li>
