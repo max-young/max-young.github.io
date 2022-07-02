@@ -46,6 +46,12 @@ description: Max Young, an software engineer focus on computer graphics.
   <blockquote>
     <ul>
 
+      {% for post in site.posts limit: 2 %}
+      <li class="post-list-in-index">
+      <small class="post-list-date-in-index">{{ post.date | date_to_string }}</small><a  href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+      </li>
+      {% endfor %}
+
       <li class="post-list-in-index">
       <small class="post-list-date-in-index">25 Jun 2022</small>
       <a href="https://maxyoung.fun/algorithm/#/docs/design_and_analysis_of_lgorithms/2_fundamentals_of_the_analysis_of_algorithm_efficiency/2.5_computing_the_nth_fibonacci_number" target="_blank">compute the nth fibonacci number</a>
@@ -65,12 +71,6 @@ description: Max Young, an software engineer focus on computer graphics.
       <small class="post-list-date-in-index">16 Jun 2022</small>
       <a href="https://maxyoung.fun/cpp_study/#/docs/chapter_15_object_oriented_programming/15.3.virtual_functions" target="_blank">C++ Virtual Function</a>
       </li>
-
-      {% for post in site.posts limit: 2 %}
-      <li class="post-list-in-index">
-      <small class="post-list-date-in-index">{{ post.date | date_to_string }}</small><a  href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-      </li>
-      {% endfor %}
 
       <li class="post-list-in-index">
       <small class="post-list-date-in-index">11 Jun 2022</small>
