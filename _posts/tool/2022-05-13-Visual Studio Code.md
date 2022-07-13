@@ -88,9 +88,15 @@ tags:
 <a id="markdown-自定义配置" name="自定义配置"></a>
 ### 自定义配置
 
+- 下边栏panel的最大化和还原快捷键设置  
+  找到这个操作的英文名称: 鼠标放置在下边栏panel的最大化按钮上, 就会显示: Maximize Panel Size  
+  Ctrl/Command + shift + p搜索这个操作的英文名称
+  点击配置按钮, 在新开页面里即可自定义快捷键, 根据需要配置  
+  其他快捷键的配置都是这个步骤
+
 - 切换窗口快捷键 switch window shortcut  
-command + shift + p 搜索quick switch window
-点击配置按钮, 在新开页面里即可自定义快捷键, 我配置的是alt + tab
+  command + shift + p 搜索quick switch window  
+  点击配置按钮, 在新开页面里即可自定义快捷键, 我配置的是alt + tab
 
 - 不同文件类型的tab size设置  
   例如python的tab size是4, 我们在settings.json里加上:  
