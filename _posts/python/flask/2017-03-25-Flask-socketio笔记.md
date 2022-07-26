@@ -1,12 +1,8 @@
 ---
 layout:     post
 title:      "Flask-socketio笔记"
-subtitle:   ""
 date:       2017-03-25 11:29:00
-author:     "alvy"
-header-img: "img/post-bg-database.jpg"
-header-mask: 0.3
-catalog:    true
+categories: Python
 tags:
     - Python
     - Flask
