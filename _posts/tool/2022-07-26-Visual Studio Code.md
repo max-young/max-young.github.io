@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "Visual Studio Code"
-date:       2022-05-13
+date:       2022-07-26
 categories: Tools
 tags:
     - VSCode
@@ -31,6 +31,10 @@ tags:
     2. 然后File-Add Folder to Workspace打开另外一个folder  
     这样我们就把两个folder组织在一个workspace里了, 我们还可以保存此workspace, 下次就直接打开这个workspace即可, 不用重复上面的操作  
     同时, 我们可以对workspace进行配置, 而不用对每个folder(repo)进行配置
+
+- 比较两个文件的差异
+  
+  在terminal里执行`code --diff [path to file 1] [path to file 2]`
 
 <a id="markdown-快捷键" name="快捷键"></a>
 ### 快捷键
