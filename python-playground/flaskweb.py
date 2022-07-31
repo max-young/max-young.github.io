@@ -25,7 +25,16 @@ def start(token):
     print("22222")
     time.sleep(2)
     asyncio.run(hello("开始传送脚本......2222", token))
-    
+    import subprocess
+    with subprocess.Popen(['npx', 'create-react-app', 'react-test'],
+                          stdout=subprocess.PIPE,
+                          bufsize=1,
+                          universal_newlines=True) as process:
+        for line in process.stdout:
+            line = line.rstrip()
+            print(f"line = {line}")
+            asyncio.run(hello(line, token))
+
 
 async def hello(message, token):
     async with websockets.connect("ws://localhost:8001") as websocket:
