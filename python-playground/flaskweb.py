@@ -35,6 +35,12 @@ def start(token):
             print(f"line = {line}")
             asyncio.run(hello(line, token))
 
+    process = subprocess.Popen([ 'rsync', '-avz', '--progress', source, destination],
+                           stdout=subprocess.PIPE)
+    while process.poll() is None:
+        line = process.stdout.readline()
+        asyncio.run(hello(line, token))
+
 
 async def hello(message, token):
     async with websockets.connect("ws://localhost:8001") as websocket:
