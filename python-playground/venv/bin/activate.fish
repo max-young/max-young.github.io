@@ -29,7 +29,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/Users/yangle/Documents/max-young.github.io/python-playground/venv"
+set -gx VIRTUAL_ENV "/home/yangle/Documents/max/max-young.github.io/python-playground/venv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
