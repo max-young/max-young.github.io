@@ -74,7 +74,7 @@ that's it. 等等, 我们看函数里的这一条语句: `version_name = context
 如果修改name则没有问题, 创建时因为name是必填的, 所以也没有问题.  
 怎么解决? 如何获取已存在但是不需要修改的name值, context能获得吗? 很遗憾, 我尝试了很多方法, 但是都没有解决.  
 这条路好像不通, 看看有没有其他方法, 中间的艰辛略去不表.  
-最后的解决方案是, 采用sqlalchemy的event listen方法:
+最后的解决方案是, 采用[sqlalchemy的event listen](https://docs.sqlalchemy.org/en/14/core/event.html#modifiers)方法:
 ```Python
 def version_name_value(version_name):
     """计算版本名称的值用于排序
