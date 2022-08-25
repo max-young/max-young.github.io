@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "shell script"
-date: 2022-08-24
+date: 2022-08-25
 categories: Linux
 tags:
   - shell
