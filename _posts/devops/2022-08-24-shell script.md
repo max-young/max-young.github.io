@@ -7,6 +7,17 @@ tags:
   - shell
 ---
 
+- [常用命令](#常用命令)
+  - [shift](#shift)
+  - [local](#local)
+  - [echo](#echo)
+- [运算符](#运算符)
+  - [关系运算符](#关系运算符)
+  - [文件测试运算符](#文件测试运算符)
+  - [字符串运算符](#字符串运算符)
+
+### 常用命令
+
 #### shift
 
 删除参数
@@ -34,3 +45,62 @@ done
 ```
 
 从上可知`shift(shift 1)`命令每执行一次, 变量的个数`$#`减一(之前的`$1`变量被销毁, 之后的`$2`就变成了`$1`), 而变量值提前一位.
+
+#### local
+
+定义局部变量, 默认是 global 变量, 加上 local 就是局部变量, 可以在函数里定义 local
+
+```bash
+function main() {
+  local a="hello world"
+  echo $a
+}
+
+main     # 结果是hello world
+echo $a  # 这里打印不出来, 如果去掉local就可以打印出来
+```
+
+#### echo
+
+echo 除了打印, 还能代表返回值:
+
+```bash
+function main() {
+  local a="hello world"
+  echo $a
+  return 0
+}
+
+b=$(main)
+echo $b # 这里输出是hello world, 而不是0
+```
+
+### 运算符
+
+#### 关系运算符
+
+- -lt 是否小于
+
+#### 文件测试运算符
+
+- -f file 检测文件是否是普通文件(既不是目录，也不是设备文件), 如果是, 则返回 true.
+  ```bash
+  if [ -f $file ]
+  then
+   echo "文件为普通文件"
+  else
+   echo "文件为特殊文件"
+  fi
+  ```
+
+#### 字符串运算符
+
+- -z 检查字符串长度是否为 0, 为 0 则返回为 true
+  ```bash
+  if [ -z $a ]
+  then
+   echo "-z $a : 字符串长度为 0"
+  else
+   echo "-z $a : 字符串长度不为 0"
+  fi
+  ```
