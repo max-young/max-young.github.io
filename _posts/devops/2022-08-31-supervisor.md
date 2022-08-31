@@ -55,4 +55,4 @@ supervisorctl stop surge:*
 
 ##### 其他问题
 
-如果一台服务器上要启动多个supervisord, 那么各个supervisord的配置文件需要配置不一样的file和pidfile
+如果一台服务器上要启动多个supervisord, 那么各个supervisord的配置文件需要配置不一样的file和pidfile.
