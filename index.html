@@ -46,7 +46,7 @@ description: Max Young, an software engineer focus on computer graphics.
   <blockquote>
     <ul>
 
-      {% for post in site.posts limit: 7 %}
+      {% for post in site.posts limit: 10 %}
       <li class="post-list-in-index">
       <small class="post-list-date-in-index">{{ post.date | date_to_string }}</small><a  href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
       </li>
