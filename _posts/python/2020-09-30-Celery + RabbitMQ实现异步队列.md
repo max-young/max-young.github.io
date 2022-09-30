@@ -130,3 +130,27 @@ Darwin-17.7.0-x86_64-i386-64bit 2019-06-27 11:21:57
 
 ### 测试
 测试采用mock的方式, task函数单独测试, 参照官方文档<https://docs.celeryproject.org/en/latest/userguide/testing.html>
+
+### 其他
+
+#### 自定义task id
+
+```python
+add.apply_async(args, kwargs, task_id=i)
+add.apply_async((1, 4), task_id=i)
+```
+如果id重复, 会怎么样, 待实验
+
+#### 根据id获取task
+
+```python
+from celery.result import AsyncResult
+from cel.tasks import app
+
+res = AsyncResult('432890aa-4f02-437d-aaca-1999b70efe8d',app=app)
+res.state # 如果是pending则代表不存在
+```
+
+#### 前端获取进度
+
+<https://buildwithdjango.com/blog/post/celery-progress-bars/>
