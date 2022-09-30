@@ -18,6 +18,10 @@ tags:
 - [启动Celery worker](#启动celery-worker)
 - [触发任务](#触发任务)
 - [测试](#测试)
+- [其他](#其他)
+  - [自定义task id](#自定义task-id)
+  - [根据id获取task](#根据id获取task)
+  - [前端获取进度](#前端获取进度)
 
 
 ### 参考资料
