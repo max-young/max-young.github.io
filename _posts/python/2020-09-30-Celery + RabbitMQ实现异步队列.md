@@ -2,7 +2,7 @@
 layout:     post
 title:      "Celery + RabbitMQ实现异步队列"
 subtitle:   ""
-date:       2020-01-07
+date:       2022-09-30
 categories: Backend
 tags:
     - Python
@@ -26,9 +26,7 @@ tags:
 
 ### 启动broker
 
-- 常规启动RabbitMQ
-
-    环境：macOS10.13
+#### 环境：macOS10.13
     ```
     $ brew install rabbitmq
     ==> Summary
@@ -43,6 +41,12 @@ tags:
     # 守护进程启动服务
     $ sudo rabbitmq-server -detached
     ```
+#### Ubuntu
+
+```shell
+sudo apt-get install rabbitmq-server
+```
+安装之后就自动启动了
 
 ### 安装Celery
 
