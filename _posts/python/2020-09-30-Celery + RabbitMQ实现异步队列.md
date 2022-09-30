@@ -11,9 +11,11 @@ tags:
 
 - [参考资料](#参考资料)
 - [启动broker](#启动broker)
-- [安装Celery](#安装Celery)
+  - [环境：macOS10.13](#环境macos1013)
+  - [Ubuntu](#ubuntu)
+- [安装Celery](#安装celery)
 - [Celery应用](#celery应用)
-- [启动celery worker](#启动celery-worker)
+- [启动Celery worker](#启动celery-worker)
 - [触发任务](#触发任务)
 - [测试](#测试)
 
