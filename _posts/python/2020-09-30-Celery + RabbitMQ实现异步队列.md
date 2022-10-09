@@ -33,26 +33,32 @@ tags:
 ### 启动broker
 
 #### 环境：macOS10.13
-    ```
-    $ brew install rabbitmq
-    ==> Summary
-    🍺  /usr/local/Cellar/rabbitmq/3.7.4: 232 files, 12.6MB, built in 2 seconds
-    ```
-    可以看到安装的路径是`/usr/local/Cellar/rabbitmq/3.7.4`，需要将此路径加入到环境变量里，这样才能直接输入rabbitmq-server启动，而不用输入全部路径，将下面的内容添加到`.zshrc`里（注：不用的shell不同的文件，这里以zsh为例）：
-    ```
-    PATH=$PATH:/usr/local/Cellar/rabbitmq/3.7.4/sbin
-    ```
-    启动
-    ```shell
-    # 守护进程启动服务
-    $ sudo rabbitmq-server -detached
-    ```
+
+```
+$ brew install rabbitmq
+==> Summary
+🍺  /usr/local/Cellar/rabbitmq/3.7.4: 232 files, 12.6MB, built in 2 seconds
+```
+可以看到安装的路径是`/usr/local/Cellar/rabbitmq/3.7.4`，需要将此路径加入到环境变量里，这样才能直接输入rabbitmq-server启动，而不用输入全部路径，将下面的内容添加到`.zshrc`里（注：不用的shell不同的文件，这里以zsh为例）：
+```
+PATH=$PATH:/usr/local/Cellar/rabbitmq/3.7.4/sbin
+```
+启动
+```shell
+# 守护进程启动服务
+$ sudo rabbitmq-server -detached
+```
 #### Ubuntu
 
 ```shell
 sudo apt-get install rabbitmq-server
 ```
-安装之后就自动启动了
+安装之后就自动启动了  
+可以用这个命令来看状态
+```shell
+systemctl status rabbitmq-server
+```
+也可以停止和重启
 
 ### 安装Celery
 
@@ -143,17 +149,31 @@ Darwin-17.7.0-x86_64-i386-64bit 2019-06-27 11:21:57
 add.apply_async(args, kwargs, task_id=i)
 add.apply_async((1, 4), task_id=i)
 ```
-如果id重复, 会怎么样, 待实验
-
 #### 根据id获取task
 
 ```python
 from celery.result import AsyncResult
 from cel.tasks import app
 
-res = AsyncResult('432890aa-4f02-437d-aaca-1999b70efe8d',app=app)
-res.state # 如果是pending则代表不存在
+task = app.AsyncResult('432890aa-4f02-437d-aaca-1999b70efe8d')
+task.state
 ```
+
+#### 更新state
+
+<https://docs.celeryq.dev/en/latest/userguide/tasks.html#custom-states>
+
+根据id获取的task, 如果这个task不存在, task的state是PENDING, 如果task还在执行中, state也是PENDING, 如何区分呢?  
+我们可以更新task的state:
+```python
+@celery.task(bind=True)
+def push_version(self, token, task_id, version_name, car_id):
+    """往车上推送版本
+    """
+    self.update_state(state="PROGRESS", meta={"current": 1, "total": 100})
+    return
+```
+meta信息可以通过task.result获取
 
 #### 前端获取进度
 
