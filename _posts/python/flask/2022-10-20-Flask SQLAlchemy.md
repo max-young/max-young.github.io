@@ -1,13 +1,15 @@
 ---
 layout:     post
 title:      "Flask SQLAlchemy"
-date:       2022-10-09
+date:       2022-10-20
 categories: Python
 tags:
     - Flask
     - Database
     - SQLAlchemy
 ---
+
+##### lost connection
 
 在flask项目里有时候会碰到这样的现象:
 1. lost connection to MySQL server
@@ -25,3 +27,10 @@ SQLALCHEMY_ENGINE_OPTIONS={
 
 lost connection和pool_pre_ping相关  
 server has gone away和pool_recycle相关, 相当于一个小时请求一次mysql server看看server是否正常
+
+##### NameError: name '_mysql' is not defined
+
+对于Ubuntu来是, 需要安装
+```shell
+sudo apt-get install libmysqlclient-dev
+```
