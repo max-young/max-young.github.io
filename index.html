@@ -8,39 +8,46 @@ description: Max Young, an software engineer focus on computer graphics.
 <section class="about-me inner">
 
   <blockquote>
-  <p>
-  虽不能至, 心向往之...</br>
-  </p>
+    <p>
+      虽不能至, 心向往之...</br>
+    </p>
   </blockquote>
 
   <p>
-  Hi, I am <span itemprop="name">Max Young / 杨乐</span>, a software engineer.
+    Hi, I am <span itemprop="name">Max Young / 杨乐</span>, a software engineer.
   </p>
 
   <p>
-  I'm focusing on computer graphics and familiar with <strong>C++</strong>, <strong>OpenGL</strong>, GLSL etc. <br>
-  more infomation on my websites: <br>
-  <i class="fa fa-hand-o-right" aria-hidden="true" style="color: black"></i> <a href="/computer_graphics/" target="_blank">Computer Graphics Notes</a> <br>
-  <i class="fa fa-hand-o-right" aria-hidden="true" style="color: black"></i> <a href="/cpp_study" target="_blank">C++ Programming Notes</a>
+    I have a lot of experience on web application development as a <strong>full stack engineer</strong>. <br>
+    My tools: <br />
+  <ul>
+    <li><strong>Python</strong>(Django, Flask), Golang(Gin)</li>
+    <li><strong>React</strong>, JavaScript, TypeScript, Vue, JQuery... </li>
+    <li>MySQL, MongoDB </li>
+    <li>gunicorn, nginx, supervisor</li>
+  </ul>
   </p>
 
   <p>
-  And I have a lot of experience on web application development as a <strong>full stack engineer</strong>. <br>
-  I'm familiar with backend, database, frontend, devops etc.<br>
-  My tools: <strong>Python</strong>(Django, Flask), Golang(Gin), MySQL, MongoDB, <br>
-  and html, JavaScript(React, Vue, JQuery)...
+    I study computer graphics in my spare time, such as <strong>C++</strong>, <strong>OpenGL</strong>, GLSL etc. <br>
+    more infomation on my websites: <br>
+    <i class="fa fa-hand-o-right" aria-hidden="true" style="color: black"></i> <a href="/computer_graphics/"
+      target="_blank">Computer Graphics Notes</a> <br>
+    <i class="fa fa-hand-o-right" aria-hidden="true" style="color: black"></i> <a href="/cpp_study" target="_blank">C++
+      Programming Notes</a>
   </p>
 
   <p>
-    Here's my resume: <a href="https://github.com/max-young/resume/raw/master/max-resume-en.pdf">english</a> <a href="https://github.com/max-young/resume/raw/master/max-resume.pdf">中文</a>, 
-    contact me via  
+    Here's my resume: <a href="https://github.com/max-young/resume/raw/master/max-resume-en.pdf">english</a> <a
+      href="https://github.com/max-young/resume/raw/master/max-resume.pdf">中文</a>,
+    contact me via
     <a class="thumb" href="#">
       wechat
-			<span>
-			<img src="images/wechat.jpeg" alt="" style="width: 70%">
-			</span>
+      <span>
+        <img src="images/wechat.jpeg" alt="" style="width: 70%">
+      </span>
     </a>
-     or Email: 18601036905@163.com
+    or Email: 18601036905@163.com
   </p>
   <p>latest articles:</p>
   <blockquote>
@@ -48,7 +55,8 @@ description: Max Young, an software engineer focus on computer graphics.
 
       {% for post in site.posts limit: 10 %}
       <li class="post-list-in-index">
-      <small class="post-list-date-in-index">{{ post.date | date_to_string }}</small><a  href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+        <small class="post-list-date-in-index">{{ post.date | date_to_string }}</small><a
+          href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
       </li>
       {% endfor %}
 
