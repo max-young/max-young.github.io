@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "shell script"
-date: 2022-08-26
+date: 2022-12-05
 categories: Linux
 tags:
   - shell
@@ -18,6 +18,7 @@ tags:
 - [语法](#语法)
   - [if else](#if-else)
   - [获取命令的输出](#获取命令的输出)
+  - [定义 dict 然后 loop](#定义-dict-然后-loop)
 
 ### 常用命令
 
@@ -99,6 +100,7 @@ echo $b # 这里输出是hello world, 而不是0
 #### 字符串运算符
 
 - -z 检查字符串长度是否为 0, 为 0 则返回为 true
+
   ```bash
   if [ -z $a ]
   then
@@ -113,19 +115,53 @@ echo $b # 这里输出是hello world, 而不是0
 ### 语法
 
 #### if else
+
 ```bash
 if [ a == b ]; then
   echo "a == b"
 fi
 ```
+
 或者不要分号, 把`then`换行
+
 ```bash
 if [ a == b ]
 then
   echo "a == b"
 fi
 ```
+
 #### 获取命令的输出
+
 ```bash
 out=$([command])
+```
+
+#### 定义 dict 然后 loop
+
+```bash
+
+declare -A maps=(
+    ["Antingxinzhen"]="antingxinzhen_v1"
+    ["Hefei"]="hefei_v1"
+    ["Huanbaoyuan"]="huanbaoyuan_v13"
+    ["Shenzhen"]="shenzhen_v1"
+)
+for map in "${!maps[@]}";
+do
+    grep "$map" $2
+    if [ $? == 0 ]; then
+        declare new_map_dir="${maps[$map]}"
+        echo $new_map_dir
+        echo $MAPDIR_NAME
+        if [[ $new_map_dir != $MAPDIR_NAME ]]; then
+            echo "map dir name is $MAPDIR_NAME, change it to $new_map_dir"
+            /home/apollo/apollo/scripts/dv_run.sh stop $1
+            sleep 5
+            export MAPDIR_NAME=$new_map_dir
+        fi
+        break
+    fi
+done
+echo $MAPDIR_NAME
 ```
