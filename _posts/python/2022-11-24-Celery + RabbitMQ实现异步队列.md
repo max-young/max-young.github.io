@@ -17,6 +17,7 @@ tags:
 - [安装 Celery](#安装-celery)
 - [Celery 应用](#celery-应用)
 - [启动 Celery worker](#启动-celery-worker)
+- [启动 celery beat](#启动-celery-beat)
 - [触发任务](#触发任务)
 - [测试](#测试)
 - [其他](#其他)
