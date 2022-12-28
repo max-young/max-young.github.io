@@ -1,10 +1,10 @@
 ---
-layout:     post
-title:      "websocket"
-date:       2022-08-31
+layout: post
+title: "websocket"
+date: 2022-12-28
 categories: Python
 tags:
-    - Python
+  - Python
 ---
 
 - [server](#server)
@@ -80,6 +80,7 @@ async def main():
 
 asyncio.run(main())
 ```
+
 ```bash
 python server.py
 ```
@@ -101,16 +102,22 @@ async def send_progress(event: dict):
             "ws://localhost:{}".format(WEBSOCKET_PORT)) as websocket:
         await websocket.send(json.dumps(event))
 ```
+
 ```python
 import asyncio
 from websocket_client import send_progress
 asyncio.run(send_progress({"type": "rate", "key": progress_token, "message": line}))
 ```
 
+备注: `asyncio.run()`可能会报错: `RuntimeError: asyncio.run() cannot be called from a running event loop`  
+解决办法参照: <https://maxyoung.fun/blog/Python-asyncio.html#runtimeerror-asynciorun-cannot-be-called-from-a-running-event-loop>
+
 ##### js client
 
 ```javascript
-const websocket = new WebSocket("ws://" + window.location.hostname + ":{{websocket_port}}/");
+const websocket = new WebSocket(
+  "ws://" + window.location.hostname + ":{{websocket_port}}/"
+);
 websocket.addEventListener("open", () => {
   let event = { type: "client" };
   websocket.send(JSON.stringify(event));
@@ -124,37 +131,58 @@ websocket.addEventListener("message", ({ data }) => {
       window.progressToken = token;
       switch (window.fileType) {
         case "simple":
-          if ($("#carID").val() && $("#caseTime").val() && $("#beforeSeconds").val() && $("#afterSeconds").val()) {
+          if (
+            $("#carID").val() &&
+            $("#caseTime").val() &&
+            $("#beforeSeconds").val() &&
+            $("#afterSeconds").val()
+          ) {
             $("#play").click();
           }
           break;
         case "complete":
-          if ($("#carIDCompleteFile").val() && $("#caseTimeCompleteFile").val()) {
+          if (
+            $("#carIDCompleteFile").val() &&
+            $("#caseTimeCompleteFile").val()
+          ) {
             $("#playCompleteFile").click();
           }
           break;
       }
-      break
+      break;
     case "progress":
-      $('#message').append("<span>" + event.message + '<span></br>');
+      $("#message").append("<span>" + event.message + "<span></br>");
       current_type = "progress";
       break;
     case "rate":
       if (current_type == "rate") {
         $("#message span").last().text(event.message);
       } else {
-        $('#message').append("<span>" + event.message + '</span></br>');
+        $("#message").append("<span>" + event.message + "</span></br>");
         current_type = "rate";
       }
       break;
     case "play":
       $("#download-input").val("rsync -avPz dat102:" + event.data_path + " .");
-      let playUrl = window.location.protocol + "//" + window.location.hostname + ":" + event.message;
-      let iframe = '<iframe id="dv-play" class="w-100 h-100" src="' + playUrl + '"></iframe>'
+      let playUrl =
+        window.location.protocol +
+        "//" +
+        window.location.hostname +
+        ":" +
+        event.message;
+      let iframe =
+        '<iframe id="dv-play" class="w-100 h-100" src="' +
+        playUrl +
+        '"></iframe>';
       $("#screen").html(iframe);
       break;
     case "control":
-      let shellUrl = window.location.protocol + "//" + window.location.hostname + ":" + event.message;
+      let shellUrl =
+        window.location.protocol +
+        "//" +
+        window.location.hostname +
+        ":" +
+        event.message;
       $("#shell").attr("src", shellUrl);
       $("#shell").focus();
       break;
@@ -162,4 +190,4 @@ websocket.addEventListener("message", ({ data }) => {
       throw new Error(`Unsupported event type: ${event.type}.`);
   }
 });
-``` 
+```

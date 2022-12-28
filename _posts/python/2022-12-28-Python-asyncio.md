@@ -8,6 +8,20 @@ tags:
   - Python
 ---
 
+- [asyncio 名词解释](#asyncio-名词解释)
+- [asyncio 的基本用法:](#asyncio-的基本用法)
+- [其他](#其他)
+  - [RuntimeError: asyncio.run() cannot be called from a running event loop](#runtimeerror-asynciorun-cannot-be-called-from-a-running-event-loop)
+
+#### asyncio 名词解释
+
+asyncio 能实现 concurrent, 在一个线程里交替执行任务, 不用等一个任务完成才能执行另外一个任务, 所以特别适用于 io 高的场景
+
+event loop: 事件循环, 用来调度协程的执行, 一个线程只能有一个事件循环
+
+#### asyncio 的基本用法
+
+以实际例子来说明:
 场景是这样的:\
 我需要导出合同数据的 excel 文件,合同有一项数据叫"优惠分摊比",需要从另外一个微服务来获取\
 如果我循环从这个微服务来获取,每次请求的耗时在 0.5 秒左右,如果我要导出一百条合同数据,那么请求的时间就需要 0.5s\*100=50s 的时间,再加上其他写入 excel 的时间,耗时太久,用户体验很差,也会超时\
@@ -63,4 +77,32 @@ def contract_list_excel(contract_instances):
     for contract_instance in contract_instances:
         ...
     return wb
+```
+
+#### 其他
+
+##### RuntimeError: asyncio.run() cannot be called from a running event loop
+
+```python
+import asyncio
+
+async def main():
+    print('hello')
+    await asyncio.sleep(1)
+    print('world')
+
+asyncio.run(main())
+```
+
+[`asyncio.run()`](https://docs.python.org/3.9/library/asyncio-task.html#asyncio.run)执行`main()`, `main`用`async`定义, 所以它是一个 coroutine, `asyncio.run()`会创建一个 event loop, 执行 coroutine main, 完成之后会关闭 loop, 但是如果线程里已经有 loop 了, 那么就会报错: `RuntimeError: asyncio.run() cannot be called from a running event loop`  
+(这里需要报这个错误的简单实例, 我在实际项目中遇到了此错误, 但是场景太复杂)  
+如何解决这个问题呢? 思路是获取线程里的 event loop, 如果没有则创建, 然后用这个 loop 来执行 coroutine, 代码如下:
+
+```python
+try:
+    loop = asyncio.get_running_loop()
+except RuntimeError:
+    loop = asyncio.new_event_loop()
+task = loop.create_task(main())
+loop.run_until_complete(task)
 ```
