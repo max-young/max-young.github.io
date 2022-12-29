@@ -2,11 +2,12 @@
 layout: post
 title: "Celery + RabbitMQ实现异步队列"
 subtitle: ""
-date: 2022-11-24
+date: 2022-12-29
 categories: Backend
 tags:
   - Python
   - RabbbitMQ
+  - Celery
 ---
 
 - [参考资料](#参考资料)
