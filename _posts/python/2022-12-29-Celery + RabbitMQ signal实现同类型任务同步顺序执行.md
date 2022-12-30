@@ -1,7 +1,6 @@
 ---
 layout: post
-title: "2022-12-29-Celery + RabbitMQ signal实现同类型任务同步顺序执行"
-subtitle: ""
+title: "Celery + RabbitMQ signal实现同类型任务同步顺序执行"
 date: 2022-12-29
 categories: Backend
 tags:
@@ -65,6 +64,13 @@ celery -A tasks worker --loglevel=INFO --concurrency=10 --logfile=celery.log -D
 >>> from tasks import add
 >>> add.delay(1, 2)
 >>> add.delay(1, 3)
+```
+
+也可以用`apply_async`传递额外的参数
+
+```bash
+add.apply_async((2, 2), headers={"websocket": "bbb"})
+add.delay(2, 3)
 ```
 
 这两个函数的第一个参数相同, 按照上面的逻辑, 第一个 task 执行完之后, 第二个 task 才会执行  
