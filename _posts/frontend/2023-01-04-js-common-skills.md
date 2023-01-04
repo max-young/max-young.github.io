@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "js常用技巧"
-date: 2022-12-27
+title: "js common slills"
+date: 2023-01-04
 categories: Frontend
 tags:
   - JavaScript
@@ -16,6 +16,7 @@ tags:
   - [onfocus cursor end](#onfocus-cursor-end)
 - [event](#event)
   - [阻止父事件的发生](#阻止父事件的发生)
+- [double click event](#double-click-event)
 
 #### array
 
@@ -75,4 +76,14 @@ onFocus={(e) => {
 
 ```js
 e.stopPropagation();
+```
+
+#### double click event
+
+```js
+onClick={(e) => {
+  if (e.detail === 2) {
+    // double click
+  }
+}}
 ```
