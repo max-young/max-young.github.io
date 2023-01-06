@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "shell script"
-date: 2022-12-05
+date: 2023-01-06
 categories: Linux
 tags:
   - shell
@@ -19,6 +19,8 @@ tags:
   - [if else](#if-else)
   - [获取命令的输出](#获取命令的输出)
   - [定义 dict 然后 loop](#定义-dict-然后-loop)
+- [variables](#variables)
+  - [$BASH\_SOURCE](#bash_source)
 
 ### 常用命令
 
@@ -165,3 +167,15 @@ do
 done
 echo $MAPDIR_NAME
 ```
+
+### variables
+
+#### $BASH_SOURCE
+
+`$BASH_SOURCE` is bash file's directory:
+
+```sh
+cd `dirname ${BASH_SOURCE}` && pwd
+```
+
+this code can cd to bash file's directory and output directory path.
