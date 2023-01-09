@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Docker相关知识"
-date: 2023-01-06
+title: "my Docker manual"
+date: 2023-01-09
 categories: Docker
 tags:
   - Docker
@@ -10,6 +10,7 @@ tags:
 - [安装](#安装)
 - [参考资料](#参考资料)
 - [DEMO](#demo)
+- [Docker Achitecture](#docker-achitecture)
 - [基本命令](#基本命令)
 - [创建自定义镜像](#创建自定义镜像)
   - [Dockerfile](#dockerfile)
@@ -32,7 +33,8 @@ tags:
 - [Docker 编配](#docker-编配)
   - [Docker Compose](#docker-compose)
     - [简单的例子](#简单的例子)
-    - [docker-compose 的基本命令](#docker-compose-的基本命令)
+    - [docker compose mysql](#docker-compose-mysql)
+    - [docker compose 的基本命令](#docker-compose-的基本命令)
 
 # 初印象
 
@@ -77,13 +79,10 @@ image is a read-only template with instructions for creating a Docker container.
 
 ## 基本命令
 
-- 启动一个容器
-
-  举例如下：
+- start a container
 
   ```shell
-  # 以centos镜像启动一个容器
-  $ docker run --name my_container -it centos
+  $ docker run --name my_container --rm -it -v host_path:docker_path centos
   ```
 
   `--name`参数可以为容器命名，也可以不加此参数，命名必需唯一
@@ -91,7 +90,8 @@ image is a read-only template with instructions for creating a Docker container.
   `-i` support stdin, `-t` support tty bash
   如果本地没有 centos 镜像则会从官方镜像里下载，命令后面还可以加进入容器后的命令，比如`/bin/bash`，`ls`等等，看看效果吧
 
-  `-rm` means auto remove container after exit
+  `--rm` means auto remove container after exit
+  `-v` means mount host path to docker path, we can add third parameter to set permission, for example, `host_path:docker_path:ro` means host_path will mount in docker container docker_path, host_path is sync with docker_path, if we add a file in docker_path in docker container, it will also add in host_path. but we add `:ro`, we cann't do that, we can only read file in docker_path.
 
 - 查看容器
 
@@ -137,7 +137,9 @@ image is a read-only template with instructions for creating a Docker container.
   ```
 
 - 查看容器内的进程
+
   `$ docker top my_container`
+
 - 查看容器的统计信息
 
   `$ docker stats my_container1 my_container2`
@@ -148,8 +150,10 @@ image is a read-only template with instructions for creating a Docker container.
 
   - 在容器内运行后台任务  
     `$ docker exec -d my_container touch /etc/new_file`
-  - 在容器内运行交互命令  
-    `$ docker exec -it my_container bash`
+
+  - run command in container
+    `$ docker exec -it my_container <command>`
+    add `-it` args is better, if not, command standout will not display corrently: Inappropriate ioctl for device
 
 - 停止守护容器
 

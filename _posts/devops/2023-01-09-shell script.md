@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "shell script"
-date: 2023-01-06
+date: 2023-01-09
 categories: Linux
 tags:
   - shell
@@ -21,6 +21,7 @@ tags:
   - [定义 dict 然后 loop](#定义-dict-然后-loop)
 - [variables](#variables)
   - [$BASH\_SOURCE](#bash_source)
+  - [define variable from env and default value](#define-variable-from-env-and-default-value)
 
 ### 常用命令
 
@@ -179,3 +180,21 @@ cd `dirname ${BASH_SOURCE}` && pwd
 ```
 
 this code can cd to bash file's directory and output directory path.
+
+#### define variable from env and default value
+
+we can define a variable from env, if env value is not exist, we can use default value.
+
+```sh
+my_var=${ENV_VALUE:-default_value}
+```
+
+if not ENV_VALUE, then my_var is default_value
+
+if we want sign a value to ENV_VALUE, we can use:
+
+```sh
+: ${ENV_VALUE:=default_value}
+```
+
+colon is a command, it do nothing. if we not use colon punctuation, th command after it will error: command not found.
