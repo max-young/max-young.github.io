@@ -1,15 +1,18 @@
 ---
-layout:     post
-title:      "Python pip的安装与使用"
-subtitle:   ""
-date:       2017-03-31 11:53:00
-author:     "alvy"
-header-img: "img/post-bg-deer-hunter.jpg"
-header-mask: 0.3
-catalog:    true
+layout: post
+title: "Python PIP"
+date: 2023-01-10
+categories: Docker
 tags:
-    - Python
+  - Python
 ---
+
+- [参考资料：](#参考资料)
+- [环境](#环境)
+- [安装](#安装)
+- [错误解决办法](#错误解决办法)
+- [使用方法](#使用方法)
+- [使用中的问题](#使用中的问题)
 
 ##### 参考资料：
 
@@ -23,9 +26,9 @@ CentOS 7
 
 [How to Install Pip on CentOS 7](https://www.liquidweb.com/kb/how-to-install-pip-on-centos-7/)
 
-1. 添加EPEL仓库
+1. 添加 EPEL 仓库
 
-   Pip是Extra Packages for Enterprise Linux (EPEL)的一部分，EPEL是RHEL版本的非标准包仓库，安装命令是：
+   Pip 是 Extra Packages for Enterprise Linux (EPEL)的一部分，EPEL 是 RHEL 版本的非标准包仓库，安装命令是：
 
    ```shell
    $ yum install epel-release
@@ -73,7 +76,7 @@ $ pip install -r requirements.txt
   $ pip install Pillow
   ```
 
-- TypeError: __call__() takes exactly 2 arguments (1 given)
+- TypeError: **call**() takes exactly 2 arguments (1 given)
 
   参照：<http://stackoverflow.com/questions/42029545/pip-is-error-typeerror-call-takes-exactly-2-arguments-1-given>
 
@@ -129,9 +132,10 @@ $ pip install -r requirements.txt
 
   ```shell
   $ pip install pandas -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
-  或者
-  $ pip install pandas -i https://pypi.tuna.tsinghua.edu.cn/simple
   ```
 
-  ​
+  or
 
+  ```shell
+  $ pip install pandas -i https://pypi.tuna.tsinghua.edu.cn/simple
+  ```
