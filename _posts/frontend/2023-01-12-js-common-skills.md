@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "js common slills"
-date: 2023-01-04
+date: 2023-01-12
 categories: Frontend
 tags:
   - JavaScript
@@ -17,6 +17,7 @@ tags:
 - [event](#event)
   - [阻止父事件的发生](#阻止父事件的发生)
 - [double click event](#double-click-event)
+- [about CSS](#about-css)
 
 #### array
 
@@ -87,3 +88,12 @@ onClick={(e) => {
   }
 }}
 ```
+
+#### about CSS
+
+- get window size
+
+  ```js
+  window.innerWidth;
+  window.innerHeight;
+  ```
