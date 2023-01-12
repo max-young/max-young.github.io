@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "my Docker manual"
-date: 2023-01-09
+date: 2023-01-12
 categories: Docker
 tags:
   - Docker
@@ -77,7 +77,18 @@ tags:
 
 image is a read-only template with instructions for creating a Docker container.
 
-## 基本命令
+## command
+
+- build image
+
+  ```shell
+  $ docker build -t my_image .
+  ```
+
+  `.` means current path, `-t` means tag, we can use `my_image:tag` to tag image
+
+  if current path has a directory contain large fail, build will be very slow, message is: `build context to Docker daemon 3.314GB`.  
+  we can add `.dockerignore` file to ignore some directory
 
 - start a container
 
