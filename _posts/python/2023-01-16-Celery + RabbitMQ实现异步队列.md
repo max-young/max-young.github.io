@@ -2,7 +2,7 @@
 layout: post
 title: "Celery + RabbitMQ实现异步队列"
 subtitle: ""
-date: 2022-12-29
+date: 2023-01-16
 categories: Backend
 tags:
   - Python
@@ -17,7 +17,7 @@ tags:
   - [创建用户密码和 virtual host](#创建用户密码和-virtual-host)
 - [安装 Celery](#安装-celery)
 - [Celery 应用](#celery-应用)
-- [启动 Celery worker](#启动-celery-worker)
+- [start Celery worker](#start-celery-worker)
 - [启动 celery beat](#启动-celery-beat)
 - [触发任务](#触发任务)
 - [测试](#测试)
@@ -155,14 +155,15 @@ def add(x, y):
   print(x + y)
 ```
 
-### 启动 Celery worker
+### start Celery worker
 
 ```shell
-celery -A tasks worker --loglevel=info
+celery -A tasks worker --loglevel=info -f /tmp/surge/logs/celery-worker.log
 ```
 
 `-A`指的是 APP，就是当前的 tasks.py，如果在某个路径下, 则输入完整路径, 例如`mmflowproject.tasks`, worker 后面可以加-c 2 制定 worker 数量
-如果要守护进程运行, 需要用到 supervisord, 暂且不表
+如果要守护进程运行, 需要用到 supervisord, 暂且不表  
+`-f` is log file path
 
 > 在 Django 里面可以加上配置
 > `DJANGO_SETTINGS_MODULE='fsp.settings_env' celery -A fsp -l info worker`
