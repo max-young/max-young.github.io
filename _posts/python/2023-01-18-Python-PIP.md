@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Python PIP"
-date: 2023-01-10
-categories: Docker
+date: 2023-01-18
+categories: Python
 tags:
   - Python
 ---
@@ -138,4 +138,13 @@ $ pip install -r requirements.txt
 
   ```shell
   $ pip install pandas -i https://pypi.tuna.tsinghua.edu.cn/simple
+  ```
+
+- mysqlclient
+
+  error: `No matching distribution found for mysqlclient==2.1.1`  
+  need to install libmysqlclient-dev
+
+  ```bash
+  apt-get install libmysqlclient-dev
   ```

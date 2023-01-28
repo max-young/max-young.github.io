@@ -1,17 +1,17 @@
 ---
 layout: post
 title: "my Docker manual"
-date: 2023-01-12
+date: 2023-01-19
 categories: Docker
 tags:
   - Docker
 ---
 
-- [安装](#安装)
+- [install and upgrade](#install-and-upgrade)
 - [参考资料](#参考资料)
 - [DEMO](#demo)
 - [Docker Achitecture](#docker-achitecture)
-- [基本命令](#基本命令)
+- [command](#command)
 - [创建自定义镜像](#创建自定义镜像)
   - [Dockerfile](#dockerfile)
     - [基本格式](#基本格式)
@@ -35,12 +35,13 @@ tags:
     - [简单的例子](#简单的例子)
     - [docker compose mysql](#docker-compose-mysql)
     - [docker compose 的基本命令](#docker-compose-的基本命令)
+  - [Examples](#examples)
 
 # 初印象
 
-## 安装
+## install and upgrade
 
-<https://docs.docker.com/desktop/install/linux-install/>
+<https://docs.docker.com/engine/install/ubuntu/#install-docker-engine>
 
 ## 参考资料
 
@@ -174,9 +175,12 @@ image is a read-only template with instructions for creating a Docker container.
 
   `$ docker inspect my_container`
 
-- 删除容器
+- remove container
 
   `$ docker rm my_container`
+
+  remove all not running container:  
+  `docker rm $(docker ps --filter status=exited -q)`
 
 - 容器和主机之间复制文件
 
@@ -461,6 +465,12 @@ LABEL maintainer="SvenDowideit@home.org.au"
 
 定义端口去公开, 默认是 TCP 协议, 也可自定义 UDP
 
+expose multi ports:
+
+```docker
+EXPOSE port1 port2
+```
+
 #### ENV
 
 环境变量, 两种方式
@@ -644,6 +654,10 @@ input the password enter mysql client shell
 - 启动  
    `docker compose up`  
    可以加`-d`后台启动
+
+  run with build and recreate container and use new volume:  
+  `docker compose up --build --force-recreate -V`
+
 - 查看进程  
    `docker compose ps`
 - 查看日志  
@@ -651,3 +665,60 @@ input the password enter mysql client shell
    可以加`-f`实时查看
 - 停止服务  
    `docker compose stop`
+
+### Examples
+
+- Dockerfile with ubuntu and pyenv
+
+  ```dockerfile
+  FROM ubuntu:18.04
+  RUN apt update
+  RUN DEBIAN_FRONTEND=noninteractive apt install -y git build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev \
+  libsqlite3-dev curl llvm libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev \
+  libmysqlclient-dev
+  WORKDIR /
+
+  RUN git clone https://github.com/pyenv/pyenv.git .pyenv
+  ENV PYENV_ROOT="/.pyenv"
+  ENV PATH="$PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH"
+  RUN pyenv install 3.9.9
+  RUN pyenv global 3.9.9
+  ```
+
+- avoid pip install everytime
+
+  advance the pip process
+
+  ```dockerfile
+  COPY requirements.txt .
+  RUN pip install -r requirements.txt -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+  COPY . surge
+  WORKDIR /surge
+  ```
+
+- docker compose with container running && depend on another service
+
+  ```yaml
+  services:
+  backend:
+    image: surge-backend
+    build: .
+    container_name: surge-backend
+    stdin_open: true
+    tty: true
+    command: bash -c "./run.sh docker; bash"
+    depends_on:
+      database:
+        condition: service_healthy
+    links:
+      - database
+  database:
+    image: mysql:5.7.40
+    container_name: surge-database
+    environment:
+      - MYSQL_ROOT_PASSWORD=dockermysql
+    healthcheck:
+      test: "mysqladmin ping -h localhost --password=dockermysql"
+      timeout: 10s
+      retries: 5
+  ```
