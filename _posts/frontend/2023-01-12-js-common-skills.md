@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "js common slills"
+title: "js common skills"
 date: 2023-01-12
 categories: Frontend
 tags:
@@ -97,3 +97,9 @@ onClick={(e) => {
   window.innerWidth;
   window.innerHeight;
   ```
+
+#### change url without reload
+
+```js
+window.history.pushState({}, "", "/new-url");
+```
