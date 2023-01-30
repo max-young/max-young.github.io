@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Linux系统操作命令"
-date: 2023-01-19
+title: "Linux command"
+date: 2023-01-30
 categories: Linux
 tags:
   - CentOS
@@ -22,7 +22,7 @@ tags:
 - [文件相关](#文件相关)
   - [查找文件](#查找文件)
   - [file display](#file-display)
-  - [打包与解压](#打包与解压)
+  - [archive \& unarchive](#archive--unarchive)
   - [路径](#路径)
   - [磁盘](#磁盘)
   - [创建随机临时文件](#创建随机临时文件)
@@ -370,7 +370,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"date": "2022-08-03", "car
 
 <a id="markdown-打包与解压" name="打包与解压"></a>
 
-##### 打包与解压
+##### archive & unarchive
 
 - tar
 
@@ -378,7 +378,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"date": "2022-08-03", "car
 
   > The Linux “**tar**” stands for tape archive, which is used by large number of **Linux/Unix** system administrators to deal with tape drives backup. The tar command used to rip a collection of files and directories into highly compressed archive file commonly called **tarball** or **tar**, **gzip** and **bzip** in **Linux**. The tar is most widely used command to create compressed archive files and that can be moved easily from one disk to another disk or machine to machine.
 
-  - 参数解释
+  - args
 
     **x** – extract 释放
 
@@ -388,12 +388,14 @@ curl -X POST -H "Content-Type: application/json" -d '{"date": "2022-08-03", "car
 
     **C** – specified directory 指定路径
 
-  - 解压缩
+    **z** – if archive file is compressed with gzip, then use this argument
+
+  - unzip
 
     ```shell
-    # 解压到当前路径
+    # unzip to current path
     $ tar -xvf public_html-14-09-12.tar
-    # 解压到指定路径
+    # unzip to specified path
     $ tar -xvf public_html-14-09-12.tar -C /home/public_html/videos/
     ```
 
