@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Python PIP"
-date: 2023-01-18
+date: 2023-01-30
 categories: Python
 tags:
   - Python
@@ -12,17 +12,17 @@ tags:
 - [安装](#安装)
 - [错误解决办法](#错误解决办法)
 - [使用方法](#使用方法)
-- [使用中的问题](#使用中的问题)
+- [problems](#problems)
 
-##### 参考资料：
+#### 参考资料：
 
 <https://pip.pypa.io/en/stable/installing/#do-i-need-to-install-pip>
 
-##### 环境
+#### 环境
 
 CentOS 7
 
-##### 安装
+#### 安装
 
 [How to Install Pip on CentOS 7](https://www.liquidweb.com/kb/how-to-install-pip-on-centos-7/)
 
@@ -43,7 +43,7 @@ CentOS 7
    $ yum -y install python-pip
    ```
 
-##### 错误解决办法
+#### 错误解决办法
 
 1. UnicodeDecodeError
 
@@ -59,7 +59,7 @@ CentOS 7
    $ export LC_ALL="en_US.UTF-8"
    ```
 
-##### 使用方法
+#### 使用方法
 
 ```shell
 # 生成需求文件
@@ -68,7 +68,13 @@ $ pip freeze >requirements.txt
 $ pip install -r requirements.txt
 ```
 
-##### 使用中的问题
+#### problems
+
+- specify a version
+
+  ```shell
+  $ pip install "your python packet"==1.0.0
+  ```
 
 - PIL
 

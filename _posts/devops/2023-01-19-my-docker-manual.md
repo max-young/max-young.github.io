@@ -672,6 +672,12 @@ input the password enter mysql client shell
 
   ```dockerfile
   FROM ubuntu:18.04
+
+  # Fix timezone issue
+  # default UTC, change timezone to Asia/Shanghai
+  ENV TZ=Asia/Shanghai
+  RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
   RUN apt update
   RUN DEBIAN_FRONTEND=noninteractive apt install -y git build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev \
   libsqlite3-dev curl llvm libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev \
