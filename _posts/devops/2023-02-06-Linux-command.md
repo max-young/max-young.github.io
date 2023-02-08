@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Linux command"
-date: 2023-01-30
+date: 2023-02-06
 categories: Linux
 tags:
   - CentOS
@@ -19,7 +19,8 @@ tags:
   - [开通端口](#开通端口)
   - [下载文件](#下载文件)
   - [curl 请求](#curl-请求)
-- [文件相关](#文件相关)
+- [about file](#about-file)
+  - [mv file](#mv-file)
   - [查找文件](#查找文件)
   - [file display](#file-display)
   - [archive \& unarchive](#archive--unarchive)
@@ -46,7 +47,7 @@ tags:
 
 <a id="markdown-shell以及bash" name="shell以及bash"></a>
 
-#### shell 以及 bash
+### shell 以及 bash
 
 参考书：[Linux 命令行与 shell 脚本编程大全](https://book.douban.com/subject/11589828/)
 
@@ -63,11 +64,11 @@ tags:
 
 <a id="markdown-系统相关" name="系统相关"></a>
 
-#### 系统相关
+### 系统相关
 
 <a id="markdown-查看linux内核版本和centos版本" name="查看linux内核版本和centos版本"></a>
 
-##### 查看 Linux 内核版本和 CentOS 版本
+#### 查看 Linux 内核版本和 CentOS 版本
 
 1. 查看 CentOS 版本
 
@@ -128,7 +129,7 @@ tags:
 
 <a id="markdown-用户" name="用户"></a>
 
-##### 用户
+#### 用户
 
 - 显示用户
 
@@ -163,11 +164,11 @@ tags:
 
 <a id="markdown-网络与连接" name="网络与连接"></a>
 
-#### 网络与连接
+### 网络与连接
 
 <a id="markdown-ssh连接远程服务器" name="ssh连接远程服务器"></a>
 
-##### SSH 连接远程服务器
+#### SSH 连接远程服务器
 
 [How To Use SSH to Connect to a Remote Server in Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-use-ssh-to-connect-to-a-remote-server-in-ubuntu)
 
@@ -189,6 +190,12 @@ $ ssh root@123.45.12.145
 
 ```bash
 $ ssh-copy-id root@123.45.12.145
+```
+
+if we not have key, it will get `no identities found error`, because `ssh-copy-id` command is copy out host key to remote server, so we need generate key first:
+
+```bash
+ssh-keygen -t rsa
 ```
 
 登录密码很长，输入很麻烦，怎么办？我们可以编辑`~/.bashrc`，加入此登录命令的快捷命令，例如：
@@ -223,25 +230,38 @@ alias root_hulumei="ssh root@123.56.142.59"
   sudo apt-get install openssh-server
   ```
 
-- no identities found error
+- avoid host authenticity check
 
-  need generate ssh key:
+first ssh to remote server, it will ask you to confirm the authenticity of the host, you can use this command to avoid this check:
 
-  ```bash
-  ssh-keygen -t rsa
-  ```
+```shell
+ssh -o StrictHostKeyChecking=no
+```
+
+or you can add this line to `~/.ssh/config`:
+
+```shell
+Host car18
+    StrictHostKeyChecking no
+    UserKnownHostsFile=/dev/null
+    Hostname 103.61.153.140
+    Port 6018
+    User apollo
+```
 
 <a id="markdown-网络ip相关命令" name="网络ip相关命令"></a>
 
-##### 网络 IP 相关命令
+#### 网络 IP 相关命令
 
 参考资料：<http://www.cnblogs.com/kaiye/archive/2013/05/25/3099393.html>
 
-- 查看端口占用情况：
+- port occupation progress：
 
   ```shell
   $ lsof -i:<port>
   ```
+
+  sometimes progress is root, it will not show, so we need sudo to run this command.
 
 - 查看 localhost ip：
 
@@ -251,7 +271,7 @@ alias root_hulumei="ssh root@123.56.142.59"
 
 <a id="markdown-scp文件传输" name="scp文件传输"></a>
 
-##### SCP 文件传输
+#### SCP 文件传输
 
 安装(CentOS)：
 
@@ -263,7 +283,7 @@ $ yum -y install openssh-clients
 
 <a id="markdown-开通端口" name="开通端口"></a>
 
-##### 开通端口
+#### 开通端口
 
 Ubuntu
 
@@ -282,7 +302,7 @@ sudo ufw status
 
 <a id="markdown-下载文件" name="下载文件"></a>
 
-##### 下载文件
+#### 下载文件
 
 ```shell
 # 下载到当前路径
@@ -293,7 +313,7 @@ wget -O filename.zip http://www.domain.com/filename-4.0.1.zip
 
 <a id="markdown-curl请求" name="curl请求"></a>
 
-##### curl 请求
+#### curl 请求
 
 curl post 请求
 
@@ -305,11 +325,21 @@ curl -X POST -H "Content-Type: application/json" -d '{"date": "2022-08-03", "car
 
 <a id="markdown-文件相关" name="文件相关"></a>
 
-#### 文件相关
+### about file
 
-<a id="markdown-查找文件" name="查找文件"></a>
+#### mv file
 
-##### 查找文件
+```shell
+mv file1 file2
+```
+
+move and overwrite
+
+```shell
+mv -f file1 file2
+```
+
+#### 查找文件
 
 - which 查找可执行文件，根据可执行文件的文件名。例如：
 
@@ -329,7 +359,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"date": "2022-08-03", "car
   find . -name app.bundle.js
   ```
 
-##### file display
+#### file display
 
 - list file with date sort
 
@@ -370,7 +400,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"date": "2022-08-03", "car
 
 <a id="markdown-打包与解压" name="打包与解压"></a>
 
-##### archive & unarchive
+#### archive & unarchive
 
 - tar
 
@@ -401,7 +431,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"date": "2022-08-03", "car
 
 <a id="markdown-路径" name="路径"></a>
 
-##### 路径
+#### 路径
 
 - mkdir
 
@@ -419,7 +449,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"date": "2022-08-03", "car
 
 <a id="markdown-磁盘" name="磁盘"></a>
 
-##### 磁盘
+#### 磁盘
 
 - 查看路径挂载在哪个磁盘下
   ```shell
@@ -431,7 +461,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"date": "2022-08-03", "car
 
 <a id="markdown-创建随机临时文件" name="创建随机临时文件"></a>
 
-##### 创建随机临时文件
+#### 创建随机临时文件
 
 ```bash
 # 创建临时文件
@@ -444,19 +474,19 @@ $ mktemp -d
 
 <a id="markdown-获取当前路径下某文件的完整路径" name="获取当前路径下某文件的完整路径"></a>
 
-##### 获取当前路径下某文件的完整路径
+#### 获取当前路径下某文件的完整路径
 
 ```bash
 readlink -e <filename>
 ```
 
-##### 根据文件路径获取文件名
+#### 根据文件路径获取文件名
 
 ```bash
 basename <path>
 ```
 
-##### 命令行查看图片
+#### 命令行查看图片
 
 feh: <https://feh.finalrewind.org/>
 
@@ -464,18 +494,18 @@ feh: <https://feh.finalrewind.org/>
 
 <a id="markdown-进程" name="进程"></a>
 
-#### 进程
+### 进程
 
 <a id="markdown-查看python进程" name="查看python进程"></a>
 
-##### 查看网络状态
+#### 查看网络状态
 
 ```bash
 $ netstat -pln
 $ netstat -pln|grep python
 ```
 
-##### 重新读取配置文件并重启
+#### 重新读取配置文件并重启
 
 一个进程, 我们修改了配置文件, 但是不想关闭它然后再启动, 想无缝重启, 那么可以用:
 
@@ -493,11 +523,11 @@ kill -HUP `cat /tmp/supervisord.pid`
 
 <a id="markdown-权限" name="权限"></a>
 
-#### 权限
+### 权限
 
 <a id="markdown-无法cd到某些路径permission-denied" name="无法cd到某些路径permission-denied"></a>
 
-##### 无法 cd 到某些路径，Permission Denied
+#### 无法 cd 到某些路径，Permission Denied
 
 [http://unix.stackexchange.com/questions/320011/permission-denied-cd-into-directory](http://unix.stackexchange.com/questions/320011/permission-denied-cd-into-directory)
 
@@ -507,7 +537,7 @@ $ chmod go+rx /dir
 
 <a id="markdown-更改文件的用户" name="更改文件的用户"></a>
 
-##### 更改文件的用户
+#### 更改文件的用户
 
 `ll`可以看到文件的用户和组信息, 如果是 root 用户, 权限较高, 可能某些场景下会有问题.  
 我们可以修改成当前用户:
@@ -518,7 +548,7 @@ sudo chown -R max:max /data/product
 
 <a id="markdown-文件权限" name="文件权限"></a>
 
-##### 文件权限
+#### 文件权限
 
 用`ll`查看文件详细信息
 
@@ -536,13 +566,23 @@ drwxr-xr-x 15 yangle yangle 4.0K 7月  21 13:52 apollo/
 chmod +x access*
 ```
 
+another example:
+
+```shell
+sudo chmod 600 ××× （只有所有者有读和写的权限）
+sudo chmod 644 ××× （所有者有读和写的权限，组用户只有读的权限）
+sudo chmod 700 ××× （只有所有者有读和写以及执行的权限）
+sudo chmod 666 ××× （每个人都有读和写的权限）
+sudo chmod 777 ××× （每个人都有读和写以及执行的权限）
+```
+
 <a id="markdown-进程-1" name="进程-1"></a>
 
-#### 进程
+### 进程
 
 <a id="markdown-screen" name="screen"></a>
 
-##### screen
+#### screen
 
 screen 和 tmux 类似, 可以脱离 shell 运行程序, 不受 shell 退出的影响
 
@@ -559,18 +599,18 @@ $ screen -xS myscreen
 
 <a id="markdown-日期" name="日期"></a>
 
-#### 日期
+### 日期
 
 <a id="markdown-时间戳转换为日期" name="时间戳转换为日期"></a>
 
-##### 时间戳转换为日期
+#### 时间戳转换为日期
 
 ```shell
 $ date -d @123456789
 Wed Dec 31 19:00:00 1969
 ```
 
-#### softwate
+### softwate
 
 查看安装了哪些软件
 
@@ -586,13 +626,13 @@ sudo apt list | grep xxx
 sudo apt remove xxx
 ```
 
-#### bash
+### bash
 
 `bash -x [command]`可以打印出命令执行的详细信息
 
 `ldd [command]`可以查看命令依赖的库
 
-#### grammar
+### grammar
 
 - `&&` and `||` and `;`
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Python PIP"
-date: 2023-01-30
+date: 2023-01-31
 categories: Python
 tags:
   - Python
@@ -144,6 +144,16 @@ $ pip install -r requirements.txt
 
   ```shell
   $ pip install pandas -i https://pypi.tuna.tsinghua.edu.cn/simple
+  ```
+
+  or you can add above args to the `requirements.txt` like this:
+
+  ```txt
+  -i http://pypi.douban.com/simple
+  --trusted-host pypi.douban.com
+  gunicorn==20.1.0
+  pandas==1.4.4
+  ...
   ```
 
 - mysqlclient
