@@ -9,6 +9,9 @@ tags:
 
 - [broker](#broker)
 - [client](#client)
+  - [client tools](#client-tools)
+  - [python](#python)
+  - [js](#js)
 - [references](#references)
 
 mqtt is a lightweight messaging protocol for small sensors and mobile devices, optimized for high-latency or unreliable networks.
