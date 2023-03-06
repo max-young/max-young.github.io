@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "mqtt mosquittp"
-date: 2023-02-15
+date: 2023-03-06
 categories: Linux
 tags:
   - mqtt
@@ -12,6 +12,7 @@ tags:
   - [client tools](#client-tools)
   - [python](#python)
   - [js](#js)
+  - [node.js](#nodejs)
 - [references](#references)
 
 mqtt is a lightweight messaging protocol for small sensors and mobile devices, optimized for high-latency or unreliable networks.
@@ -54,8 +55,11 @@ we can use docker to implent broker, it is very easy.
    allow_anonymous true
    listener 1883
    ```
-2. docker run  
-   `docker run -it --rm --name surge-mqtt -p 1883:1883  -v ~/mosquitto-mqtt:/mosquitto  eclipse-mosquitto`
+2. docker run
+
+   ```bash
+   docker run -it --rm --name surge-mqtt -p 1883:1883  -v ~/mosquitto-mqtt:/mosquitto  eclipse-mosquitto
+   ```
 
 ### client
 
@@ -235,6 +239,77 @@ const Map: React.FC = () => {
 
 maybe you will get an error: websocket connection failed  
 you should add `protocol websockets` to the mqtt broker config and restart.
+
+#### node.js
+
+create a file `mqtt.js`:
+
+```javascript
+const mqtt = require("mqtt");
+const client = mqtt.connect("mqtt://localhost:1883");
+
+const EdgeServerMountpointStateTopic =
+  "/surge/edge_server_monitor/disk/mountpoint_state_report";
+const EdgeServerHotPlugEventTopic =
+  "/surge/edge_server_monitor/disk/hot_plug_event_report";
+
+client.on("connect", function () {
+  client.subscribe(EdgeServerMountpointStateTopic, function (err) {
+    if (err) {
+      console.log("监控边缘服务器数据盘状态MQTT订阅失败");
+    }
+  });
+  client.subscribe(EdgeServerHotPlugEventTopic, function (err) {
+    if (err) {
+      console.log("监控车辆数据盘是否插盘MQTT订阅失败");
+    }
+  });
+});
+
+client.on("message", function (topic, message) {
+  // client.end();
+  let data;
+  switch (topic) {
+    // 边缘服务器盘是否在线
+    case EdgeServerMountpointStateTopic:
+      try {
+        data = JSON.parse(message.toString());
+      } catch (e) {
+        console.log(
+          "监控边缘服务器数据盘状态MQTT消息解析失败: " + message.toString()
+        );
+        return;
+      }
+      break;
+    // 车辆数据盘是否插入边缘服务器
+    case EdgeServerHotPlugEventTopic:
+      try {
+        data = JSON.parse(message.toString());
+      } catch (e) {
+        console.log(
+          "监控车辆数据盘是否插盘MQTT消息解析失败: " + message.toString()
+        );
+        return;
+      }
+      break;
+    default:
+      console.log("default");
+      break;
+  }
+});
+```
+
+install mqtt.js:
+
+```shell
+npm install mqtt --save
+```
+
+use node.js to run:
+
+```node
+node mqtt.js
+```
 
 ### references
 
