@@ -1,16 +1,16 @@
 ---
-layout:     post
-title:      "MySQL常用操作命令"
-subtitle:   ""
-date:       2022-11-14
+layout: post
+title: "MySQL Common operation commands"
+subtitle: ""
+date: 2023-03-09
 categories: Database
 tags:
-    - MySQL
+  - MySQL
 ---
 
 <!-- TOC -->
 
-- [基本命令](#基本命令)
+- [Basic command](#basic-command)
 - [创建](#创建)
 - [修改](#修改)
 - [查询](#查询)
@@ -20,15 +20,14 @@ tags:
 
 <!-- /TOC -->
 
-<a id="markdown-基本命令" name="基本命令"></a>
-### 基本命令
+### Basic command
 
-- 创建数据库
+- create database
 
   `CREATE DATABASE menagerie`  
-  注意字符集, 可能默认是ladin不支持中文, 所以创建database时可以指定字符集:  
+  注意字符集, 可能默认是 ladin 不支持中文, 所以创建 database 时可以指定字符集:  
   `CREATE DATABASE menagerie DEFAULT CHARACTER SET utf8`  
-  如果已经创建了database想修改呢?  
+  如果已经创建了 database 想修改呢?  
   `ALTER DATABASE surge CHARACTER SET utf8;`  
   另外, 如果数据表已经创建了, 数据表的字符集还是原来的, 我们还需要修改表:  
   `alter table collection_case CONVERT TO CHARACTER SET utf8;`
@@ -81,6 +80,7 @@ tags:
   在输入定界符;之前输入`\c`
 
 <a id="markdown-创建" name="创建"></a>
+
 ### 创建
 
 - 创建数据表
@@ -103,6 +103,7 @@ tags:
   ```
 
 <a id="markdown-修改" name="修改"></a>
+
 ### 修改
 
 - 插入行
@@ -130,7 +131,7 @@ tags:
   DROP TABLE test
   ```
 
-- 复制一个字段的值到另一个字段    `
+- 复制一个字段的值到另一个字段 `
 
   ```sql
   Update {your_table} set {source_field} = {object_field} WHERE case;
@@ -161,7 +162,7 @@ tags:
   > ALTER TABLE ext_paper_test ADD COLUMN option_peer_score float(5,1) AFTER has_option_peer;
   ```
 
-- 在首列增加id列
+- 在首列增加 id 列
 
   ```shell
   > alter table companys_new add column id mediumint unsigned not null auto_increment primary key first;
@@ -185,12 +186,14 @@ tags:
   update fix_paper_test set option_peer_score=0 where option_peer_score is null;
   ```
 
-- 清空表（清空后添加数据id从1开始）
+- 清空表（清空后添加数据 id 从 1 开始）
 
   ```shell
   truncate table ***;
   ```
-  如果因为外键的原因truncate失败, 则需要这样操作:
+
+  如果因为外键的原因 truncate 失败, 则需要这样操作:
+
   ```bash
   SET FOREIGN_KEY_CHECKS = 0;
 
@@ -225,8 +228,8 @@ tags:
 
   ```
 
-  date_add是增加时间
-  date_sub是减少时间
+  date_add 是增加时间
+  date_sub 是减少时间
 
 - truncate all tables
 
@@ -243,8 +246,8 @@ tags:
   > UPDATE table_name SET field = REPLACE(field, 'foo', 'bar') WHERE INSTR(field, 'foo') > 0;
   ```
 
-
 <a id="markdown-查询" name="查询"></a>
+
 ### 查询
 
 - 查询格式化显示  
@@ -282,19 +285,20 @@ tags:
   > select users.user_name,exam_results.results from users,exam_results where users.id=exam_results.user_id and exam_results.exam_info_id=19256 into outfile '/tmp/hunan15.csv';
   ```
 
-- 联合查询1
+- 联合查询 1
 
   ```sql
   > select companys_new.id,companys_new.company_name, max(user_login_new.login_time) from companys_new left join user_login_new on (companys_new.id=user_login_new.company_id) order by companys_new.id limit 230,10;
   ```
 
-- 联合查询2
+- 联合查询 2
 
   ```sql
   > select companys_new.id,companys_new.company_name,max(user_login_new.login_time) from companys_new, user_login_new where companys_new.id=user_login_new.company_id and user_login_new.login_time>="2016-07-01 00:00:00" and user_login_new.login_time<="2016-08-11 00:00:00" group by companys_new.id;
   ```
 
 <a id="markdown-索引" name="索引"></a>
+
 ### 索引
 
 ```shell
@@ -313,6 +317,7 @@ tags:
 ```
 
 <a id="markdown-状态" name="状态"></a>
+
 ### 状态
 
 ```shell
@@ -321,6 +326,7 @@ show processlist
 ```
 
 <a id="markdown-管理" name="管理"></a>
+
 ### 管理
 
 - 显示用户
