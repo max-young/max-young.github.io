@@ -7,9 +7,9 @@ tags:
   - typescript
 ---
 
-https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/concurrent
+<https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/concurrent>
 
-https://www.typescriptlang.org/docs/handbook/react.html
+<https://www.typescriptlang.org/docs/handbook/react.html>
 
 - forever run .ts file
 

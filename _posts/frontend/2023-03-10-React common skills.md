@@ -1,12 +1,13 @@
 ---
 layout: post
 title: "React common skills"
-date: 2023-02-16
+date: 2023-03-10
 categories: Frontend
 tags:
   - React
 ---
 
+- [basic component structure](#basic-component-structure)
 - [组件加载后就跳转 \& useEffect 里 async function](#组件加载后就跳转--useeffect-里-async-function)
 - [React Router](#react-router)
   - [如何获取 url request args](#如何获取-url-request-args)
@@ -15,6 +16,16 @@ tags:
 - [useEffect](#useeffect)
   - [提示: React Hook useEffect has a missing dependency: 'xxx'. Either include it or remove the dependency array react-hooks/exhaustive-deps](#提示-react-hook-useeffect-has-a-missing-dependency-xxx-either-include-it-or-remove-the-dependency-array-react-hooksexhaustive-deps)
 - [split panel](#split-panel)
+
+### basic component structure
+
+```js
+const Task = () => {
+  return <>task</>;
+};
+
+export default Task;
+```
 
 ### 组件加载后就跳转 & useEffect 里 async function
 
