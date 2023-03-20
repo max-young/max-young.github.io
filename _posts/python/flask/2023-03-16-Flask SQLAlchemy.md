@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Flask SQLAlchemy"
-date: 2023-02-08
+date: 2023-03-16
 categories: Python
 tags:
   - Flask
@@ -12,6 +12,7 @@ tags:
 - [lost connection](#lost-connection)
 - [NameError: name '\_mysql' is not defined](#nameerror-name-_mysql-is-not-defined)
 - [multi database](#multi-database)
+- [migrate](#migrate)
 
 #### lost connection
 
@@ -36,7 +37,7 @@ server has gone away 和 pool_recycle 相关, 相当于一个小时请求一次 
 
 #### NameError: name '\_mysql' is not defined
 
-对于 Ubuntu 来是, 需要安装
+对于 Ubuntu 来说, 需要安装
 
 ```shell
 sudo apt-get install libmysqlclient-dev
@@ -56,3 +57,11 @@ SQLALCHEMY_BINDS = {
 
 db is `db = SQLAlchemy()`, if we execute `db.session.execute(sql)`, it connect to the default database: `SQLALCHEMY_DATABASE_URI`.  
 if we want execute sql on another database, we need to use ` db.get_engine(create_app(), "another_database").execute(sql).all()`
+
+#### migrate
+
+use <https://flask-migrate.readthedocs.io/en/latest/>
+
+`flask db init` may occur error: no module named "MysqlDB", please install `pip install mysqlclient`
+
+`flask db migrate` may occur error: no schema changed, please add import model in migrations/env.py. see <https://github.com/miguelgrinberg/Flask-Migrate/issues/378>

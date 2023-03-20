@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Linux command"
-date: 2023-02-06
+date: 2023-03-20
 categories: Linux
 tags:
   - CentOS
@@ -611,6 +611,11 @@ Wed Dec 31 19:00:00 1969
 ```
 
 ### softwate
+
+#### difference between apt and apt-get
+
+The apt command is meant to be pleasant for end users and does not need
+to be backward compatible like apt-get(8).
 
 查看安装了哪些软件
 
