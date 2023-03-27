@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Flask SQLAlchemy"
-date: 2023-03-16
+date: 2023-03-27
 categories: Python
 tags:
   - Flask
@@ -62,6 +62,34 @@ if we want execute sql on another database, we need to use ` db.get_engine(creat
 
 use <https://flask-migrate.readthedocs.io/en/latest/>
 
-`flask db init` may occur error: no module named "MysqlDB", please install `pip install mysqlclient`
+- mo nodule named "MysqlDB"  
+  `flask db init` may occur error: no module named "MysqlDB", please install `pip install mysqlclient`
 
-`flask db migrate` may occur error: no schema changed, please add import model in migrations/env.py. see <https://github.com/miguelgrinberg/Flask-Migrate/issues/378>
+- no schema change  
+  `flask db migrate` may occur error: no schema changed, please add import model in migrations/env.py. see <https://github.com/miguelgrinberg/Flask-Migrate/issues/378>
+
+- avoid drop table  
+  if databse have table that not defined in model, when we migrate and upgrade, it will drop the table. how to avoid?  
+  in the migrations/env.py file, add this function:
+  ```python
+  def include_object(object, name, type_, reflected, compare_to):
+    if type_ == "table" and reflected and compare_to is None:
+        return False
+    else:
+        return Tru
+  ```
+  and modify the `run_migrations_online` function:
+  ```python
+  def run_migrations_online():
+    ...
+    with connectable.connect() as connection:
+        context.configure(
+            connection=connection,
+            target_metadata=target_metadata,
+            process_revision_directives=process_revision_directives,
+            # new line
+            include_object=include_object,
+            **current_app.extensions['migrate'].configure_args)
+    ...
+  ```
+  reference: <https://alembic.sqlalchemy.org/en/latest/cookbook.html#don-t-generate-any-drop-table-directives-with-autogenerate>
