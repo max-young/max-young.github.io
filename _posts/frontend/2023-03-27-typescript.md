@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "typescript"
-date: 2023-03-20
+date: 2023-03-27
 categories: Frontend
 tags:
   - typescript
@@ -13,6 +13,8 @@ tags:
 <https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/concurrent>
 
 <https://www.typescriptlang.org/docs/handbook/react.html>
+
+Remarks: typescript didn't bring me any benefits, I spent a lot of time adapting to its unused usage, and avoiding warnings with any, so I started to use js again
 
 ### forever run .ts file
 
