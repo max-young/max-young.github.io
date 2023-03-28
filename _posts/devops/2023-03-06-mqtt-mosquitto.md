@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "mqtt mosquittp"
+title: "mqtt mosquitto"
 date: 2023-03-06
 categories: Linux
 tags:
@@ -315,7 +315,3 @@ node mqtt.js
 
 <https://www.emqx.com/en/blog/how-to-use-mqtt-in-python>
 <http://www.steves-internet-guide.com/running-the-mosquitto-mqtt-broker-in-docker-beginners-guide/>
-
-```
-
-```
