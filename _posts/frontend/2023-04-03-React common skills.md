@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "React common skills"
-date: 2023-03-10
+date: 2023-04-03
 categories: Frontend
 tags:
   - React
@@ -48,6 +48,8 @@ function SSO() {
 ```
 
 ### React Router
+
+a very useful package. [tutorial](https://reactrouter.com/en/main/start/tutorial) is very helpful.
 
 #### 如何获取 url request args
 
