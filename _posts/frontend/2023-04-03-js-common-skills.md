@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "js common skills"
-date: 2023-01-12
+date: 2023-04-03
 categories: Frontend
 tags:
   - JavaScript
@@ -18,6 +18,8 @@ tags:
   - [阻止父事件的发生](#阻止父事件的发生)
 - [double click event](#double-click-event)
 - [about CSS](#about-css)
+- [change url without reload](#change-url-without-reload)
+- [display html string](#display-html-string)
 
 #### array
 
@@ -102,4 +104,10 @@ onClick={(e) => {
 
 ```js
 window.history.pushState({}, "", "/new-url");
+```
+
+#### display html string
+
+```js
+<div dangerouslySetInnerHTML={{ __html: htmlString }} />
 ```

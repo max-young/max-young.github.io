@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Flask SQLAlchemy"
-date: 2023-03-27
+date: 2023-04-03
 categories: Python
 tags:
   - Flask
@@ -13,6 +13,7 @@ tags:
 - [NameError: name '\_mysql' is not defined](#nameerror-name-_mysql-is-not-defined)
 - [multi database](#multi-database)
 - [migrate](#migrate)
+- [how to save image in database](#how-to-save-image-in-database)
 
 #### lost connection
 
@@ -93,3 +94,27 @@ use <https://flask-migrate.readthedocs.io/en/latest/>
     ...
   ```
   reference: <https://alembic.sqlalchemy.org/en/latest/cookbook.html#don-t-generate-any-drop-table-directives-with-autogenerate>
+
+#### how to save image in database
+
+in rich rext editor, we can upload image, two choices:
+
+1. upload image to server, and save image path in database
+2. encode image to base64, and save base64 string in database
+
+the second choices. the data will be a long string, so we need to increase the column length.  
+the String or Text field is not enough, we need to use another filed, like this:
+
+```python
+class Article(db.Model):
+    ...
+    analyse = db.Column(db.LargeBinary(length=(2**32) - 1), doc="分析")
+    ...
+```
+
+when we save to this filed, we should encode like: `request.form['analyse'].encode('utf-8')`  
+when we get from this filed, we should decode like: `article.analyse.decode('utf-8')`
+
+Correspondingly, the database needs to set the storage size limit, Refer to this [link](/blog/problems-you-may-meet-when-using-MySQL.html#mysql-server-has-gone-away-long-byte)
+
+Although we can realize saving pictures to the database, this will bring a problem to web applications: browser load data will be very slowly. so the first choice is better.
