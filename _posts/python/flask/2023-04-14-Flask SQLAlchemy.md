@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Flask SQLAlchemy"
-date: 2023-04-03
+date: 2023-04-14
 categories: Python
 tags:
   - Flask
@@ -52,25 +52,33 @@ config can be like this:
 ```python
 SQLALCHEMY_DATABASE_URI = 'mysql://user:password@host:port/databasename?charset=utf8mb4'
 SQLALCHEMY_BINDS = {
-    'another_database': 'mysql://user:password@host:port/badass?charset=utf8mb4',
+    'auth': 'mysql://user:password@host:port/badass?charset=utf8mb4',
 }
 ```
 
 db is `db = SQLAlchemy()`, if we execute `db.session.execute(sql)`, it connect to the default database: `SQLALCHEMY_DATABASE_URI`.  
-if we want execute sql on another database, we need to use ` db.get_engine(create_app(), "another_database").execute(sql).all()`
+if we want execute sql on another database, we need to use ` db.get_engine(create_app(), "auth").execute(sql).all()`
+
+if above method is not working, try this:
+
+````python
+session = db.get_engine('auth').connect()
+users = session.exec_driver_sql("select username from auth_user")
+session.close()
+```
 
 #### migrate
 
 use <https://flask-migrate.readthedocs.io/en/latest/>
 
-- mo nodule named "MysqlDB"  
+- mo nodule named "MysqlDB"
   `flask db init` may occur error: no module named "MysqlDB", please install `pip install mysqlclient`
 
-- no schema change  
+- no schema change
   `flask db migrate` may occur error: no schema changed, please add import model in migrations/env.py. see <https://github.com/miguelgrinberg/Flask-Migrate/issues/378>
 
-- avoid drop table  
-  if databse have table that not defined in model, when we migrate and upgrade, it will drop the table. how to avoid?  
+- avoid drop table
+  if databse have table that not defined in model, when we migrate and upgrade, it will drop the table. how to avoid?
   in the migrations/env.py file, add this function:
   ```python
   def include_object(object, name, type_, reflected, compare_to):
@@ -78,22 +86,25 @@ use <https://flask-migrate.readthedocs.io/en/latest/>
         return False
     else:
         return Tru
-  ```
-  and modify the `run_migrations_online` function:
-  ```python
-  def run_migrations_online():
-    ...
-    with connectable.connect() as connection:
-        context.configure(
-            connection=connection,
-            target_metadata=target_metadata,
-            process_revision_directives=process_revision_directives,
-            # new line
-            include_object=include_object,
-            **current_app.extensions['migrate'].configure_args)
-    ...
-  ```
-  reference: <https://alembic.sqlalchemy.org/en/latest/cookbook.html#don-t-generate-any-drop-table-directives-with-autogenerate>
+````
+
+and modify the `run_migrations_online` function:
+
+```python
+def run_migrations_online():
+  ...
+  with connectable.connect() as connection:
+      context.configure(
+          connection=connection,
+          target_metadata=target_metadata,
+          process_revision_directives=process_revision_directives,
+          # new line
+          include_object=include_object,
+          **current_app.extensions['migrate'].configure_args)
+  ...
+```
+
+reference: <https://alembic.sqlalchemy.org/en/latest/cookbook.html#don-t-generate-any-drop-table-directives-with-autogenerate>
 
 #### how to save image in database
 
