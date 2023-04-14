@@ -8,11 +8,19 @@ tags:
   - js
 ---
 
+- [basic use](#basic-use)
+- [upload image](#upload-image)
+- [upload image and video](#upload-image-and-video)
+
 there are many rich text editors, such as [draft.js](https://draftjs.org/), [quill.js](https://quilljs.com/), [slate.js](https://www.slatejs.org/), etc.
 
 quill is a good choice for me, because it is easy to use and opensource.
 
-in the React, we can use [react-quill](https://github.com/zenoamaro/react-quill), the example code is:
+in the React, we can use [react-quill](https://github.com/zenoamaro/react-quill).
+
+### basic use
+
+the example code is:
 
 ```js
 import ReactQuill from "react-quill";
@@ -35,6 +43,8 @@ const editorModules = {
 
 <ReactQuill theme="snow" modules={editorModules} />;
 ```
+
+### upload image
 
 image and video is pasted link in above example.  
 if we want upload image, we can use [https://github.com/noeloconnell/quill-image-uploader](https://github.com/noeloconnell/quill-image-uploader):
@@ -85,6 +95,8 @@ def upload_view():
     file.save(os.path.join(FILE_DIRECTORY, filename))
     return jsonify({"url": f"{bp.url_prefix}{filename}"})
 ```
+
+### upload image and video
 
 what about video, we can use [ngx-quill-upload](https://openbase.com/js/ngx-quill-upload/documentation), this library can handle both image and video.
 
