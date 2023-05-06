@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Linux command"
-date: 2023-03-20
+date: 2023-05-06
 categories: Linux
 tags:
   - CentOS
@@ -19,6 +19,7 @@ tags:
   - [开通端口](#开通端口)
   - [下载文件](#下载文件)
   - [curl 请求](#curl-请求)
+  - [net status](#net-status)
 - [about file](#about-file)
   - [mv file](#mv-file)
   - [查找文件](#查找文件)
@@ -42,6 +43,7 @@ tags:
 - [日期](#日期)
   - [时间戳转换为日期](#时间戳转换为日期)
 - [softwate](#softwate)
+  - [difference between apt and apt-get](#difference-between-apt-and-apt-get)
 - [bash](#bash)
 - [grammar](#grammar)
 
@@ -319,6 +321,15 @@ curl post 请求
 
 ```bash
 curl -X POST -H "Content-Type: application/json" -d '{"date": "2022-08-03", "car_id_list": ["white-rhino-013"]}' http://192.168.199.102:8802/api/case/
+```
+
+#### net status
+
+nethogs command is useful:
+
+```shell
+sudo apt install nethogs
+sudo nethogs -s
 ```
 
 ---
