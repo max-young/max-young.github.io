@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "mqtt mosquitto"
-date: 2023-03-06
+date: 2023-05-11
 categories: Linux
 tags:
   - mqtt
@@ -9,6 +9,7 @@ tags:
 
 - [broker](#broker)
 - [client](#client)
+  - [shell cli](#shell-cli)
   - [client tools](#client-tools)
   - [python](#python)
   - [js](#js)
@@ -62,6 +63,19 @@ we can use docker to implent broker, it is very easy.
    ```
 
 ### client
+
+#### shell cli
+
+<https://hivemq.github.io/mqtt-cli/>
+
+```shell
+# test
+mqtt test -h 192.168.199.102 -p 8808
+# sub
+mqtt sub -h 192.168.199.102 -p 8808 -t test
+# pub
+mqtt pub -h 192.168.199.102 -p 8808 -t test -m test
+```
 
 #### client tools
 
