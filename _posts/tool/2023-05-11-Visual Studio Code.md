@@ -1,13 +1,11 @@
 ---
 layout: post
 title: "Visual Studio Code"
-date: 2023-03-07
+date: 2023-05-11
 categories: Tools
 tags:
   - VSCode
 ---
-
-<!-- TOC -->
 
 - [操作](#操作)
 - [快捷键](#快捷键)
@@ -15,11 +13,11 @@ tags:
   - [操作相关](#操作相关)
   - [Markdown](#markdown)
 - [自定义配置](#自定义配置)
+- [vim](#vim)
 - [Extensions](#extensions)
 - [problems](#problems)
-  - [ipch 空间过大, 导致文件无法保存](#ipch空间过大-导致文件无法保存)
-
-<!-- /TOC -->
+  - [ipch 空间过大, 导致文件无法保存](#ipch-空间过大-导致文件无法保存)
+  - [python no definition found](#python-no-definition-found)
 
 环境: macos
 
@@ -176,3 +174,7 @@ then use `"+p` to paste
 
   比如可以设置为 1024  
   <https://code.visualstudio.com/docs/cpp/faq-cpp#_what-is-the-ipch-folder>
+
+#### python no definition found
+
+<https://stackoverflow.com/questions/64255834/no-definition-found-for-function-vscode-python>
