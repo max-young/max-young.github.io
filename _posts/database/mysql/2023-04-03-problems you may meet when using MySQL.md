@@ -4,7 +4,6 @@ title: "problems you may meet when using MySQL"
 date: 2023-04-03
 categories: Database
 tags:
-  - Database
   - MySQL
 ---
 
