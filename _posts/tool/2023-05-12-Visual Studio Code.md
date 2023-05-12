@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Visual Studio Code"
-date: 2023-05-11
+date: 2023-05-12
 categories: Tools
 tags:
   - VSCode
@@ -21,8 +21,6 @@ tags:
 
 环境: macos
 
-<a id="markdown-操作" name="操作"></a>
-
 ### 操作
 
 - workspace  
@@ -38,14 +36,10 @@ tags:
 
   在 terminal 里执行`code --diff [path to file 1] [path to file 2]`
 
-<a id="markdown-快捷键" name="快捷键"></a>
-
 ### 快捷键
 
 **这个命令非常关键, 可以查到相关操作, 以及快捷键, 并自定义快捷键**  
 显示我能操作的命令: `command + shift + p`
-
-<a id="markdown-代码相关" name="代码相关"></a>
 
 #### 代码相关
 
@@ -61,7 +55,8 @@ tags:
 - 回退到之前的代码位置  
   `cmd + o`或者`alt + -`
 
-<a id="markdown-操作相关" name="操作相关"></a>
+- fold and unfold
+  `ctrl + shift + [` or `ctrl + shift + ]`
 
 #### 操作相关
 
@@ -88,14 +83,10 @@ tags:
   其实是 toggle side bar visibbility  
   `command + b`
 
-<a id="markdown-markdown" name="markdown"></a>
-
 #### Markdown
 
 - Preview  
   command + k, v
-
-<a id="markdown-自定义配置" name="自定义配置"></a>
 
 ### 自定义配置
 
