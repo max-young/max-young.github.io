@@ -12,7 +12,6 @@ tags:
 - [lost connection](#lost-connection)
 - [NameError: name '\_mysql' is not defined](#nameerror-name-_mysql-is-not-defined)
 - [multi database](#multi-database)
-- [migrate](#migrate)
 - [how to save image in database](#how-to-save-image-in-database)
 
 #### lost connection
