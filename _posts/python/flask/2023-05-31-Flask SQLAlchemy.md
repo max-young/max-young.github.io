@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Flask SQLAlchemy"
-date: 2023-04-14
+date: 2023-05-31
 categories: Python
 tags:
   - Flask
@@ -12,6 +12,7 @@ tags:
 - [lost connection](#lost-connection)
 - [NameError: name '\_mysql' is not defined](#nameerror-name-_mysql-is-not-defined)
 - [multi database](#multi-database)
+- [migrate](#migrate)
 - [how to save image in database](#how-to-save-image-in-database)
 
 #### lost connection
@@ -60,7 +61,7 @@ if we want execute sql on another database, we need to use ` db.get_engine(creat
 
 if above method is not working, try this:
 
-````python
+```python
 session = db.get_engine('auth').connect()
 users = session.exec_driver_sql("select username from auth_user")
 session.close()
@@ -70,40 +71,41 @@ session.close()
 
 use <https://flask-migrate.readthedocs.io/en/latest/>
 
-- mo nodule named "MysqlDB"
+- mo nodule named "MysqlDB"  
   `flask db init` may occur error: no module named "MysqlDB", please install `pip install mysqlclient`
 
-- no schema change
+- no schema change  
   `flask db migrate` may occur error: no schema changed, please add import model in migrations/env.py. see <https://github.com/miguelgrinberg/Flask-Migrate/issues/378>
 
-- avoid drop table
+- avoid drop table  
   if databse have table that not defined in model, when we migrate and upgrade, it will drop the table. how to avoid?
   in the migrations/env.py file, add this function:
+
   ```python
   def include_object(object, name, type_, reflected, compare_to):
     if type_ == "table" and reflected and compare_to is None:
         return False
     else:
         return Tru
-````
+  ```
 
-and modify the `run_migrations_online` function:
+  and modify the `run_migrations_online` function:
 
-```python
-def run_migrations_online():
-  ...
-  with connectable.connect() as connection:
-      context.configure(
-          connection=connection,
-          target_metadata=target_metadata,
-          process_revision_directives=process_revision_directives,
-          # new line
-          include_object=include_object,
-          **current_app.extensions['migrate'].configure_args)
-  ...
-```
+  ```python
+  def run_migrations_online():
+    ...
+    with connectable.connect() as connection:
+        context.configure(
+            connection=connection,
+            target_metadata=target_metadata,
+            process_revision_directives=process_revision_directives,
+            # new line
+            include_object=include_object,
+            **current_app.extensions['migrate'].configure_args)
+    ...
+  ```
 
-reference: <https://alembic.sqlalchemy.org/en/latest/cookbook.html#don-t-generate-any-drop-table-directives-with-autogenerate>
+  reference: <https://alembic.sqlalchemy.org/en/latest/cookbook.html#don-t-generate-any-drop-table-directives-with-autogenerate>
 
 #### how to save image in database
 
@@ -112,7 +114,7 @@ in rich rext editor, we can upload image, two choices:
 1. upload image to server, and save image path in database
 2. encode image to base64, and save base64 string in database
 
-the second choices. the data will be a long string, so we need to increase the column length.  
+the second choices. the data will be a long string, so we need to increase the column length.
 the String or Text field is not enough, we need to use another filed, like this:
 
 ```python
@@ -122,9 +124,13 @@ class Article(db.Model):
     ...
 ```
 
-when we save to this filed, we should encode like: `request.form['analyse'].encode('utf-8')`  
+when we save to this filed, we should encode like: `request.form['analyse'].encode('utf-8')`
 when we get from this filed, we should decode like: `article.analyse.decode('utf-8')`
 
 Correspondingly, the database needs to set the storage size limit, Refer to this [link](/blog/problems-you-may-meet-when-using-MySQL.html#mysql-server-has-gone-away-long-byte)
 
 Although we can realize saving pictures to the database, this will bring a problem to web applications: browser load data will be very slowly. so the first choice is better.
+
+```
+
+```
