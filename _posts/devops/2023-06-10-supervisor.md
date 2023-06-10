@@ -1,19 +1,25 @@
 ---
 layout:     post
 title:      "supervisor"
-date:       2022-08-31
+date:       2023-06-10
 categories: Devops
 tags:
     - Deploy
 ---
 
+- [install](#install)
+- [run supervisord](#run-supervisord)
+- [run supervisorctl](#run-supervisorctl)
+- [其他问题](#其他问题)
+
+
 http://supervisord.org/
 
-##### install
+#### install
 
 在Python项目里可以pip安装  
 
-##### run supervisord
+#### run supervisord
 
 可以指定配置文件来启动:
 `supervisord -c ./supervisord.conf`
@@ -42,7 +48,7 @@ stderr_logfile=/tmp/surge/logs/websocket.err.log        ; stderr log path, NONE 
 programs=surge-backend,websocket  ; each refers to 'x' in [program:x] definitions
 ```
 
-##### run supervisorctl
+#### run supervisorctl
 
 配置好之后就可以用supervisorctl来管理
 ```bash
@@ -53,6 +59,6 @@ supervisorctl restart surge:*
 supervisorctl stop surge:*
 ```
 
-##### 其他问题
+#### 其他问题
 
 如果一台服务器上要启动多个supervisord, 那么各个supervisord的配置文件需要配置不一样的file和pidfile.
