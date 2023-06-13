@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "kubernetes"
-date: 2023-06-09
+date: 2023-06-13
 categories: Devops
 tags:
   - docker
@@ -38,6 +38,7 @@ tags:
 - how to get container name  
   container name is defined in your yaml file.  
   this is a example of deployment yaml file.
+
   ```yaml
   apiVersion: apps/v1
   kind: Deployment
@@ -69,4 +70,16 @@ tags:
               protocol: TCP
       imagePullSecrets:
         - name: volc
+  ```
+
+- check pod status  
+  when a pod occurs error, not running as expect, for example:
+  ```shell
+  $ simu kubectl get pods
+  NAME                    READY   STATUS             RESTARTS      AGE
+  simu-6ff6cbfd59-c9x8r   1/2     CrashLoopBackOff   4 (49s ago)   3m47s
+  ```
+  you can get error info using this command:
+  ```bash
+  kubectl describe pod simu-6ff6cbfd59-c9x8r
   ```

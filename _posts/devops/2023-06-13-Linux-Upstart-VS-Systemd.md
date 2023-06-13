@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Linux Upstart VS Systemd初始化脚本"
+title: "Linux Upstart VS Systemd"
 subtitle: ""
-date: 2023-06-09
+date: 2023-06-13
 categories: Linux
 tags:
   - Linux
@@ -11,6 +11,7 @@ tags:
 - [文件地址和格式](#文件地址和格式)
 - [文件内容](#文件内容)
 - [运行命令](#运行命令)
+- [log](#log)
 
 Linux 启动时会执行进程, 我们可以自定义.
 
@@ -23,7 +24,10 @@ Ubuntu15.04 之前用的是 Upstart, 之后用 Systemd
 #### 文件地址和格式
 
 Upstart 是创建`/etc/init/$job.conf`文件, 后缀为`.conf`
-Systemd 是创建`/lib/systemd/system/$job.service`文件, 后缀为`.service`
+
+Systemd 是创建`/lib/systemd/system/$job.service`文件, 后缀为`.service`  
+系统范围的服务单元文件：/lib/systemd/system/  
+用户范围的服务单元文件：/etc/systemd/system/
 
 #### 文件内容
 
@@ -70,4 +74,10 @@ Systemd 的命令是:
 
 ```shell
 systemctl start $job
+```
+
+#### log
+
+```shell
+journalctl -u $job
 ```
