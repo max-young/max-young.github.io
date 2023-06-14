@@ -2,7 +2,7 @@
 layout: post
 title: "Linux Upstart VS Systemd"
 subtitle: ""
-date: 2023-06-13
+date: 2023-06-14
 categories: Linux
 tags:
   - Linux
@@ -56,11 +56,30 @@ Wants=net-device-up
 Conflicts=shutdown
 
 [Service]
+Type=simple
 Restart=on-failure
 User=max
 WorkingDirectory=/home/max/sites/mm.mmflow.online/source
 ExecStart=/home/max/sites/mm.mmflow.online/virtualenv/bin/gunicorn --bind unix:/tmp/mm.mmflow.online.socket superlists.wsgi:application
 ```
+
+Grammar description:  
+Service.Type could be oneshot or simple, Their differences can be found here: <https://stackoverflow.com/questions/39032100/what-is-the-difference-between-systemds-oneshot-and-simple-service-types>, Let's give an example:
+
+```text
+...
+[Service]
+Type=simple
+Restart=always
+ExecStart=nohup gunicorn app:create_app &
+...
+```
+
+we can see the ExecStart, The nohup command allows the Gunicorn command to execute after the shell session is over. The postfix & symbols can allow the entire command to execute in background, so after the entire command is executed, it exits. so the service status turn to inactive.  
+but the type is simple, and restart is always, so this service will be restart looply. how to fix it?
+
+1. remove & symbol
+2. set `emainAfterExit=true`
 
 #### 运行命令
 
