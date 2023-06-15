@@ -1,8 +1,7 @@
 ---
 layout: post
-title: "Celery + RabbitMQ实现异步队列"
-subtitle: ""
-date: 2023-01-16
+title: "Celery + RabbitMQ"
+date: 2023-06-15
 categories: Backend
 tags:
   - Python
@@ -18,7 +17,7 @@ tags:
 - [安装 Celery](#安装-celery)
 - [Celery 应用](#celery-应用)
 - [start Celery worker](#start-celery-worker)
-- [启动 celery beat](#启动-celery-beat)
+- [start celery beat](#start-celery-beat)
 - [触发任务](#触发任务)
 - [测试](#测试)
 - [其他](#其他)
@@ -37,7 +36,7 @@ tags:
 
 #### 环境：macOS10.13
 
-```
+```shell
 $ brew install rabbitmq
 ==> Summary
 🍺  /usr/local/Cellar/rabbitmq/3.7.4: 232 files, 12.6MB, built in 2 seconds
@@ -45,7 +44,7 @@ $ brew install rabbitmq
 
 可以看到安装的路径是`/usr/local/Cellar/rabbitmq/3.7.4`，需要将此路径加入到环境变量里，这样才能直接输入 rabbitmq-server 启动，而不用输入全部路径，将下面的内容添加到`.zshrc`里（注：不用的 shell 不同的文件，这里以 zsh 为例）：
 
-```
+```shell
 PATH=$PATH:/usr/local/Cellar/rabbitmq/3.7.4/sbin
 ```
 
@@ -168,12 +167,16 @@ celery -A tasks worker --loglevel=info -f /tmp/surge/logs/celery-worker.log
 > 在 Django 里面可以加上配置
 > `DJANGO_SETTINGS_MODULE='fsp.settings_env' celery -A fsp -l info worker`
 
-### 启动 celery beat
-
-对于定时任务, 如上面的例子, 可以用 celery beat 来启动, 代码示例如下:
+### start celery beat
 
 ```shell
 celery -A surge.tasks beat
+```
+
+**caution**: celery beat can't work alone, it must work with celery worker, because task is call in the worker, not in beat, beat is only schedule, so we need to start celery worker first. or, if your only have beat task, and only need one worker, you can use this command:
+
+```shell
+celery -A surge.tasks worker -B
 ```
 
 ### 触发任务

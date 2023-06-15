@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "my Docker manual"
-date: 2023-01-19
+date: 2023-06-15
 categories: Docker
 tags:
   - Docker
@@ -97,12 +97,12 @@ image is a read-only template with instructions for creating a Docker container.
   $ docker run --name my_container --rm -it -v host_path:docker_path centos
   ```
 
-  `--name`参数可以为容器命名，也可以不加此参数，命名必需唯一
+  `--name`参数可以为容器命名，也可以不加此参数，命名必需唯一  
   `it`参数可以理解为进入命令行界面  
-  `-i` support stdin, `-t` support tty bash
+  `-i` support stdin, `-t` support tty bash  
   如果本地没有 centos 镜像则会从官方镜像里下载，命令后面还可以加进入容器后的命令，比如`/bin/bash`，`ls`等等，看看效果吧
 
-  `--rm` means auto remove container after exit
+  `--rm` means auto remove container after exit  
   `-v` means mount host path to docker path, we can add third parameter to set permission, for example, `host_path:docker_path:ro` means host_path will mount in docker container docker_path, host_path is sync with docker_path, if we add a file in docker_path in docker container, it will also add in host_path. but we add `:ro`, we cann't do that, we can only read file in docker_path.
 
 - 查看容器
