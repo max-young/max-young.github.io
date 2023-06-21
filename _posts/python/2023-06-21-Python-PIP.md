@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Python PIP"
-date: 2023-01-31
+date: 2023-06-21
 categories: Python
 tags:
   - Python
@@ -163,4 +163,10 @@ $ pip install -r requirements.txt
 
   ```bash
   apt-get install libmysqlclient-dev
+  ```
+
+- Specify the installation path
+
+  ```bash
+  pip install --target=/usr/local/lib/python2.7/dist-packages/ gevent
   ```
