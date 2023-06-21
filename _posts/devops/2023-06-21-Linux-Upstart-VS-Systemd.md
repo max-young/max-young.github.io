@@ -2,7 +2,7 @@
 layout: post
 title: "Linux Upstart VS Systemd"
 subtitle: ""
-date: 2023-06-14
+date: 2023-06-21
 categories: Linux
 tags:
   - Linux
@@ -28,6 +28,8 @@ Upstart 是创建`/etc/init/$job.conf`文件, 后缀为`.conf`
 Systemd 是创建`/lib/systemd/system/$job.service`文件, 后缀为`.service`  
 系统范围的服务单元文件：/lib/systemd/system/  
 用户范围的服务单元文件：/etc/systemd/system/
+
+> after create the file, we should run `systemctl daemon-reload` to reload the service file.
 
 #### 文件内容
 

@@ -99,3 +99,5 @@ kubectl describe pod simu-6ff6cbfd59-c9x8r
 ```bash
 kubectl rollout restart -f [yaml file]
 ```
+
+### job
