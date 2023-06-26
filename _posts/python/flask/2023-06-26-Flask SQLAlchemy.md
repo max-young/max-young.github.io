@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Flask SQLAlchemy"
-date: 2023-05-31
+date: 2023-06-26
 categories: Python
 tags:
   - Flask
@@ -106,6 +106,13 @@ use <https://flask-migrate.readthedocs.io/en/latest/>
   ```
 
   reference: <https://alembic.sqlalchemy.org/en/latest/cookbook.html#don-t-generate-any-drop-table-directives-with-autogenerate>
+
+- CommandError: Can't locate revision identified by '...' when migrating using Flask-Migrate
+  ```bash
+  flask db revision --rev-id e39d16e62810
+  flask db migrate
+  flask db upgrade
+  ```
 
 #### how to save image in database
 
