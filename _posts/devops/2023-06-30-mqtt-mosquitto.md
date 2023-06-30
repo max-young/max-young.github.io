@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "mqtt mosquitto"
-date: 2023-05-11
+date: 2023-06-30
 categories: Linux
 tags:
   - mqtt
@@ -210,42 +210,42 @@ run these two file, we can see the effect.
 react code:
 
 ```js
-import React, { useEffect, useState } from "react";
-import { Map as AMap, Polyline } from "react-amap";
+import React, { useEffect } from "react";
 import * as mqtt from "mqtt/dist/mqtt";
 
 const Map: React.FC = () => {
-  const [path, setPath] = useState(Array(50).fill(true).map(randomPath));
-
-  const [connectStatus, setConnectStatus] = useState("Connecting");
-  const [client, setClient] = useState(
-  mqtt.connect("mqtt://192.168.199.102:8808", {
-    protocol: "ws",
-    keepalive: 20,
-    clientId: "mqttjs\_" + Math.random().toString(16).substr(2, 8),
-    })
-  );
 
   useEffect(() => {
-    if (client) {
-      console.log(client);
-      client.on("connect", () => {
-        setConnectStatus("Connected");
-        console.log("connected");
+    const client = mqtt.connect(process.env.REACT_APP_MQTT_BROKER, {
+      clientId: "mqttjs_" + Math.random().toString(16).substr(2, 8),
+    });
+
+    client.on("connect", function () {
+      console.log("connected");
+      client.subscribe("simu", function (err) {
+        if (!err) {
+          client.publish("simu", JSON.stringify({ message: "Hello mqtt" }));
+        }
       });
-      client.on("error", (err) => {
-        console.error("Connection error: ", err);
-        client.end();
-      });
-      client.on("reconnect", () => {
-        setConnectStatus("Reconnecting");
-      });
-      client.on("message", (topic, message) => {
-        const payload = { topic, message: message.toString() };
-        setPayload(payload);
-      });
-    }
-  }, [client]);
+    });
+
+    client.on("message", function (topic, message) {
+      const taskResult = JSON.parse(message.toString());
+      console.log(taskResult);
+      const record = tableData.find((item) => item.id === taskResult.task_id);
+      if (record) {
+        record.status = taskResult.status;
+        record.statistics = taskResult.statistics;
+        record.percent = taskResult.percent || 0;
+        setTableData([...tableData]);
+      }
+    });
+
+    return () => {
+      client.end();
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   ...
 }
