@@ -1,10 +1,11 @@
 ---
 layout: post
 title: "React common skills"
-date: 2023-04-03
+date: 2023-07-04
 categories: Frontend
 tags:
   - React
+  - Antd
 ---
 
 - [basic component structure](#basic-component-structure)
@@ -16,6 +17,7 @@ tags:
 - [useEffect](#useeffect)
   - [提示: React Hook useEffect has a missing dependency: 'xxx'. Either include it or remove the dependency array react-hooks/exhaustive-deps](#提示-react-hook-useeffect-has-a-missing-dependency-xxx-either-include-it-or-remove-the-dependency-array-react-hooksexhaustive-deps)
 - [split panel](#split-panel)
+- [input in modal auto focus when modal is shown](#input-in-modal-auto-focus-when-modal-is-shown)
 
 ### basic component structure
 
@@ -84,3 +86,31 @@ this package is also cool: <https://github.com/react-grid-layout/react-draggable
 ### split panel
 
 <https://github.com/johnwalley/allotment>
+
+### input in modal auto focus when modal is shown
+
+```js
+import { Modal } from "antd";
+
+const App = () => {
+  const [show, setShow] = useState(false);
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    if (show) {
+      setTimeout(() => {
+        inputRef.current.focus();
+      }, 100);
+    }
+  }, [show]);
+
+  return (
+    <>
+      <button onClick={() => setShow(true)}>show modal</button>
+      <Modal open={show}} destroyOnClose >
+        <input ref={inputRef} />
+      </Modal>
+    </>
+  );
+};
+```
