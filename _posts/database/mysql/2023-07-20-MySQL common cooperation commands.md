@@ -2,23 +2,19 @@
 layout: post
 title: "MySQL Common operation commands"
 subtitle: ""
-date: 2023-03-09
+date: 2023-07-20
 categories: Database
 tags:
   - MySQL
 ---
 
-<!-- TOC -->
-
 - [Basic command](#basic-command)
 - [创建](#创建)
-- [修改](#修改)
+- [update](#update)
 - [查询](#查询)
 - [索引](#索引)
 - [状态](#状态)
 - [管理](#管理)
-
-<!-- /TOC -->
 
 ### Basic command
 
@@ -102,15 +98,15 @@ tags:
   index login_time_index (id,company_id,login_time))
   ```
 
-<a id="markdown-修改" name="修改"></a>
+### update
 
-### 修改
-
-- 插入行
+- insert row
 
   ```sql
-  > INSERT INTO examinees (exam_id,user_ids) VALUES (1,'1,2'),(2,'2,3');
+  > INSERT INTO examinees (`exam_id`,`user_ids`) VALUES (1,'1,2'),(2,'2,3');
   ```
+
+  you should use \` to quote the column name
 
 - 修改行
 
