@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Python version manage"
-date: 2023-06-16
+date: 2023-07-25
 categories: Python
 tags:
   - Python
@@ -25,6 +25,10 @@ pyenv local <version>
 # list all python versions
 Pyenv install -l
 ```
+
+`pyenv install <version>` may very slow and fail eventually, we can download the `.tar` file manually and put it in the `~/.pyenv/cache` folder, then run `pyenv install <version>` again.  
+donwload link: <https://www.python.org/ftp/python/>  
+if `~/.pyenv/cache` directory not exist, create it manually.
 
 ### python-is-python3
 
