@@ -26,9 +26,17 @@ pyenv local <version>
 Pyenv install -l
 ```
 
-`pyenv install <version>` may very slow and fail eventually, we can download the `.tar` file manually and put it in the `~/.pyenv/cache` folder, then run `pyenv install <version>` again.  
-donwload link: <https://www.python.org/ftp/python/>  
-if `~/.pyenv/cache` directory not exist, create it manually.
+#### problems
+
+1. install very slow
+
+    `pyenv install <version>` may very slow and fail eventually, we can download the `.tar` file manually and put it in the `~/.pyenv/cache` folder, then run `pyenv install <version>` again.  
+    donwload link: <https://www.python.org/ftp/python/>  
+    if `~/.pyenv/cache` directory not exist, create it manually.
+2. ModuleNotFoundError: No module named '_lzma'  
+   `sudo apt install liblzma-dev`
+3. ModuleNotFoundError: No module named '_sqlite3'  
+  `sudo apt install libsqlite3-dev`
 
 ### python-is-python3
 
