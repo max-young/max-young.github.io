@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Python PIP"
-date: 2023-06-21
+date: 2023-07-20
 categories: Python
 tags:
   - Python
@@ -158,11 +158,18 @@ $ pip install -r requirements.txt
 
 - mysqlclient
 
-  error: `No matching distribution found for mysqlclient==2.1.1`  
+  error:
+
+  ```log
+  No matching distribution found for mysqlclient==2.1.1
+  OSError: mysql_config not found
+  ERROR: Command errored out with exit status 1: python setup.py egg_info Check the logs for full command output.
+  ```
+
   need to install libmysqlclient-dev
 
   ```bash
-  apt-get install libmysqlclient-dev
+  sudo apt-get install libmysqlclient-dev
   ```
 
 - Specify the installation path
