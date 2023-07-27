@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Linux command"
-date: 2023-05-06
+date: 2023-07-27
 categories: Linux
 tags:
   - CentOS
@@ -438,6 +438,13 @@ mv -f file1 file2
     $ tar -xvf public_html-14-09-12.tar
     # unzip to specified path
     $ tar -xvf public_html-14-09-12.tar -C /home/public_html/videos/
+    ```
+
+  - zip
+
+    ```shell
+    # zip file
+    $ tar -zcvf public_html-14-09-12.tar.gz public_html
     ```
 
 <a id="markdown-路径" name="路径"></a>
