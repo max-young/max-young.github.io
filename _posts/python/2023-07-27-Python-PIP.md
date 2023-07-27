@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Python PIP"
-date: 2023-07-20
+date: 2023-07-27
 categories: Python
 tags:
   - Python
@@ -156,6 +156,14 @@ $ pip install -r requirements.txt
   ...
   ```
 
+  aliyun mirror is more update than douban mirror, so you can use it:
+
+  ```txt
+  -i http://mirrors.aliyun.com/pypi/simple/
+  --trusted-host mirrors.aliyun.com
+  ...
+  ```
+
 - mysqlclient
 
   error:
@@ -166,14 +174,17 @@ $ pip install -r requirements.txt
   ERROR: Command errored out with exit status 1: python setup.py egg_info Check the logs for full command output.
   ```
 
-  need to install libmysqlclient-dev
+````
 
-  ```bash
-  sudo apt-get install libmysqlclient-dev
-  ```
+need to install libmysqlclient-dev
+
+```bash
+sudo apt-get install libmysqlclient-dev
+```
 
 - Specify the installation path
 
   ```bash
   pip install --target=/usr/local/lib/python2.7/dist-packages/ gevent
   ```
+````

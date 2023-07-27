@@ -30,13 +30,22 @@ Pyenv install -l
 
 1. install very slow
 
-    `pyenv install <version>` may very slow and fail eventually, we can download the `.tar` file manually and put it in the `~/.pyenv/cache` folder, then run `pyenv install <version>` again.  
-    donwload link: <https://www.python.org/ftp/python/>  
-    if `~/.pyenv/cache` directory not exist, create it manually.
-2. ModuleNotFoundError: No module named '_lzma'  
+   `pyenv install <version>` may very slow and fail eventually, we can download the `.tar` file manually and put it in the `~/.pyenv/cache` folder, then run `pyenv install <version>` again.  
+   donwload link: <https://www.python.org/ftp/python/>  
+   if `~/.pyenv/cache` directory not exist, create it manually.
+
+2. ModuleNotFoundError: No module named '\_lzma'  
    `sudo apt install liblzma-dev`
-3. ModuleNotFoundError: No module named '_sqlite3'  
-  `sudo apt install libsqlite3-dev`
+3. ModuleNotFoundError: No module named '\_sqlite3'  
+   `sudo apt install libsqlite3-dev`
+4. ModuleNotFoundError: No module named '\_ctypes'  
+   `sudo apt-get install libffi-dev`
+5. ModuleNotFoundError: No module named '\_bz2'  
+   `sudo apt-get install libbz2-dev`
+6. ModuleNotFoundError: No module named '\_curses'
+   `sudo apt-get install libncurses5 libncurses5-dev libncursesw5`
+7. ModuleNotFoundError: No module named 'readline'  
+   `sudo apt-get install libreadline-dev`
 
 ### python-is-python3
 

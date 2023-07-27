@@ -27,7 +27,7 @@ http://supervisord.org/
 配置模板文件可以用`echo_supervisord_conf > supervisord.conf`来生成, 然后修改
 
 配置文件里可以配置program和group
-```conf
+```text
 [program:surge-backend]
 command=gunicorn main:app              ; the program (relative uses PATH, can take args)
 autostart=true                ; start at supervisord start (default: true)
