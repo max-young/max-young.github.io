@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Linux command"
-date: 2023-07-27
+date: 2023-07-29
 categories: Linux
 tags:
   - CentOS
@@ -30,7 +30,7 @@ tags:
   - [创建随机临时文件](#创建随机临时文件)
   - [获取当前路径下某文件的完整路径](#获取当前路径下某文件的完整路径)
   - [根据文件路径获取文件名](#根据文件路径获取文件名)
-  - [命令行查看图片](#命令行查看图片)
+  - [preview image](#preview-image)
 - [进程](#进程)
   - [查看网络状态](#查看网络状态)
   - [重新读取配置文件并重启](#重新读取配置文件并重启)
@@ -504,9 +504,9 @@ readlink -e <filename>
 basename <path>
 ```
 
-#### 命令行查看图片
+#### preview image
 
-feh: <https://feh.finalrewind.org/>
+feh <https://feh.finalrewind.org/>
 
 ---
 
