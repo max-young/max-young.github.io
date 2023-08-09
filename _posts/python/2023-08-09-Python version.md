@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Python version manage"
-date: 2023-07-25
+date: 2023-08-09
 categories: Python
 tags:
   - Python
@@ -11,6 +11,9 @@ tags:
 - [python-is-python3](#python-is-python3)
 
 ### pyenv
+
+pyenv's installation refer to pyenv homepage.  
+if your network is not good, you can use gitee, clone reporitory to `~/.pyenv` and edit your `~/.bashrc`:
 
 [pyenv](https://github.com/pyenv/pyenv)可在一台机器上安装不同版本的 python.  
 安后可以在当前目录或者全局设置不同的 python 版本:
