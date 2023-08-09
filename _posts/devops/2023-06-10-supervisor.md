@@ -13,11 +13,12 @@ tags:
 - [其他问题](#其他问题)
 
 
-http://supervisord.org/
+<http://supervisord.org/>
 
 #### install
 
-在Python项目里可以pip安装  
+在Python项目里可以pip安装:  
+`pip install supervisor`
 
 #### run supervisord
 
