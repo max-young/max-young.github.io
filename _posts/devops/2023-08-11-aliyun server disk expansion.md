@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Aliyun server disk expansion"
-date: 2023-03-09
+date: 2023-08-11
 categories: DevOps
 tags:
   - ali
@@ -47,7 +47,7 @@ tmpfs           7.8G     0  7.8G   0% /sys/fs/cgroup
 
    查看现有分区，我们看到/dev/vdb 磁盘是 327.5，有一个/dev/vdb1 分区
 
-   ```
+   ```shell
    [root@ksxing-db1 ~]# fdisk -l
 
    Disk /dev/vda: 21.5 GB, 21474836480 bytes, 41943040 sectors
@@ -148,7 +148,7 @@ tmpfs           7.8G     0  7.8G   0% /sys/fs/cgroup
 
 8. 重新挂载数据盘
 
-   ```
+   ```shell
    # 第一个参数是数据盘分区，第二个参数是路径名
    [root@ksxing-db1 ~]# mount /dev/vdb1 /data
    ```
