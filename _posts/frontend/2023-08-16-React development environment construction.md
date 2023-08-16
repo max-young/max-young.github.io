@@ -1,15 +1,15 @@
 ---
 layout: post
 title: "React Development Environment Construction "
-date: 2023-03-20
+date: 2023-08-16
 categories: Frontend
 tags:
   - React
 ---
 
-- [准备](#准备)
-  - [node.js 版本](#nodejs版本)
-  - [npm vs yarn 包管理](#npm-vs-yarn包管理)
+- [prepare](#prepare)
+  - [node.js version](#nodejs-version)
+  - [npm vs yarn 包管理](#npm-vs-yarn-包管理)
   - [语法](#语法)
 - [搭建环境](#搭建环境)
   - [开发](#开发)
@@ -18,11 +18,13 @@ tags:
     - [Code Split](#code-split)
   - [问题](#问题)
 
-### 准备
+### prepare
 
-#### node.js 版本
+#### node.js version
 
-可以用[nvm](https://github.com/nvm-sh/nvm#system-version-of-node)管理, 和 pyenv 类似, 可安装多个 node.js 版本, 然后切换
+可以用[nvm](https://github.com/nvm-sh/nvm)管理, 和 pyenv 类似, 可安装多个 node.js 版本, 然后切换
+
+installation in china refer to: <https://gitee.com/RubyKids/nvm-cn>
 
 例如系统已安装 node 14, 但是有的项目需要 node 10, 那么可以用 nvm 安装:
 

@@ -1,12 +1,16 @@
 ---
 layout: post
 title: "js package management"
-date: 2023-07-20
+date: 2023-08-16
 categories: Frontend
 tags:
   - npm
   - pnpm
 ---
+
+- [npm](#npm)
+- [pnpm](#pnpm)
+  - [dlx](#dlx)
 
 ### npm
 
