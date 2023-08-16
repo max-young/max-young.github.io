@@ -51,20 +51,23 @@ echo 'eval "$(pyenv init -)"' >> ~/.bashrc
 
    `pyenv install <version>` may very slow and fail eventually, we can download the `.tar` file manually and put it in the `~/.pyenv/cache` folder, then run `pyenv install <version>` again.  
    donwload link: <https://www.python.org/ftp/python/>  
-   if `~/.pyenv/cache` directory not exist, create it manually.
+   if `~/.pyenv/cache` directory not exist, create it manually.  
+   or use this command, replace `2.7.6` with your version:
 
-2. ModuleNotFoundError: No module named '\_lzma'  
-   `sudo apt install liblzma-dev`
-3. ModuleNotFoundError: No module named '\_sqlite3'  
-   `sudo apt install libsqlite3-dev`
-4. ModuleNotFoundError: No module named '\_ctypes'  
-   `sudo apt-get install libffi-dev`
-5. ModuleNotFoundError: No module named '\_bz2'  
-   `sudo apt-get install libbz2-dev`
-6. ModuleNotFoundError: No module named '\_curses'
-   `sudo apt-get install libncurses5 libncurses5-dev libncursesw5`
-7. ModuleNotFoundError: No module named 'readline'  
-   `sudo apt-get install libreadline-dev`
+   ```shell
+   $ export v=2.7.6; wget https://npm.taobao.org/mirrors/python/$v/Python-$v.tar.xz -P ~/.pyenv/cache/; pyenv install $v
+   ```
+
+2. install error
+
+   your build environment need some packages, see: <https://github.com/pyenv/pyenv/wiki#suggested-build-environment>  
+    in ubuntu, execute this command:
+
+   ```shell
+   sudo apt update; sudo apt install build-essential libssl-dev zlib1g-dev \
+   libbz2-dev libreadline-dev libsqlite3-dev curl \
+   libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+   ```
 
 ### python-is-python3
 
