@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Python version manage"
-date: 2023-08-09
+date: 2023-08-16
 categories: Python
 tags:
   - Python
@@ -27,6 +27,22 @@ pyenv global <version>
 pyenv local <version>
 # list all python versions
 Pyenv install -l
+```
+
+#### installation
+
+如果网络不好, 可以用克隆[gitee 仓库](https://gitee.com/mirrors/pyenv)到`~/.pyenv`目录:
+
+```shell
+git clone https://gitee.com/mirrors/pyenv.git ~/.pyenv
+```
+
+然后往`~/.bashrc`添加内容, 可以用命令行添加:
+
+```bash
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
+echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
+echo 'eval "$(pyenv init -)"' >> ~/.bashrc
 ```
 
 #### problems
