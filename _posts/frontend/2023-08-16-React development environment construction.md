@@ -24,7 +24,21 @@ tags:
 
 可以用[nvm](https://github.com/nvm-sh/nvm)管理, 和 pyenv 类似, 可安装多个 node.js 版本, 然后切换
 
-installation in china refer to: <https://gitee.com/RubyKids/nvm-cn>
+installation in china refer to: <https://gitee.com/RubyKids/nvm-cn>:
+
+```shell
+bash -c "$(curl -fsSL https://gitee.com/RubyKids/nvm-cn/raw/main/install.sh)"
+```
+
+add taobao mirror to `~/.bashrc`:
+
+```bash
+export NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node/
+```
+
+then `source ~/.bashrc`
+
+use `nvm install node` to install latest version, or `nvm install --lts` to install latest lts version.
 
 例如系统已安装 node 14, 但是有的项目需要 node 10, 那么可以用 nvm 安装:
 
