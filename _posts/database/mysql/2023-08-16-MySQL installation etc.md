@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "MySQL installation etc"
-date: 2023-06-12
+date: 2023-08-16
 categories: Database
 tags:
   - MySQL
@@ -194,7 +194,7 @@ sudo mysql
 
 ```sql
 > ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
-> FLUSH PRIVILEGES;\
+> FLUSH PRIVILEGES;
 > SELECT user,authentication_string,plugin,host FROM mysql.user;
 ```
 
