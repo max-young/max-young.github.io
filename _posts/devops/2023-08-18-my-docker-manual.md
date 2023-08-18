@@ -1,14 +1,13 @@
 ---
 layout: post
 title: "my Docker manual"
-date: 2023-06-15
+date: 2023-08-18
 categories: Docker
 tags:
   - Docker
 ---
 
-- [install and upgrade](#install-and-upgrade)
-- [参考资料](#参考资料)
+- [installation](#installation)
 - [DEMO](#demo)
 - [Docker Achitecture](#docker-achitecture)
 - [command](#command)
@@ -37,16 +36,17 @@ tags:
     - [docker compose 的基本命令](#docker-compose-的基本命令)
   - [Examples](#examples)
 
-# 初印象
+## installation
 
-## install and upgrade
+<https://docs.docker.com/engine/install/ubuntu/#installation-methods>
 
-<https://docs.docker.com/engine/install/ubuntu/#install-docker-engine>
+if current user has not permission no execute docker command, add current user to docker group:
 
-## 参考资料
+```shell
+sudo usermod -aG docker your_username
+```
 
-[官方文档](https://docs.docker.com/desktop/)  
-[第一本 Docker 书](https://book.douban.com/subject/26285268/)
+then logout and login again to make it work
 
 ## DEMO
 
