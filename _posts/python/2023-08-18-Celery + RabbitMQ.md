@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Celery + RabbitMQ"
-date: 2023-06-15
+date: 2023-08-18
 categories: Backend
 tags:
   - Python
@@ -11,9 +11,9 @@ tags:
 
 - [参考资料](#参考资料)
 - [启动 broker](#启动-broker)
-  - [环境：macOS10.13](#环境macos1013)
+  - [macOS10.13](#macos1013)
   - [Ubuntu](#ubuntu)
-  - [创建用户密码和 virtual host](#创建用户密码和-virtual-host)
+  - [docker](#docker)
 - [安装 Celery](#安装-celery)
 - [Celery 应用](#celery-应用)
 - [start Celery worker](#start-celery-worker)
@@ -34,7 +34,7 @@ tags:
 
 ### 启动 broker
 
-#### 环境：macOS10.13
+#### macOS10.13
 
 ```shell
 $ brew install rabbitmq
@@ -70,7 +70,7 @@ systemctl status rabbitmq-server
 
 也可以停止和重启
 
-#### 创建用户密码和 virtual host
+创建用户密码和 virtual host:
 
 <https://docs.celeryq.dev/en/stable/getting-started/backends-and-brokers/rabbitmq.html>
 
@@ -84,6 +84,16 @@ sudo rabbitmqctl set_permissions -p myvhost myuser ".*" ".*" ".*"
 
 之后在应用里的配置需要用到, 上面的文档里也有讲到  
 virtual host 的理解: <https://www.cnblogs.com/jxxblogs/p/12260029.html>
+
+#### docker
+
+<https://hub.docker.com/_/rabbitmq>
+
+```shell
+docker run -d --restart always --hostname systest-rabbit --name systest-rabbit -p 5672:5672 -e RABBITMQ_DEFAULT_USER=simu -e RABBITMQ_DEFAULT_PASS=simu123 -e RABBITMQ_DEFAULT_VHOST=simu rabbitmq:latest
+```
+
+this command have config user, password and vhost
 
 ### 安装 Celery
 
