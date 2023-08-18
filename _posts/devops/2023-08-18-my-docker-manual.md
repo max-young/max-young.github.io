@@ -104,6 +104,7 @@ image is a read-only template with instructions for creating a Docker container.
 
   `--rm` means auto remove container after exit  
   `-v` means mount host path to docker path, we can add third parameter to set permission, for example, `host_path:docker_path:ro` means host_path will mount in docker container docker_path, host_path is sync with docker_path, if we add a file in docker_path in docker container, it will also add in host_path. but we add `:ro`, we cann't do that, we can only read file in docker_path.
+  `--restart` means restart policy, we can set it to `always` or `on-failure` or `unless-stopped`, we can use `always` to restart container when server restart.
 
 - 查看容器
 
