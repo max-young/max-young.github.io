@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "MySQL installation etc"
-date: 2023-08-16
+date: 2023-08-21
 categories: Database
 tags:
   - MySQL
@@ -128,25 +128,17 @@ tags:
 
     $ service mysqld start
 
-<a id="markdown-macos" name="macos"></a>
-
 ### MacOS
-
-<a id="markdown-安装" name="安装"></a>
 
 #### 安装
 
 去官网下载 dmg 安装包安装即可, 安装过程中会给'root'@'localhost'用户生成一个密码, 需要记住
-
-<a id="markdown-启动-1" name="启动-1"></a>
 
 #### 启动
 
 在 system preferences 启动  
 也可以用命令行启动:  
 `$ /usr/local/mysql-5.7.26-macos10.14-x86_64/support-files/mysql.server start`
-
-<a id="markdown-shell" name="shell"></a>
 
 #### shell
 
@@ -157,8 +149,6 @@ $ /usr/local/mysql-5.7.26-macos10.14-x86_64/bin/mysql -u root -p
 ```
 
 输入安装时生成的密码即可
-
-<a id="markdown-ubuntu" name="ubuntu"></a>
 
 ### Ubuntu
 
@@ -174,13 +164,19 @@ sudo apt autoremove
 sudo apt autoclean
 ```
 
-#### 安装
+#### installation
 
 <https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-18-04>
 
 ```shell
 sudo apt update
 sudo apt install mysql-server
+```
+
+after installation, mysql is started automatically.  
+we can start it manually if mysql server is closed:
+
+```shell
 sudo systemctl start mysql.service
 ```
 
@@ -190,21 +186,21 @@ sudo systemctl start mysql.service
 sudo mysql
 ```
 
-这里没有密码, 我们可以设置密码
+we can set password for user root.
 
 ```sql
 > ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
-> FLUSH PRIVILEGES;
+> FLUSH PRIVILEGES; # reload privileges
 > SELECT user,authentication_string,plugin,host FROM mysql.user;
 ```
 
-退出, 重新进入就需要输入密码了
+Exit, you need to enter the password when you enter again
 
 ```shell
 sudo mysql -p
 ```
 
-进入之后可以添加用户:
+we can add user:
 
 ```sql
 > CREATE USER 'sammy'@'localhost' IDENTIFIED BY 'password';
@@ -212,8 +208,6 @@ sudo mysql -p
 ```
 
 user consists of username and host, host means where the user can login from, `localhost` means only from localhost, `%` means from anywhere
-
-<a id="markdown-安装mysql-workbench" name="安装mysql-workbench"></a>
 
 #### 安装 mysql workbench
 

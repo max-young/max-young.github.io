@@ -42,12 +42,8 @@ tags:
   - [screen](#screen)
 - [日期](#日期)
   - [时间戳转换为日期](#时间戳转换为日期)
-- [softwate](#softwate)
-  - [difference between apt and apt-get](#difference-between-apt-and-apt-get)
 - [bash](#bash)
 - [grammar](#grammar)
-
-<a id="markdown-shell以及bash" name="shell以及bash"></a>
 
 ### shell 以及 bash
 
@@ -626,27 +622,6 @@ $ screen -xS myscreen
 ```shell
 $ date -d @123456789
 Wed Dec 31 19:00:00 1969
-```
-
-### softwate
-
-#### difference between apt and apt-get
-
-The apt command is meant to be pleasant for end users and does not need
-to be backward compatible like apt-get(8).
-
-查看安装了哪些软件
-
-```shell
-sudo apt list
-sudo apt list | grep xxx
-```
-
-卸载软件
-
-```shell
-# xxx 可以用apt list列出来的软件名
-sudo apt remove xxx
 ```
 
 ### bash
