@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Linux command"
-date: 2023-07-29
+date: 2023-08-25
 categories: Linux
 tags:
   - CentOS
@@ -13,7 +13,7 @@ tags:
   - [查看 Linux 内核版本和 CentOS 版本](#查看-linux-内核版本和-centos-版本)
   - [用户](#用户)
 - [网络与连接](#网络与连接)
-  - [SSH 连接远程服务器](#ssh-连接远程服务器)
+  - [SSH](#ssh)
   - [网络 IP 相关命令](#网络-ip-相关命令)
   - [SCP 文件传输](#scp-文件传输)
   - [开通端口](#开通端口)
@@ -166,7 +166,7 @@ tags:
 
 <a id="markdown-ssh连接远程服务器" name="ssh连接远程服务器"></a>
 
-#### SSH 连接远程服务器
+#### SSH
 
 [How To Use SSH to Connect to a Remote Server in Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-use-ssh-to-connect-to-a-remote-server-in-ubuntu)
 
@@ -196,11 +196,16 @@ if we not have key, it will get `no identities found error`, because `ssh-copy-i
 ssh-keygen -t rsa
 ```
 
-登录密码很长，输入很麻烦，怎么办？我们可以编辑`~/.bashrc`，加入此登录命令的快捷命令，例如：
+ssh user@ip command is too long?  we can set it to `~/.ssh/config`:
 
 ```bash
-alias root_hulumei="ssh root@123.56.142.59"
+Host car18
+    Hostname 192.168.2.43
+    Port 22
+    User apollo
 ```
+
+some problems:
 
 - WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!
 
@@ -216,36 +221,36 @@ alias root_hulumei="ssh root@123.56.142.59"
 
 - connection refused
 
-  ssh 连接服务器时报这个错, 可能是这个服务器的 ssh server 没打开, 用这个命令查看:
+  probably openssh-server is not installed on remote server, use this command to check(ubuntu):
 
   ```shell
-  sudo apt-get install openssh-server
+  dpkg -l | grep openssh-server
   ```
 
-  如果没有打开, 则需要按照 ssh-server:
+  if not installed, use this command to install:
 
   ```shell
-  sudo apt-get install openssh-server
+  sudo apt install openssh-server
   ```
 
 - avoid host authenticity check
 
-first ssh to remote server, it will ask you to confirm the authenticity of the host, you can use this command to avoid this check:
+  first ssh to remote server, it will ask you to confirm the authenticity of the host, you can use this command to avoid this check:
 
-```shell
-ssh -o StrictHostKeyChecking=no
-```
+  ```shell
+  ssh -o StrictHostKeyChecking=no
+  ```
 
-or you can add this line to `~/.ssh/config`:
+  or you can add this line to `~/.ssh/config`:
 
-```shell
-Host car18
-    StrictHostKeyChecking no
-    UserKnownHostsFile=/dev/null
-    Hostname 103.61.153.140
-    Port 6018
-    User apollo
-```
+  ```shell
+  Host car18
+      StrictHostKeyChecking no
+      UserKnownHostsFile=/dev/null
+      Hostname 103.61.153.140
+      Port 6018
+      User apollo
+  ```
 
 <a id="markdown-网络ip相关命令" name="网络ip相关命令"></a>
 
