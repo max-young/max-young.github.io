@@ -1,47 +1,27 @@
 ---
 layout: post
 title: "Python PIP"
-date: 2023-07-27
+date: 2023-08-29
 categories: Python
 tags:
   - Python
 ---
 
-- [参考资料：](#参考资料)
-- [环境](#环境)
-- [安装](#安装)
+- [installation](#installation)
 - [错误解决办法](#错误解决办法)
 - [使用方法](#使用方法)
 - [problems](#problems)
 
-#### 参考资料：
+#### installation
 
-<https://pip.pypa.io/en/stable/installing/#do-i-need-to-install-pip>
+https://pip.pypa.io/en/stable/installation/
 
-#### 环境
+```shell
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python3.8 get-pip.py
+```
 
-CentOS 7
-
-#### 安装
-
-[How to Install Pip on CentOS 7](https://www.liquidweb.com/kb/how-to-install-pip-on-centos-7/)
-
-1. 添加 EPEL 仓库
-
-   Pip 是 Extra Packages for Enterprise Linux (EPEL)的一部分，EPEL 是 RHEL 版本的非标准包仓库，安装命令是：
-
-   ```shell
-   $ yum install epel-release
-   ```
-
-2. 安装
-
-   ```shell
-   # 建议先升级包
-   $ yum -y update
-   # 安装pip及相关依赖包
-   $ yum -y install python-pip
-   ```
+If your pip version does not match the python version, you need to reinstall in this way
 
 #### 错误解决办法
 
@@ -174,17 +154,14 @@ $ pip install -r requirements.txt
   ERROR: Command errored out with exit status 1: python setup.py egg_info Check the logs for full command output.
   ```
 
-````
+  need to install libmysqlclient-dev
 
-need to install libmysqlclient-dev
-
-```bash
-sudo apt-get install libmysqlclient-dev
-```
+  ```bash
+  sudo apt-get install libmysqlclient-dev
+  ```
 
 - Specify the installation path
 
   ```bash
   pip install --target=/usr/local/lib/python2.7/dist-packages/ gevent
   ```
-````
