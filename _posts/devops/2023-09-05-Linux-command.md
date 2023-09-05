@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Linux command"
-date: 2023-08-25
+date: 2023-09-05
 categories: Linux
 tags:
   - CentOS
@@ -31,6 +31,7 @@ tags:
   - [获取当前路径下某文件的完整路径](#获取当前路径下某文件的完整路径)
   - [根据文件路径获取文件名](#根据文件路径获取文件名)
   - [preview image](#preview-image)
+  - [check two file is same](#check-two-file-is-same)
 - [进程](#进程)
   - [查看网络状态](#查看网络状态)
   - [重新读取配置文件并重启](#重新读取配置文件并重启)
@@ -196,7 +197,7 @@ if we not have key, it will get `no identities found error`, because `ssh-copy-i
 ssh-keygen -t rsa
 ```
 
-ssh user@ip command is too long?  we can set it to `~/.ssh/config`:
+ssh user@ip command is too long? we can set it to `~/.ssh/config`:
 
 ```bash
 Host car18
@@ -508,6 +509,13 @@ basename <path>
 #### preview image
 
 feh <https://feh.finalrewind.org/>
+
+#### check two file is same
+
+```bash
+md5sum file1.txt
+md5sum file2.txt
+```
 
 ---
 
