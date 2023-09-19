@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "SQLAlchemy Can’t reconnect until invalid transaction is rolled back问题"
+title: "SQLAlchemy Can’t reconnect until or mysql server has gone away"
 subtitle: ""
-date: 2023-09-13
+date: 2023-09-19
 categories: Python
 tags:
   - Python
@@ -22,6 +22,8 @@ StatementError: (sqlalchemy.exc.InvalidRequestError) Can’t reconnect until inv
 ```log
 raised unexpected: OperationalError(“(_mysql_exceptions.OperationalError) (2006, ‘MySQL server has gone away’)”,)
 ```
+
+### solve in Django
 
 在 Django 的 settings 文件里是这样配置的:
 
@@ -119,7 +121,22 @@ mysql 有 interactive_timeout 参数, 查询到数值是 7200, 也就是 2 小�
        ...
    ```
 
-上面说的是在直接用 sqlalchemy 的状况下的解决办法, 有一些框架提供了解决方案, 比如 flask-alchemy 之类, 就不用管这么多细节了.
+### solve in flask
+
+
+```python
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+
+engine = create_engine(app.config.get("SQLALCHEMY_DATABASE_URI"),
+                       pool_pre_ping=True)
+SessionFactory = sessionmaker(bind=engine)
+
+session = SessionFactory()
+session.query(Model).first()
+session.close()
+```
+
 
 参考资料:
 
