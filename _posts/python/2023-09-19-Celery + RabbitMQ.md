@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Celery + RabbitMQ"
-date: 2023-08-18
+date: 2023-09-19
 categories: Backend
 tags:
   - Python
@@ -25,6 +25,7 @@ tags:
   - [根据 id 获取 task](#根据-id-获取-task)
   - [更新 state](#更新-state)
   - [前端获取进度](#前端获取进度)
+  - [kill subprocess in celery task](#kill-subprocess-in-celery-task)
 
 ### 参考资料
 
@@ -253,3 +254,49 @@ meta 信息可以通过 task.result 获取
 #### 前端获取进度
 
 <https://buildwithdjango.com/blog/post/celery-progress-bars/>
+
+#### kill subprocess in celery task
+
+celery task contains subprocess process, if we revoke celery task, the subprocess task will not be killed autonomously, if we want kill them, we can follow this code:
+
+```python
+import os
+import subprocess
+
+from app import celery_app
+
+def kill_subprocesses_decorator(original_function):
+    """kill subprocesses decorator
+    """
+
+    def wrapper_function(*args, **kwargs):
+        subprocesses = []
+        try:
+            original_function(subprocesses, *args, **kwargs)
+        except Exception:
+            print("exception * 100")
+            print(subprocesses)
+            for pid in subprocesses:
+                os.killpg(pid, signal.SIGTERM)
+        return
+
+    return wrapper_function
+
+@celery_app.task
+@kill_subprocesses_decorator
+def my_task(subprocesses, my_arg):
+    ...
+    process = subprocess.Popen(
+        command, shell=True, stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE, universal_newlines=True,
+        preexec_fn=os.setsid)
+    subprocesses.append(os.getpgid(process.pid))
+    ...
+```
+
+if we revoke:
+
+```python
+celery_app.control.revoke(celery_task_id, terminate=True)
+```
+subprocess will be killed
