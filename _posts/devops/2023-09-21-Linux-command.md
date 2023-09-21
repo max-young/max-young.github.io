@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Linux command"
-date: 2023-09-05
+date: 2023-09-21
 categories: Linux
 tags:
   - CentOS

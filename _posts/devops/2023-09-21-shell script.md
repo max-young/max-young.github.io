@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "shell script"
-date: 2023-01-09
+date: 2023-09-21
 categories: Linux
 tags:
   - shell
@@ -22,6 +22,8 @@ tags:
 - [variables](#variables)
   - [$BASH\_SOURCE](#bash_source)
   - [define variable from env and default value](#define-variable-from-env-and-default-value)
+- [handle string](#handle-string)
+- [remove suffix](#remove-suffix)
 
 ### 常用命令
 
@@ -198,3 +200,15 @@ if we want sign a value to ENV_VALUE, we can use:
 ```
 
 colon is a command, it do nothing. if we not use colon punctuation, th command after it will error: command not found.
+
+
+### handle string
+
+### remove suffix
+
+file name is "abc.txt", we want to remove ".txt", we can use:
+
+```sh
+file_name="abc.txt"
+echo ${file_name%.txt}
+```
