@@ -59,13 +59,14 @@ tags:
 - rbash  
   受限制的 bash
 
+- cursor move
+  `Ctrl + [left/right arrow]` move cursor to previous/next word
+
 ---
 
-<a id="markdown-系统相关" name="系统相关"></a>
 
 ### 系统相关
 
-<a id="markdown-查看linux内核版本和centos版本" name="查看linux内核版本和centos版本"></a>
 
 #### 查看 Linux 内核版本和 CentOS 版本
 
@@ -126,7 +127,6 @@ tags:
 
 ---
 
-<a id="markdown-用户" name="用户"></a>
 
 #### 用户
 
@@ -161,11 +161,9 @@ tags:
 
 ---
 
-<a id="markdown-网络与连接" name="网络与连接"></a>
 
 ### 网络与连接
 
-<a id="markdown-ssh连接远程服务器" name="ssh连接远程服务器"></a>
 
 #### SSH
 
@@ -253,8 +251,6 @@ some problems:
       User apollo
   ```
 
-<a id="markdown-网络ip相关命令" name="网络ip相关命令"></a>
-
 #### 网络 IP 相关命令
 
 参考资料：<http://www.cnblogs.com/kaiye/archive/2013/05/25/3099393.html>
@@ -273,8 +269,6 @@ some problems:
   $ hostname -I
   ```
 
-<a id="markdown-scp文件传输" name="scp文件传输"></a>
-
 #### SCP 文件传输
 
 安装(CentOS)：
@@ -284,8 +278,6 @@ $ yum -y install openssh-clients
 ```
 
 需要相互通信的服务器都要安装
-
-<a id="markdown-开通端口" name="开通端口"></a>
 
 #### 开通端口
 
@@ -304,8 +296,6 @@ sudo ufw reload
 sudo ufw status
 ```
 
-<a id="markdown-下载文件" name="下载文件"></a>
-
 #### 下载文件
 
 ```shell
@@ -314,8 +304,6 @@ wget http://www.domain.com/filename-4.0.1.zip
 # 指定路径和文件名
 wget -O filename.zip http://www.domain.com/filename-4.0.1.zip
 ```
-
-<a id="markdown-curl请求" name="curl请求"></a>
 
 #### curl 请求
 
@@ -335,8 +323,6 @@ sudo nethogs -s
 ```
 
 ---
-
-<a id="markdown-文件相关" name="文件相关"></a>
 
 ### about file
 
@@ -411,8 +397,6 @@ mv -f file1 file2
   $ echo $? # 0表示包含，1表示不包含
   ```
 
-<a id="markdown-打包与解压" name="打包与解压"></a>
-
 #### archive & unarchive
 
 - tar
@@ -449,8 +433,6 @@ mv -f file1 file2
     $ tar -zcvf public_html-14-09-12.tar.gz public_html
     ```
 
-<a id="markdown-路径" name="路径"></a>
-
 #### 路径
 
 - mkdir
@@ -467,8 +449,6 @@ mv -f file1 file2
   $ find . -path ./venv -prune -o -print
   ```
 
-<a id="markdown-磁盘" name="磁盘"></a>
-
 #### 磁盘
 
 - 查看路径挂载在哪个磁盘下
@@ -478,8 +458,6 @@ mv -f file1 file2
     Filesystem      Size  Used Avail Use% Mounted on
     /dev/sde2       439G   21G  395G   6% /
   ```
-
-<a id="markdown-创建随机临时文件" name="创建随机临时文件"></a>
 
 #### 创建随机临时文件
 
@@ -491,8 +469,6 @@ $ mktemp
 $ mktemp -d
 /tmp/tmp.3iwExbjajN
 ```
-
-<a id="markdown-获取当前路径下某文件的完整路径" name="获取当前路径下某文件的完整路径"></a>
 
 #### 获取当前路径下某文件的完整路径
 
@@ -519,11 +495,7 @@ md5sum file2.txt
 
 ---
 
-<a id="markdown-进程" name="进程"></a>
-
 ### 进程
-
-<a id="markdown-查看python进程" name="查看python进程"></a>
 
 #### 查看网络状态
 
@@ -548,11 +520,7 @@ kill -HUP `cat /tmp/supervisord.pid`
 
 ---
 
-<a id="markdown-权限" name="权限"></a>
-
 ### 权限
-
-<a id="markdown-无法cd到某些路径permission-denied" name="无法cd到某些路径permission-denied"></a>
 
 #### 无法 cd 到某些路径，Permission Denied
 
@@ -562,8 +530,6 @@ kill -HUP `cat /tmp/supervisord.pid`
 $ chmod go+rx /dir
 ```
 
-<a id="markdown-更改文件的用户" name="更改文件的用户"></a>
-
 #### 更改文件的用户
 
 `ll`可以看到文件的用户和组信息, 如果是 root 用户, 权限较高, 可能某些场景下会有问题.  
@@ -572,8 +538,6 @@ $ chmod go+rx /dir
 ```shell
 sudo chown -R max:max /data/product
 ```
-
-<a id="markdown-文件权限" name="文件权限"></a>
 
 #### 文件权限
 
@@ -603,11 +567,7 @@ sudo chmod 666 ××× （每个人都有读和写的权限）
 sudo chmod 777 ××× （每个人都有读和写以及执行的权限）
 ```
 
-<a id="markdown-进程-1" name="进程-1"></a>
-
 ### 进程
-
-<a id="markdown-screen" name="screen"></a>
 
 #### screen
 
@@ -624,11 +584,7 @@ $ screen -dmS myscreen python -m SimpleHTTPServer 8080
 $ screen -xS myscreen
 ```
 
-<a id="markdown-日期" name="日期"></a>
-
 ### 日期
-
-<a id="markdown-时间戳转换为日期" name="时间戳转换为日期"></a>
 
 #### 时间戳转换为日期
 
