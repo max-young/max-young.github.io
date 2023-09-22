@@ -2,7 +2,7 @@
 layout: post
 title: "SQLAlchemy Can’t reconnect until or mysql server has gone away"
 subtitle: ""
-date: 2023-09-19
+date: 2023-09-22
 categories: Python
 tags:
   - Python
@@ -136,6 +136,26 @@ session = SessionFactory()
 session.query(Model).first()
 session.close()
 ```
+
+in flask document, it recommend use celery as this:
+
+```python
+def make_celery(app):
+    """celery app
+    """
+    celery = Celery(app.import_name)
+    celery.conf.update(app.config["CELERY_CONFIG"])
+
+    class ContextTask(celery.Task):
+
+        def __call__(self, *args, **kwargs):
+            with app.app_context():
+                return self.run(*args, **kwargs)
+
+    celery.Task = ContextTask
+    return celery
+```
+if we use SessionFactory, please remove flask app context, else it will raise exception when task complete, because in flask app context, it will close session, but the session may be have closed in your task code.
 
 
 参考资料:
