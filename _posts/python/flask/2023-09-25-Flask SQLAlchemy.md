@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Flask SQLAlchemy"
-date: 2023-06-26
+date: 2023-09-25
 categories: Python
 tags:
   - Flask
@@ -35,6 +35,8 @@ SQLALCHEMY_ENGINE_OPTIONS={
 
 lost connection 和 pool_pre_ping 相关  
 server has gone away 和 pool_recycle 相关, 相当于一个小时请求一次 mysql server 看看 server 是否正常
+
+This question is not so simple. For details, please refer to: <https://maxyoung.fun/blog/SQLAlchemy-Can-t-reconnect-or-mysql-server-has-gone-away.html>
 
 #### NameError: name '\_mysql' is not defined
 
@@ -114,6 +116,14 @@ use <https://flask-migrate.readthedocs.io/en/latest/>
   flask db upgrade
   ```
 
+- ERROR [flask_migrate] Error: Target database is not up to date.
+
+  ```bash
+  flask db stamp head
+  flask db migrate
+  flask db upgrade
+  ```
+
 #### how to save image in database
 
 in rich rext editor, we can upload image, two choices:
@@ -137,7 +147,3 @@ when we get from this filed, we should decode like: `article.analyse.decode('utf
 Correspondingly, the database needs to set the storage size limit, Refer to this [link](/blog/problems-you-may-meet-when-using-MySQL.html#mysql-server-has-gone-away-long-byte)
 
 Although we can realize saving pictures to the database, this will bring a problem to web applications: browser load data will be very slowly. so the first choice is better.
-
-```
-
-```
