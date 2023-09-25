@@ -1,14 +1,28 @@
 ---
 layout: post
 title: "Flask Swagger"
-date: 2023-07-06
+date: 2023-09-25
 categories: Python
 tags:
   - Flask
   - swagger
 ---
 
+- [install](#install)
+- [usage](#usage)
+- [POST example](#post-example)
+- [get example](#get-example)
+
+
 we can use [flasgger](https://github.com/flasgger/flasgger)
+
+### install
+
+```vash
+pip install flasgger
+```
+
+### usage
 
 use flasgger in flask like this:
 
@@ -26,6 +40,10 @@ Swagger(app,
             },
         })
 ```
+
+after run flask, we can see swagger ui in http://[host]:[port]/apidocs/
+
+### POST example
 
 this is a example for post json api:
 
@@ -95,6 +113,8 @@ def analyse_api():
     """
     ...
 ```
+
+### get example
 
 this is a example for get:
 
