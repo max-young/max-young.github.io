@@ -7,6 +7,10 @@ tags:
   -  apollo
 ---
 
+- [installation](#installation)
+- [glossary](#glossary)
+
+
 ### installation
 
 [安装说明](https://apollo.baidu.com/community/Apollo-Homepage-Document/Apollo_Doc_CN_8_0?doc=%2F%25E5%25AE%2589%25E8%25A3%2585%25E8%25AF%25B4%25E6%2598%258E%2F%25E8%25BD%25AF%25E4%25BB%25B6%25E5%258C%2585%25E5%25AE%2589%25E8%25A3%2585%2F%25E8%25BD%25AF%25E4%25BB%25B6%25E5%258C%2585%25E5%25AE%2589%25E8%25A3%2585%2F)
@@ -19,3 +23,14 @@ you may account for some problems when installing apollo, such as:
 	```shell
 	sudo chmod 777 /var/run/docker.sock
 	```
+
+### glossary
+
+- RTOS
+  real time operating system, 实时操作系统
+- OTA
+  over the air, 无线升级
+- v2x
+  vehicle to everything, 车联网
+- cyber RT
+  cyber real time, 实时通信框架
