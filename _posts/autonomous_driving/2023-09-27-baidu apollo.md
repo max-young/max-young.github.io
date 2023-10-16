@@ -34,3 +34,6 @@ you may account for some problems when installing apollo, such as:
   vehicle to everything, 车联网
 - cyber RT
   cyber real time, 实时通信框架
+- canbus
+	controller area network bus, 控制器局域网总线
+	用于和车辆的各个部件(电子元器件, 传感器等硬件)进行通信, 实现控制和监控
