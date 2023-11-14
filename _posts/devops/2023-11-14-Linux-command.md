@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Linux command"
-date: 2023-09-21
+date: 2023-11-14
 categories: Linux
 tags:
   - CentOS
@@ -425,6 +425,9 @@ mv -f file1 file2
     # unzip to specified path
     $ tar -xvf public_html-14-09-12.tar -C /home/public_html/videos/
     ```
+
+    args:  
+    `--strip-components 2` 去掉前两层路径. 例如有的压缩结果有多层文件夹, 前两层文件夹可能是无用的.
 
   - zip
 
