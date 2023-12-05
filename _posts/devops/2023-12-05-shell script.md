@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "shell script"
-date: 2023-09-21
+date: 2023-12-05
 categories: Linux
 tags:
   - shell
@@ -11,6 +11,7 @@ tags:
   - [shift](#shift)
   - [local](#local)
   - [echo](#echo)
+- [define a function](#define-a-function)
 - [运算符](#运算符)
   - [关系运算符](#关系运算符)
   - [文件测试运算符](#文件测试运算符)
@@ -82,6 +83,16 @@ function main() {
 
 b=$(main)
 echo $b # 这里输出是hello world, 而不是0
+```
+
+### define a function
+
+```shell
+function main() {
+  echo "hello world"
+}
+
+main
 ```
 
 ### 运算符
