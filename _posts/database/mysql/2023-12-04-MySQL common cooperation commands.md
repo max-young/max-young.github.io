@@ -2,7 +2,7 @@
 layout: post
 title: "MySQL Common operation commands"
 subtitle: ""
-date: 2023-07-20
+date: 2023-12-04
 categories: Database
 tags:
   - MySQL
@@ -329,9 +329,15 @@ show processlist
 
   `select host, user, password from mysql.user`
 
+- 创建用户
+  
+  `CREATE USER 'yangle'@'%' IDENTIFIED BY 'password';`  
+  `%` means you can login from any host.  
+  if you want to restrict user yangle only login from localhost, you can use `localhost` instead of `%`
+
 - 给用户赋权限
 
-  `grant all on database.* to 'yangle'@'%'`
+  `GRANT ALL PRIVILEGES ON *.* TO 'yangle'@'%' WITH GRANT OPTION;`
 
 - 删除用户
 
