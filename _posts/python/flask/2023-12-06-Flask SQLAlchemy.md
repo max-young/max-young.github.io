@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Flask SQLAlchemy"
-date: 2023-09-25
+date: 2023-12-06
 categories: Python
 tags:
   - Flask
@@ -88,7 +88,7 @@ use <https://flask-migrate.readthedocs.io/en/latest/>
     if type_ == "table" and reflected and compare_to is None:
         return False
     else:
-        return Tru
+        return True
   ```
 
   and modify the `run_migrations_online` function:
