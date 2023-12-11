@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "js package management"
-date: 2023-08-16
+date: 2023-12-11
 categories: Frontend
 tags:
   - npm
@@ -9,6 +9,7 @@ tags:
 ---
 
 - [npm](#npm)
+  - [speed up npm install](#speed-up-npm-install)
 - [pnpm](#pnpm)
   - [dlx](#dlx)
 
@@ -38,6 +39,24 @@ the solution is below:
 apt-get install gnutls-bin
 git config --global http.sslVerify false
 git config --global http.postBuffer 1048576000
+```
+
+#### speed up npm install
+
+- 修改成淘宝镜像源
+
+```shell
+npm config set registry https://registry.npmmirror.com
+# 验证,如果返回https://registry.npmmirror.com，说明镜像配置成功。
+npm config get registry
+```
+
+- 通过使用淘宝定制的cnpm安装
+```shell
+# 安装cnpm
+npm install -g cnpm --registry=https://registry.npmmirror.com
+# 使用cnpm
+cnpm install xxx
 ```
 
 ### pnpm
