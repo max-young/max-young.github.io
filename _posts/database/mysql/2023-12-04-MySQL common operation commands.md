@@ -2,7 +2,7 @@
 layout: post
 title: "MySQL Common operation commands"
 subtitle: ""
-date: 2023-12-04
+date: 2024-01-26
 categories: Database
 tags:
   - MySQL
@@ -14,7 +14,7 @@ tags:
 - [查询](#查询)
 - [索引](#索引)
 - [状态](#状态)
-- [管理](#管理)
+- [administration](#administration)
 
 ### Basic command
 
@@ -323,17 +323,18 @@ show processlist
 
 <a id="markdown-管理" name="管理"></a>
 
-### 管理
+### administration
 
 - 显示用户
 
   `select host, user, password from mysql.user`
 
-- 创建用户
+  create user
   
   `CREATE USER 'yangle'@'%' IDENTIFIED BY 'password';`  
   `%` means you can login from any host.  
-  if you want to restrict user yangle only login from localhost, you can use `localhost` instead of `%`
+  if you want to restrict user yangle only login from localhost, you can use `localhost` instead of `%`.
+  if you can't login in other machine, please check your mysql's configuration file which generally located in /etc/mysql/my.cnf, and comment the line `bind-address = 127.0.0.1`, then restart mysql service by command `sudo systemctl restart mysql.service`.
 
 - 给用户赋权限
 
