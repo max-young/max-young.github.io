@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Linux command"
-date: 2023-11-14
+date: 2024-01-29
 categories: Linux
 tags:
   - CentOS
@@ -202,6 +202,20 @@ Host car18
     Hostname 192.168.2.43
     Port 22
     User apollo
+```
+
+if you want to connect a inner server in a bulk server which have one server have outer ip, you can config proxyjump in ssh config:
+
+```text
+Host car18
+    Hostname 39.13.13.14
+    Port 22
+    User apollo
+Host car18-inner
+    Hostname 192.168.102.10
+    Port 22
+    User apollo
+    ProxyJump car18
 ```
 
 some problems:
