@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Celery + RabbitMQ"
-date: 2023-09-19
+date: 2024-02-06
 categories: Backend
 tags:
   - Python
@@ -19,6 +19,7 @@ tags:
 - [start Celery worker](#start-celery-worker)
 - [start celery beat](#start-celery-beat)
 - [触发任务](#触发任务)
+- [celery command](#celery-command)
 - [测试](#测试)
 - [其他](#其他)
   - [自定义 task id](#自定义-task-id)
@@ -26,16 +27,17 @@ tags:
   - [更新 state](#更新-state)
   - [前端获取进度](#前端获取进度)
   - [kill subprocess in celery task](#kill-subprocess-in-celery-task)
+  - [kill all tasks](#kill-all-tasks)
 
-### 参考资料
+## 参考资料
 
 [用 celery 和 rabbitmq 做异步任务调度](https://vosamo.github.io/2016/05/celery-rabbitmq/)  
 [celery 官方文档](http://docs.celeryproject.org/en/latest/getting-started/first-steps-with-celery.html)  
 [任务队列在 Web 服务里的应用](http://blog.csdn.net/nicajonh/article/details/53224783)
 
-### 启动 broker
+## 启动 broker
 
-#### macOS10.13
+### macOS10.13
 
 ```shell
 $ brew install rabbitmq
@@ -56,7 +58,7 @@ PATH=$PATH:/usr/local/Cellar/rabbitmq/3.7.4/sbin
 $ sudo rabbitmq-server -detached
 ```
 
-#### Ubuntu
+### Ubuntu
 
 ```shell
 sudo apt-get install rabbitmq-server
@@ -86,7 +88,7 @@ sudo rabbitmqctl set_permissions -p myvhost myuser ".*" ".*" ".*"
 之后在应用里的配置需要用到, 上面的文档里也有讲到  
 virtual host 的理解: <https://www.cnblogs.com/jxxblogs/p/12260029.html>
 
-#### docker
+### docker
 
 <https://hub.docker.com/_/rabbitmq>
 
@@ -96,13 +98,13 @@ docker run -d --restart always --hostname systest-rabbit --name systest-rabbit -
 
 this command have config user, password and vhost
 
-### 安装 Celery
+## 安装 Celery
 
 ```shell
 $ pip install celery
 ```
 
-### Celery 应用
+## Celery 应用
 
 创建一个 celery 应用 application, 这个 app 是入口, 可以创建任务, 管理 worker 等等
 我在 Django 项目下, 在 app 目录下创建一个 tasks.py 文件, 代码示例如下:
@@ -165,7 +167,7 @@ def add(x, y):
   print(x + y)
 ```
 
-### start Celery worker
+## start Celery worker
 
 ```shell
 celery -A tasks worker --loglevel=info -f /tmp/surge/logs/celery-worker.log
@@ -178,7 +180,7 @@ celery -A tasks worker --loglevel=info -f /tmp/surge/logs/celery-worker.log
 > 在 Django 里面可以加上配置
 > `DJANGO_SETTINGS_MODULE='fsp.settings_env' celery -A fsp -l info worker`
 
-### start celery beat
+## start celery beat
 
 ```shell
 celery -A surge.tasks beat
@@ -190,7 +192,7 @@ celery -A surge.tasks beat
 celery -A surge.tasks worker -B
 ```
 
-### 触发任务
+## 触发任务
 
 进入 python shell：
 
@@ -210,20 +212,34 @@ celery -A surge.tasks worker -B
 
 这样就是一个基本的 Celery+RabbitMQ 的一个基本的过程
 
-### 测试
+## celery command
+
+- get active tasks
+
+```shell
+celery -A surge.tasks inspect active
+```
+
+- get reserved tasks
+
+```shell
+celery -A surge.tasks inspect reserved
+```
+
+## 测试
 
 测试采用 mock 的方式, task 函数单独测试, 参照官方文档<https://docs.celeryproject.org/en/latest/userguide/testing.html>
 
-### 其他
+## 其他
 
-#### 自定义 task id
+### 自定义 task id
 
 ```python
 add.apply_async(args, kwargs, task_id=i)
 add.apply_async((1, 4), task_id=i)
 ```
 
-#### 根据 id 获取 task
+### 根据 id 获取 task
 
 ```python
 from celery.result import AsyncResult
@@ -233,7 +249,7 @@ task = app.AsyncResult('432890aa-4f02-437d-aaca-1999b70efe8d')
 task.state
 ```
 
-#### 更新 state
+### 更新 state
 
 <https://docs.celeryq.dev/en/latest/userguide/tasks.html#custom-states>
 
@@ -251,11 +267,11 @@ def push_version(self, token, task_id, version_name, car_id):
 
 meta 信息可以通过 task.result 获取
 
-#### 前端获取进度
+### 前端获取进度
 
 <https://buildwithdjango.com/blog/post/celery-progress-bars/>
 
-#### kill subprocess in celery task
+### kill subprocess in celery task
 
 celery task contains subprocess process, if we revoke celery task, the subprocess task will not be killed autonomously, if we want kill them, we can follow this code:
 
@@ -300,3 +316,25 @@ if we revoke:
 celery_app.control.revoke(celery_task_id, terminate=True)
 ```
 subprocess will be killed
+
+### kill all tasks
+
+```python
+from celery.result import AsyncResult
+from app import celery_app
+
+task_ids = []
+active_tasks = celery_app.control.inspect().active().values()
+pending_tasks = celery_app.control.inspect().reserved().values()
+for task in active_tasks:
+    for t in task:
+        task_ids.append(t["id"])
+for task in pending_tasks:
+    for t in task:
+        task_ids.append(t["id"])
+
+for task_id in task_ids:
+    print(task_id)
+    result = AsyncResult(task_id, app=celery_app)
+    result.revoke(terminate=True)
+```
