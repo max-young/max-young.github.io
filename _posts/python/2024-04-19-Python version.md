@@ -1,13 +1,15 @@
 ---
 layout: post
 title: "Python version manage"
-date: 2023-08-16
+date: 2024-04-19
 categories: Python
 tags:
   - Python
 ---
 
 - [pyenv](#pyenv)
+  - [installation](#installation)
+  - [problems](#problems)
 - [python-is-python3](#python-is-python3)
 
 ### pyenv
@@ -55,7 +57,7 @@ echo 'eval "$(pyenv init -)"' >> ~/.bashrc
    or use this command, replace `2.7.6` with your version:
 
    ```shell
-   $ export v=2.7.6; wget https://npm.taobao.org/mirrors/python/$v/Python-$v.tar.xz -P ~/.pyenv/cache/; pyenv install $v
+   $ export v=3.8.10; wget https://registry.npmmirror.com/-/binary/python/$v/Python-$v.tar.xz -P ~/.pyenv/cache/; ~/.pyenv/bin/pyenv install $v
    ```
 
 2. install error
