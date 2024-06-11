@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "my Docker manual"
-date: 2023-08-18
+date: 2024-06-11
 categories: Docker
 tags:
   - Docker
@@ -35,6 +35,7 @@ tags:
     - [docker compose mysql](#docker-compose-mysql)
     - [docker compose 的基本命令](#docker-compose-的基本命令)
   - [Examples](#examples)
+- [docker 国内镜像](#docker-国内镜像)
 
 ## installation
 
@@ -729,3 +730,8 @@ input the password enter mysql client shell
       timeout: 10s
       retries: 5
   ```
+
+## docker 国内镜像
+
+<https://gist.github.com/y0ngb1n/7e8f16af3242c7815e7ca2f0833d3ea6>
+
