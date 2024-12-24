@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Visual Studio Code"
-date: 2023-05-12
+date: 2024-12-24
 categories: Tools
 tags:
   - VSCode
@@ -18,6 +18,7 @@ tags:
 - [problems](#problems)
   - [ipch 空间过大, 导致文件无法保存](#ipch-空间过大-导致文件无法保存)
   - [python no definition found](#python-no-definition-found)
+  - [hold j/k to move cursor not working in MacOS](#hold-jk-to-move-cursor-not-working-in-macos)
 
 环境: macos
 
@@ -169,3 +170,17 @@ then use `"+p` to paste
 #### python no definition found
 
 <https://stackoverflow.com/questions/64255834/no-definition-found-for-function-vscode-python>
+
+#### hold j/k to move cursor not working in MacOS
+
+```shell
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false
+defaults delete -g ApplePressAndHoldEnabled
+```
+revert
+```shell
+defaults write -g ApplePressAndHoldEnabled -bool true
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool true
+defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool true
+```
