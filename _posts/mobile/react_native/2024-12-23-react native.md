@@ -29,7 +29,8 @@ https://docs.expo.dev/tutorial/introduction/
 If your project use some third-party libraries like "Realm", you need a development environment, you can't use Expo Go app to scan the QR code to run the app. Following the structure:
 https://docs.expo.dev/get-started/set-up-your-environment/?mode=development-build&buildEnv=local
 
-I use macbook and an android phone, works fine.
+I use macbook and an android phone, works fine.  
+android phone and macbook should be in the same network.
 
 1. connect android phone with USB line, you will see your device use this command: `adb devices`
 2. run the app: `npx expo run:android`
