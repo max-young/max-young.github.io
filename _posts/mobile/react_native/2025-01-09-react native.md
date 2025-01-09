@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "React Native"
-date:       2024-12-23
+date:       2025-01-09
 tags:  
   - mobile
 ---
@@ -36,3 +36,7 @@ android phone and macbook should be in the same network.
 2. run the app: `npx expo run:android`
 3. then press `a` to run the app on the android device.
   avoid using vpn on your phone, it may cause some problems.
+
+### Debug
+
+click `j` to open the developer tools, you can set breakpoint in source.
