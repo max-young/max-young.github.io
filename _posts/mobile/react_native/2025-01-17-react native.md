@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "React Native"
-date:       2025-01-09
+date:       2025-01-17
 tags:  
   - mobile
 ---
@@ -40,3 +40,15 @@ android phone and macbook should be in the same network.
 ### Debug
 
 click `j` to open the developer tools, you can set breakpoint in source.
+
+### Name and Icon
+
+if you changed the app name and icon, you need to rebuild the app to see the changes.
+
+```shell
+rm -rf .expo
+rm -rf node_modules
+npm install
+npx expo prebuild
+npx expo run:android
+```
