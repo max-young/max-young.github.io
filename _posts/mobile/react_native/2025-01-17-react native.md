@@ -46,9 +46,16 @@ click `j` to open the developer tools, you can set breakpoint in source.
 if you changed the app name and icon, you need to rebuild the app to see the changes.
 
 ```shell
-rm -rf .expo
-rm -rf node_modules
-npm install
 npx expo prebuild
 npx expo run:android
+```
+
+### build apk
+
+```shell
+npm install -g expo-cli
+npm install -g eas-cli
+eas build:configure
+expo login
+eas build --platform android
 ```
