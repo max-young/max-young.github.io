@@ -59,3 +59,15 @@ eas build:configure
 expo login
 eas build --platform android
 ```
+if you want to build abb file, you should set this in eas.json:
+```json
+    "production": {
+      "android": {
+        "buildType": "app-bundle"
+      }
+    }
+```
+and then run:
+```
+eas build --platform android --profile production
+```
