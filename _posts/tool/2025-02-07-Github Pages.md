@@ -1,8 +1,8 @@
 ---
 layout:     post
-title:      "establish blog and document website"
+title:      "Github Pages"
 subtitle:   ""
-date:       2022-03-22
+date:       2025-02-07
 categories: Tools
 tags:
     - Tools
