@@ -2,23 +2,68 @@
 layout:     post
 title:      "Github Pages"
 subtitle:   ""
-date:       2025-02-07
+date:       2025-02-08
 categories: Tools
 tags:
     - Tools
 ---
 
+#### github page with vite
 
-### github page
+1. create a vite project
 
+2. create a repository on github
 
+3. add remote repository
 
+4. install gh-pages
 
-3. github创建仓库
+   ```sh
+   npm install gh-pages --save-dev
+   ```
+
+5. add deploy script in package.json
+
+   ```json
+   "scripts": {
+     "deploy": "gh-pages -d dist"
+   }
+   ```
+
+6. edit vite.config.js
+
+   ```js
+   export default defineConfig({
+     base: '/repository-name/',
+   })
+   ```
+
+7. config github page
+
+   set branch to `gh-pages`
+
+8. deploy
+
+   ```sh
+   npm run build
+   npm run deploy
+   ```
+
+9. visit `https://username.github.io/repository-name/`
+
+10. custom domain
+
+   if you want to use custom domain like readom.maxyoun.fun,  
+   you need to set custom domain in github page setting.  
+   and the base of vite.config.js should be `/`
+
+### github page with jekyll
+
+1. github创建仓库
 
    参照https://pages.github.com/
 
-4. jekyll
+2. jekyll
 
    https://jekyllrb.com/docs/
 
@@ -32,7 +77,7 @@ tags:
 
    在浏览器访问`localhost:4000`就可以看到效果了
 
-5. jekyll theme
+3. jekyll theme
 
    上一步看到的是默认模板, 可以采用网上的模板来美化我们的博客
 
@@ -40,7 +85,6 @@ tags:
 
    按照步骤做就可以了
 
-<a id="markdown-docsify部署markdown文档" name="docsify部署markdown文档"></a>
 ### Docsify部署markdown文档
 
 [Docsify](https://docsify.js.org/#/)部署markdown文档
