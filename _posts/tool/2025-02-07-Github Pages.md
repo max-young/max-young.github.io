@@ -8,23 +8,17 @@ tags:
     - Tools
 ---
 
-<!-- TOC -->
 
-- [github page创建个人博客](#github-page创建个人博客)
-- [Docsify部署markdown文档](#docsify部署markdown文档)
-  - [优化](#优化)
-- [Material for MkDocs部署markdown文档](#material-for-mkdocs部署markdown文档)
+### github page
 
-<!-- /TOC -->
 
-<a id="markdown-github-page创建个人博客" name="github-page创建个人博客"></a>
-### github page创建个人博客
 
-1. github创建仓库
+
+3. github创建仓库
 
    参照https://pages.github.com/
 
-2. jekyll
+4. jekyll
 
    https://jekyllrb.com/docs/
 
@@ -38,7 +32,7 @@ tags:
 
    在浏览器访问`localhost:4000`就可以看到效果了
 
-3. jekyll theme
+5. jekyll theme
 
    上一步看到的是默认模板, 可以采用网上的模板来美化我们的博客
 
