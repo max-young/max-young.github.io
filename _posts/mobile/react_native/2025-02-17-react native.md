@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "React Native"
-date:       2025-01-17
+date:       2025-02-17
 tags:  
   - mobile
 ---
@@ -36,6 +36,15 @@ android phone and macbook should be in the same network.
 2. run the app: `npx expo run:android`
 3. then press `a` to run the app on the android device.
   avoid using vpn on your phone, it may cause some problems.
+
+some problems may occur when run `npx expo run:android`:
+1. stuck at 0%, then download speed is too slow  
+
+   check your nerwork, if you use vpn tools like clash, you should set http_proxy and https_proxy to active the proxy in the terminal.
+
+2. npk version error
+   
+   the version of npk in android/build.gradle should be same as that in android studio.
 
 ### Debug
 
