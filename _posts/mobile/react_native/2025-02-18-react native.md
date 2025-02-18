@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "React Native"
-date:       2025-02-17
+date:       2025-02-18
 tags:  
   - mobile
 ---
@@ -44,7 +44,8 @@ some problems may occur when run `npx expo run:android`:
 
 2. npk version error
    
-   the version of npk in android/build.gradle should be same as that in android studio.
+   the version of npk in android/build.gradle should be same as that in android studio.  
+   maybe you need to downoad old version ntk: <https://github.com/android/ndk/wiki/Unsupported-Downloads>
 
 ### Debug
 
