@@ -1,8 +1,8 @@
 ---
 layout:     post
-title:      "Python开发环境"
+title:      "Python Development Environment"
 subtitle:   ""
-date:       2022-10-25
+date:       2025-02-28
 categories: Python
 tags:
     - Python
@@ -44,3 +44,7 @@ open the Command Palette (Ctrl+Shift+P) and select the Python: Select Linter.
 #### 上下键乱码
 
 `pip install readline`
+
+if install error in Ubuntu, then install gnureadline:
+
+`pip install gnureadline`
