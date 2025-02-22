@@ -1,17 +1,11 @@
 ---
 layout:     post
 title:      "Mac python开发配置"
-subtitle:   ""
 date:       2017-04-17 10:40:00
-author:     "alvy"
-header-img: "img/post-bg-mac.jpg"
-header-mask: 0.3
-catalog:    true
+categories: Macbook
 tags:
     - Mac
 ---
-
-
 
 mac开发配置可参照网文：
 [http://www.dreamxu.com/mac-terminal/](http://www.dreamxu.com/mac-terminal/)

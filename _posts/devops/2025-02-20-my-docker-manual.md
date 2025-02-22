@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "my Docker manual"
-date: 2024-06-11
+date: 2025-02-20
 categories: Docker
 tags:
   - Docker
@@ -99,13 +99,19 @@ image is a read-only template with instructions for creating a Docker container.
   ```
 
   `--name`参数可以为容器命名，也可以不加此参数，命名必需唯一  
+
+  `-d`: run background
+
   `it`参数可以理解为进入命令行界面  
+
   `-i` support stdin, `-t` support tty bash  
   如果本地没有 centos 镜像则会从官方镜像里下载，命令后面还可以加进入容器后的命令，比如`/bin/bash`，`ls`等等，看看效果吧
 
   `--rm` means auto remove container after exit  
-  `-v` means mount host path to docker path, we can add third parameter to set permission, for example, `host_path:docker_path:ro` means host_path will mount in docker container docker_path, host_path is sync with docker_path, if we add a file in docker_path in docker container, it will also add in host_path. but we add `:ro`, we cann't do that, we can only read file in docker_path.
-  `--restart` means restart policy, we can set it to `always` or `on-failure` or `unless-stopped`, we can use `always` to restart container when server restart.
+
+  `-v` means mount host path to docker path, we can add third parameter to set permission, for example, `host_path:docker_path:ro` means host_path will mount in docker container docker_path, host_path is sync with docker_path, if we add a file in docker_path in docker container, it will also add in host_path. but we add `:ro`, we cann't do that, we can only read file in docker_path.  
+
+  `--restart` means restart policy, we can set it to `always` or `on-failure` or `unless-stopped`, we can use `always` to restart container when server restart.  
 
 - 查看容器
 
