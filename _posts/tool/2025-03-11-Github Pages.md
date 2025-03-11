@@ -1,12 +1,17 @@
 ---
 layout:     post
 title:      "Github Pages"
-subtitle:   ""
-date:       2025-02-08
+date:       2025-03-11
 categories: Tools
 tags:
     - Tools
 ---
+
+- [github page with jekyll](#github-page-with-jekyll)
+- [Docsify部署markdown文档](#docsify部署markdown文档)
+  - [优化](#优化)
+- [Material for MkDocs部署markdown文档](#material-for-mkdocs部署markdown文档)
+
 
 #### github page with vite
 
@@ -99,7 +104,48 @@ tags:
    ```
    markdown文件里写C++代码时加上cpp标签
 
-<a id="markdown-material-for-mkdocs部署markdown文档" name="material-for-mkdocs部署markdown文档"></a>
+2. latex
+   add Katex css to the header of index.html
+   ```html
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+   ```
+   add js to the body of index.html
+   ```html
+   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+      onload="renderMathInElement(document.body);"></script>
+   ```
+   config the latex
+   ```html
+   <script>
+      window.$docsify = {
+         plugins: [
+            function (hook) {
+            hook.doneEach(function () {
+               renderMathInElement(document.body, {
+                  delimiters: [
+                  { left: "$$", right: "$$", display: true },
+                  { left: "$", right: "$", display: false },
+                  { left: "\\(", right: "\\)", display: false },
+                  { left: "\\[", right: "\\]", display: true }
+                  ]
+               });
+            });
+            }
+         ]
+      };
+   </script>
+   ```
+   write latex in markdown file like this:
+   ```markdown
+   Here is an inline equation: $E = mc^2$.
+
+   And here is a block equation:
+   $$
+   \int_{a}^{b} f(x) \, dx
+   $$
+   ```
+
 ### Material for MkDocs部署markdown文档
 
 [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/)部署markdown文档
