@@ -1,13 +1,13 @@
 ---
 layout: post
 title: "Visual Studio Code"
-date: 2024-12-24
+date: 2025-04-07
 categories: Tools
 tags:
   - VSCode
 ---
 
-- [操作](#操作)
+- [Actions](#actions)
 - [快捷键](#快捷键)
   - [代码相关](#代码相关)
   - [操作相关](#操作相关)
@@ -22,7 +22,7 @@ tags:
 
 环境: macos
 
-### 操作
+### Actions
 
 - workspace  
    工作空间, 我们在做某一个项目的时候, 可能不止一个 folder(或者说一个 repo)  
@@ -36,6 +36,10 @@ tags:
 - 比较两个文件的差异
 
   在 terminal 里执行`code --diff [path to file 1] [path to file 2]`
+
+- search chinese characters
+  
+  use regular expression `[\u4e00-\u9fa5]+` to search. input `[\u4e00-\u9fa5]+` in search box, and check the regex option.
 
 ### 快捷键
 
