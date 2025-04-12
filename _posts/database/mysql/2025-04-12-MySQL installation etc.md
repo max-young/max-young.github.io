@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "MySQL installation etc"
-date: 2023-08-21
+date: 2025-04-12
 categories: Database
 tags:
   - MySQL
@@ -13,12 +13,12 @@ tags:
     - [Yum 源安装](#yum-源安装)
     - [启动](#启动)
   - [MacOS](#macos)
-    - [安装](#安装)
-    - [启动](#启动-1)
+    - [installation](#installation)
+    - [start](#start)
     - [shell](#shell)
   - [Ubuntu](#ubuntu)
     - [卸载](#卸载)
-    - [安装](#安装-1)
+    - [installation](#installation-1)
     - [安装 mysql workbench](#安装-mysql-workbench)
 - [配置](#配置)
 - [QA](#qa)
@@ -130,25 +130,25 @@ tags:
 
 ### MacOS
 
-#### 安装
+#### installation
 
 去官网下载 dmg 安装包安装即可, 安装过程中会给'root'@'localhost'用户生成一个密码, 需要记住
 
-#### 启动
+edit `~/.zshrc` file, add the following line:
+```shell
+export PATH=$PATH:/usr/local/mysql/bin
+```
+then run `source ~/.zshrc` to make it effective
 
-在 system preferences 启动  
-也可以用命令行启动:  
-`$ /usr/local/mysql-5.7.26-macos10.14-x86_64/support-files/mysql.server start`
+#### start
+
+start in system preferences
 
 #### shell
 
-mysql 的路径在`/usr/local/`下, 进 shell 的命令是:
-
 ```shell
-$ /usr/local/mysql-5.7.26-macos10.14-x86_64/bin/mysql -u root -p
+$ mysql -u root -p
 ```
-
-输入安装时生成的密码即可
 
 ### Ubuntu
 

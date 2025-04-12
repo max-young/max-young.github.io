@@ -1,3 +1,42 @@
+- name: Kanban
+  image: kanban.png
+  url: ""
+  oneliner: 
+  role: Lead Developer
+  description:
+    A 2D game developed with C++ and OpenGL, although it is 2D, it reflects a lot of knowledge of computer graphics and OpenGL development methods.
+    This project uses framebuffer and irrKlang to achieve some interesting effects, enjoy it.
+  technologies:
+    - Python(Flask)
+    - React
+    - Ant Design
+
+- name: OTA management system
+  image: ota_management_system.png
+  url: ""
+  oneliner: 
+  role: Lead Developer
+  description:
+    A 2D game developed with C++ and OpenGL, although it is 2D, it reflects a lot of knowledge of computer graphics and OpenGL development methods.
+    This project uses framebuffer and irrKlang to achieve some interesting effects, enjoy it.
+  technologies:
+    - Python(Flask)
+    - React
+    - Ant Design
+
+- name: Vehicle Calibration Software
+  image: vehicle_calibration_software.png
+  url: ""
+  oneliner: 
+  role: Lead Developer
+  description:
+    A 2D game developed with C++ and OpenGL, although it is 2D, it reflects a lot of knowledge of computer graphics and OpenGL development methods.
+    This project uses framebuffer and irrKlang to achieve some interesting effects, enjoy it.
+  technologies:
+    - Python(Flask)
+    - React
+    - Ant Design
+
 - name: Hit Bricks Game
   image: hitbricksgame.png
   url: https://github.com/max-young/hit-bricks-game
