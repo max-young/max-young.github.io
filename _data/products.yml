@@ -2,13 +2,15 @@
   image: kanban.png
   url: ""
   oneliner: 
-  role: Lead Developer
-  description:
-    A 2D game developed with C++ and OpenGL, although it is 2D, it reflects a lot of knowledge of computer graphics and OpenGL development methods.
-    This project uses framebuffer and irrKlang to achieve some interesting effects, enjoy it.
+  role: Solo Full-Stack Developer
+  description: >
+    Independently developed a comprehensive Kanban-based project management system tailored for autonomous driving operations.
+    The system significantly improved accident management processes, contributing to a reduction in the accident rate from 13 to 7 per 10,000 kilometers within six months.
+    It facilitated efficient delivery of dozens of new routes and enhanced team collaboration by effectively bridging the communication gap between R&D and operations teams.
+    This solution streamlined workflow visibility and task tracking across departments, resulting in more coordinated project execution and improved safety outcomes.
   technologies:
     - Python(Flask)
-    - React
+    - React(Create React App)
     - Ant Design
 
 - name: OTA management system
