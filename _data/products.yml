@@ -16,7 +16,7 @@
     - MySQL
 
 - name: OTA management system
-  image: OTA.png
+  image: OTA.jpg
   url: ""
   oneliner: 
   role: Solo Full-Stack Developer
