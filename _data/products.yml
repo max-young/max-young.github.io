@@ -12,32 +12,40 @@
     - Python(Flask)
     - React(Create React App)
     - Ant Design
+    - Tailwind CSS
+    - MySQL
 
 - name: OTA management system
-  image: ota_management_system.png
+  image: OTA.png
   url: ""
   oneliner: 
-  role: Lead Developer
-  description:
-    A 2D game developed with C++ and OpenGL, although it is 2D, it reflects a lot of knowledge of computer graphics and OpenGL development methods.
-    This project uses framebuffer and irrKlang to achieve some interesting effects, enjoy it.
+  role: Solo Full-Stack Developer
+  description: >
+    Independently developed a comprehensive Over-The-Air (OTA) system for managing autonomous driving vehicles, software versions, and updates. 
+    The system automated software and map deployment processes, dramatically reducing average download time for hundreds of vehicles from hours to under 30 minutes while maintaining near-zero error rates.
+    Implemented a user-friendly interface for vehicle, series, and version management that modernized the fleet operations workflow.
+    This solution streamlined the entire update lifecycle, providing reliable monitoring capabilities and enhancing operational efficiency across the autonomous driving fleet.
   technologies:
     - Python(Flask)
-    - React
-    - Ant Design
+    - React(Next.js)
+    - Material UI
+    - Celery + RabbitMQ
+    - MySQL
 
 - name: Vehicle Calibration Software
-  image: vehicle_calibration_software.png
+  image: calibration.jpg
   url: ""
   oneliner: 
   role: Lead Developer
-  description:
-    A 2D game developed with C++ and OpenGL, although it is 2D, it reflects a lot of knowledge of computer graphics and OpenGL development methods.
-    This project uses framebuffer and irrKlang to achieve some interesting effects, enjoy it.
+  description: >
+    Independently developed a sophisticated calibration software system for autonomous vehicle sensors (cameras, radars), revolutionizing the process by automating operations and reducing communication overhead.
+    The solution significantly enhanced factory calibration efficiency for hundreds of new vehicles, increasing daily throughput from 2-3 to 10+ vehicles.
+    Streamlined field calibration procedures allowed maintenance teams to complete on-site calibrations in under 30 minutes, compared to the previous 0.5-1 day timeframe.
+    This comprehensive calibration platform bridged the gap between manufacturing and field operations, ensuring consistent sensor performance and improved safety for autonomous vehicle fleets.
   technologies:
-    - Python(Flask)
-    - React
-    - Ant Design
+    - Python
+    - Shell
+    - C++
 
 - name: Hit Bricks Game
   image: hitbricksgame.png
