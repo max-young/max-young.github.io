@@ -14,25 +14,29 @@ description: Max Young, an software engineer focus on computer graphics.
   </blockquote>
 
   <p>
-    Hi, I am <span itemprop="name">Max Young / Le Yang</span>, a software engineer with extensive experience in web
-    application development as a <strong>full stack engineer</strong>.
+    Hi, I'm <span itemprop="name">Max Young / Le Yang</span>, a software engineer with extensive experience in web
+    application development as a <strong>full-stack engineer</strong>.
+  </p>
+  <p>
+    I'm also passionate about <strong>mobile app development</strong>. I've published an app called <a href="https://readom.maxyoung.fun/"><strong>Readom</strong></a> on Google Play.
   </p>
   <p>
     <strong>
-      My tools: <br />
+      My technical toolkit: <br />
     </strong>
   <ul>
-    <li><strong>Python</strong>, Shell, Golang, etc.</li>
-    <li><strong>React</strong>, JavaScript, TypeScript, Vue, JQuery... </li>
-    <li>MySQL, MongoDB </li>
-    <li>RabbitMQ, MQTT...</li>
-    <li>Docker, gunicorn, nginx, supervisor</li>
+    <li><strong>Python</strong>, Shell, Golang, and other backend languages</li>
+    <li><strong>React</strong>, JavaScript, TypeScript, Vue, jQuery, and modern frontend frameworks</li>
+    <li><strong>React Native</strong> for seamless cross-platform mobile development</li>
+    <li>MySQL, MongoDB, and database technologies</li>
+    <li>RabbitMQ, MQTT, and messaging systems</li>
+    <li>Docker, Gunicorn, Nginx, Supervisor, and deployment technologies</li>
   </ul>
   </p>
 
   <p>
-    In my spare time, I study computer graphics, including <strong>C++</strong>, <strong>OpenGL</strong>. <br>
-    For more infomation, visit my websites: <br>
+    Outside of work, I'm interested in <strong>computer graphics</strong>, where I focus on <strong>C++</strong> and <strong>OpenGL</strong>. <br>
+    Feel free to explore my learning resources: <br>
     <i class="fa fa-hand-o-right" aria-hidden="true" style="color: black"></i> <a href="/computer_graphics/"
       target="_blank">Computer Graphics Notes</a> <br>
     <i class="fa fa-hand-o-right" aria-hidden="true" style="color: black"></i> <a href="/cpp_study" target="_blank">C++
@@ -40,8 +44,7 @@ description: Max Young, an software engineer focus on computer graphics.
   </p>
 
   <p>
-    <!-- Here's my resume: <a href="https://github.com/max-young/resume/raw/master/max-resume-en.pdf">english</a> <a
-      href="https://github.com/max-young/resume/raw/master/max-resume.pdf">中文</a>, -->
+    Here's my resume: <a href="assets/resume/Max_Young_Resume.pdf" target="_blank">Max Young Resume</a>
     contact me via
     <a class="thumb" href="#">
       wechat
@@ -56,7 +59,7 @@ description: Max Young, an software engineer focus on computer graphics.
   <blockquote>
     <ul>
 
-      {% for post in site.posts limit: 10 %}
+      {% for post in site.posts limit: 20 %}
       <li class="post-list-in-index">
         <small class="post-list-date-in-index">{{ post.date | date_to_string }}</small><a
           href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
