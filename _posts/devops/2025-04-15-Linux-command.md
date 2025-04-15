@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Linux command"
-date: 2024-01-29
+date: 2025-04-15
 categories: Linux
 tags:
   - CentOS
@@ -11,7 +11,7 @@ tags:
 - [shell 以及 bash](#shell-以及-bash)
 - [系统相关](#系统相关)
   - [查看 Linux 内核版本和 CentOS 版本](#查看-linux-内核版本和-centos-版本)
-  - [用户](#用户)
+  - [User](#user)
 - [网络与连接](#网络与连接)
   - [SSH](#ssh)
   - [网络 IP 相关命令](#网络-ip-相关命令)
@@ -127,8 +127,7 @@ tags:
 
 ---
 
-
-#### 用户
+#### User
 
 - 显示用户
 
@@ -143,13 +142,10 @@ tags:
   $ userdel -r username
   ```
 
-- 增加用户
+- add user
 
   ```shell
-  # 增加用户
-  $ useradd username
-  # 设置密码
-  $ passwd username
+  $ sudo adduser <username>
   ```
 
 - 修改用户密码
