@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Linux command"
-date: 2025-04-15
+date: 2025-04-18
 categories: Linux
 tags:
   - CentOS
@@ -153,6 +153,12 @@ tags:
   ```shell
   # 修改其他用户密码
   sudo passwd <user>
+  ```
+
+- add user to the sudo group
+  
+  ```shell
+  $ sudo usermod -aG sudo <username>
   ```
 
 ---
