@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "my Docker manual"
-date: 2025-02-20
+date: 2025-05-04
 categories: Docker
 tags:
   - Docker
@@ -737,7 +737,8 @@ input the password enter mysql client shell
       retries: 5
   ```
 
-## docker 国内镜像
+## docker image in China
 
-<https://gist.github.com/y0ngb1n/7e8f16af3242c7815e7ca2f0833d3ea6>
+<https://gist.github.com/y0ngb1n/7e8f16af3242c7815e7ca2f0833d3ea6>  
+<https://docker.aityp.com/image/docker.io/node:18-alpine>
 
