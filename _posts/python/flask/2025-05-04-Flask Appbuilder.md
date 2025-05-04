@@ -7,6 +7,8 @@ tags:
   - Flask
 ---
 
+<https://flask-appbuilder.readthedocs.io/en/latest/index.html>
+
 #### Create user
 
 ```python
