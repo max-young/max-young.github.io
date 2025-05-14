@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Linux command"
-date: 2025-04-18
+date: 2025-05-14
 categories: Linux
 tags:
   - CentOS
@@ -12,7 +12,7 @@ tags:
 - [系统相关](#系统相关)
   - [查看 Linux 内核版本和 CentOS 版本](#查看-linux-内核版本和-centos-版本)
   - [User](#user)
-- [网络与连接](#网络与连接)
+- [Network](#network)
   - [SSH](#ssh)
   - [网络 IP 相关命令](#网络-ip-相关命令)
   - [SCP 文件传输](#scp-文件传输)
@@ -20,6 +20,7 @@ tags:
   - [下载文件](#下载文件)
   - [curl 请求](#curl-请求)
   - [net status](#net-status)
+  - [Rsync](#rsync)
 - [about file](#about-file)
   - [mv file](#mv-file)
   - [查找文件](#查找文件)
@@ -32,15 +33,14 @@ tags:
   - [根据文件路径获取文件名](#根据文件路径获取文件名)
   - [preview image](#preview-image)
   - [check two file is same](#check-two-file-is-same)
-- [进程](#进程)
+- [Process](#process)
   - [查看网络状态](#查看网络状态)
   - [重新读取配置文件并重启](#重新读取配置文件并重启)
+  - [screen](#screen)
 - [权限](#权限)
   - [无法 cd 到某些路径，Permission Denied](#无法-cd-到某些路径permission-denied)
   - [更改文件的用户](#更改文件的用户)
   - [文件权限](#文件权限)
-- [进程](#进程-1)
-  - [screen](#screen)
 - [日期](#日期)
   - [时间戳转换为日期](#时间戳转换为日期)
 - [bash](#bash)
@@ -164,8 +164,7 @@ tags:
 ---
 
 
-### 网络与连接
-
+### Network
 
 #### SSH
 
@@ -336,6 +335,23 @@ nethogs command is useful:
 ```shell
 sudo apt install nethogs
 sudo nethogs -s
+```
+
+#### Rsync
+
+send a dir to remote server using rsync
+```shell
+sshpass -p {password} 
+rsync -azh --info=progress2 --delete --partial -e 'ssh -p {port}'
+{local_dir}/ {user}@{ip}:{remote_dir}
+```
+
+send a dir to a remote server which can be jump from another wlan server using rsync
+```shell
+sshpass -p {password} 
+rsync -azh --info=progress2 --delete --partial 
+-e 'ssh -J {user}@{ip}:{port}' 
+{local_dir}/ {wlan_user}@{wlan_ip}:{wlan_remote_dir}
 ```
 
 ---
@@ -514,7 +530,7 @@ md5sum file2.txt
 
 ---
 
-### 进程
+### Process
 
 #### 查看网络状态
 
@@ -536,6 +552,22 @@ pid 怎么获取呢? 可以用`ps aux | grep <name>`, 也可以去读取其 pid 
 ```bash
 kill -HUP `cat /tmp/supervisord.pid`
 ```
+
+#### screen
+
+screen 和 tmux 类似, 可以脱离 shell 运行程序, 不受 shell 退出的影响
+
+```shell
+# dmS后台运行并指定一个名字, 后面再加上命令
+$ screen -dmS myscreen python -m SimpleHTTPServer 8080
+```
+
+回到这个进程可以用
+
+```shell
+$ screen -xS myscreen
+```
+
 
 ---
 
@@ -584,23 +616,6 @@ sudo chmod 644 ××× （所有者有读和写的权限，组用户只有读的�
 sudo chmod 700 ××× （只有所有者有读和写以及执行的权限）
 sudo chmod 666 ××× （每个人都有读和写的权限）
 sudo chmod 777 ××× （每个人都有读和写以及执行的权限）
-```
-
-### 进程
-
-#### screen
-
-screen 和 tmux 类似, 可以脱离 shell 运行程序, 不受 shell 退出的影响
-
-```shell
-# dmS后台运行并指定一个名字, 后面再加上命令
-$ screen -dmS myscreen python -m SimpleHTTPServer 8080
-```
-
-回到这个进程可以用
-
-```shell
-$ screen -xS myscreen
 ```
 
 ### 日期
