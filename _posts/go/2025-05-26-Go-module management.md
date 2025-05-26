@@ -1,8 +1,8 @@
 ---
 layout:     post
-title:      "Go Module管理包"
+title:      "Go Module Management"
 subtitle:   ""
-date:       2019-06-19
+date:       2025-05-26
 categories: Backend
 tags:
     - Go
@@ -11,6 +11,8 @@ tags:
 - [参考资料](#参考资料)
 - [使用方法](#使用方法)
 - [原理](#原理)
+- [Issues](#issues)
+	- [Network](#network)
 
 go的包管理有很多工具, 比如govendor等等, govendor在自己使用过程中有一些问题, 例如只能在$GOPATH下进行, 有时候找不到包
 go module是go1.11版本退出的包管理工具, 有官方的加持, 我们来看看module使用情况怎么样
@@ -66,3 +68,12 @@ $ go get github.com/ugorji/go/codec@none
 ### 原理
 
 // TODO
+
+### Issues
+
+#### Network
+
+A proxy could be set to solve timeout issues in China:
+```shell
+go env -w GOPROXY=https://goproxy.cn,direct
+```
