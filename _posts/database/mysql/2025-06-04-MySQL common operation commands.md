@@ -2,7 +2,7 @@
 layout: post
 title: "MySQL Common operation commands"
 subtitle: ""
-date: 2024-01-26
+date: 2025-06-04
 categories: Database
 tags:
   - MySQL
@@ -329,7 +329,11 @@ show processlist
 
   `select host, user, password from mysql.user`
 
-  create user
+- query user privileges
+
+  `SHOW GRANTS FOR 'yangle'@'%'`
+
+- create user
   
   `CREATE USER 'yangle'@'%' IDENTIFIED BY 'password';`  
   `%` means you can login from any host.  
@@ -338,7 +342,13 @@ show processlist
 
 - 给用户赋权限
 
-  `GRANT ALL PRIVILEGES ON *.* TO 'yangle'@'%' WITH GRANT OPTION;`
+  ```sql
+  # GRANT ALL PRIVILEGES ON mydatabase.* TO 'yangle'@'%';
+  GRANT ALL PRIVILEGES ON *.* TO 'yangle'@'%' WITH GRANT OPTION;
+  # only grant SELECT permission on a specific database
+  GRANT SELECT ON mydatabase.* TO 'yangle'@'%';
+  ```
+
 
 - 删除用户
 
