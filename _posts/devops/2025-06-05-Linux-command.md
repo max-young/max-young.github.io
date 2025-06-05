@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Linux command"
-date: 2025-05-14
+date: 2025-06-05
 categories: Linux
 tags:
   - CentOS
@@ -466,7 +466,10 @@ mv -f file1 file2
     ```shell
     # zip file
     $ tar -zcvf public_html-14-09-12.tar.gz public_html
+    # zip the content of public_html, not the folder itself
+    $ tar -cvf public_html-14-09-12.tar -C public_html .
     ```
+
 
 #### 路径
 
