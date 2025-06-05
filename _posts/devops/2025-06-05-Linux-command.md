@@ -487,7 +487,7 @@ mv -f file1 file2
   $ find . -path ./venv -prune -o -print
   ```
 
-#### 磁盘
+#### disk
 
 - 查看路径挂载在哪个磁盘下
   ```shell
@@ -496,6 +496,41 @@ mv -f file1 file2
     Filesystem      Size  Used Avail Use% Mounted on
     /dev/sde2       439G   21G  395G   6% /
   ```
+
+- check disk info
+  
+  ```shell
+  $ lsblk -f
+  NAME   FSTYPE LABEL UUID                                 MOUNTPOINT
+  sda
+    ├─sda1 vfat         12345678-1234-1234-1234-123456789012 /
+  ```
+
+- format disk to another file system
+
+  for example, format from vfat to exfat
+
+  1. install exfat-utils
+
+     ```shell
+     # ubuntu 18 or 20
+     sudo apt install exfat-utils
+     # ubuntu > 20
+     sudo apt install exfatprogs
+     ```
+  2. unmount the disk
+
+     ```shell
+     sudo umount /dev/sda1
+     ```
+  3. format the disk
+
+     ```shell
+     sudo mkfs.exfat -n rino /dev/sda1
+     ```
+
+
+  
 
 #### 创建随机临时文件
 
