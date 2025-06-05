@@ -508,7 +508,7 @@ mv -f file1 file2
 
 - format disk to another file system
 
-  for example, format from vfat to exfat
+  for example, format from vfat to exfat(exfat is better for large files):
 
   1. install exfat-utils
 
