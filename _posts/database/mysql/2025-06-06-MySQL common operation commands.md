@@ -2,7 +2,7 @@
 layout: post
 title: "MySQL Common operation commands"
 subtitle: ""
-date: 2025-06-04
+date: 2025-06-06
 categories: Database
 tags:
   - MySQL
@@ -152,10 +152,20 @@ tags:
   > ALTER TABLE mytb1 MODIFY i FLOAT(5,1) DEFAULT 100;
   ```
 
-- 增加列
+- add column
 
   ```shell
   > ALTER TABLE ext_paper_test ADD COLUMN option_peer_score float(5,1) AFTER has_option_peer;
+  ```
+  add created_at and updated_at columns to a table
+  ```sql
+  > ALTER TABLE badass_innershop  ADD COLUMN created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, ADD COLUMN updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP; 
+  > UPDATE badass_innershop SET created_at = CURRENT_TIMESTAMP,  updated_at = CURRENT_TIMESTAMP WHERE created_at IS NULL OR updated_at IS NULL;
+  ```
+  and you can add indexes
+  ```sql
+  > CREATE INDEX idx_badass_innershop_created_at ON badass_innershop(created_at);
+  > CREATE INDEX idx_badass_innershop_updated_at ON badass_innershop(updated_at);
   ```
 
 - 在首列增加 id 列
