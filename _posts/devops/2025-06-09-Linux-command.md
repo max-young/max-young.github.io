@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Linux command"
-date: 2025-06-05
+date: 2025-06-09
 categories: Linux
 tags:
   - CentOS
@@ -27,7 +27,7 @@ tags:
   - [file display](#file-display)
   - [archive \& unarchive](#archive--unarchive)
   - [路径](#路径)
-  - [磁盘](#磁盘)
+  - [disk](#disk)
   - [创建随机临时文件](#创建随机临时文件)
   - [获取当前路径下某文件的完整路径](#获取当前路径下某文件的完整路径)
   - [根据文件路径获取文件名](#根据文件路径获取文件名)
@@ -159,6 +159,12 @@ tags:
   
   ```shell
   $ sudo usermod -aG sudo <username>
+  ```
+
+- switch user
+
+  ```shell
+  $ su - <username>
   ```
 
 ---
