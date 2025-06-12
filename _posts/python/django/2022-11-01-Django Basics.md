@@ -1,22 +1,29 @@
 ---
 layout: post
-title: "Django基础知识"
+title: "Django Basics"
 subtitle: ""
-date: 2022-11-01
+date: 2025-06-10
 categories: Backend
 tags:
   - Python
   - Django
 ---
 
-- [命令](#命令)
+- [commands](#commands)
+  - [create super user](#create-super-user)
   - [dumpdata 导出数据](#dumpdata-导出数据)
   - [startapp 创建应用](#startapp-创建应用)
 - [问答](#问答)
   - [如何卸载 app](#如何卸载-app)
   - [static file](#static-file)
 
-## 命令
+## commands
+
+### create super user
+
+```shell
+$ python manage.py createsuperuser
+```
 
 ### dumpdata 导出数据
 
