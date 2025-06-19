@@ -9,6 +9,8 @@ tags:
   - Celery
 ---
 
+### celery pool type
+
 start celery command is like this:
 
 ```shell
@@ -25,4 +27,15 @@ for example, the tasks in my projects contains many rsync and ssh operations, wh
 ```shell
 pip install gevent
 celery -A app.celery worker -c 20 -P gevent --loglevel=info
+```
+
+However, we can use mixed pool implementation. This is another topic.
+
+### flower
+
+We can use flower to monitor celery tasks which can provide a web interface to view the status of tasks, workers, and queues.
+
+```shell
+pip install flower
+celery -A app.celery flower --port=5555 --host=0.0.0.0
 ```
