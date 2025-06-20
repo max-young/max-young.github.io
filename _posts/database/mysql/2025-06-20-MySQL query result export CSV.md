@@ -1,10 +1,11 @@
 ---
 layout: post
 title: "MySQL query result export CSV"
-date: 2023-06-16
+date: 2025-06-20
 categories: Database
 tags:
   - Database
+  - MySQL
 ---
 
 1. 查询语句，用到联合查询
