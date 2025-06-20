@@ -30,7 +30,19 @@ tags:
      select exam_results.user_id, user_department_info.surname, user_department_info.dep_name, exam_results.results,exam_results.start_time,exam_results.commit_time from exam_results left join  (select table1.id as user_id, table1.surname, table2.name as dep_name from (select users.id, users.surname, du.department_id from users, department_user du where users.id=du.user_id) as table1, departments table2 where table1.department_id=table2.id) as user_department_info on exam_results.user_id=user_department_info.user_id
      ```
 
-2. 问题汇总
+2. problems
+
+    - ERROR 1290
+  
+      `ERROR 1290 (HY000): The MySQL server is running with the --secure-file-priv option so it cannot execute this statement`
+
+      It is because MySQL server is running with the `--secure-file-priv` option, which restricts the file operations to a specific directory. You can check the value of this option by running:
+
+      ```sql
+      SHOW VARIABLES LIKE 'secure_file_priv';
+      ```
+      edit your sql statement to use the directory specified by `secure_file_priv`.  
+      then move the file to your desired location. Maybe you need sudo permission to move the file.
 
    - 导出路径
 
