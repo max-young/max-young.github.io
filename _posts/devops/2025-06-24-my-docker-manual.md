@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "my Docker manual"
-date: 2025-05-04
+date: 2025-06-24
 categories: Docker
 tags:
   - Docker
@@ -196,7 +196,9 @@ image is a read-only template with instructions for creating a Docker container.
 
 ---
 
-## 创建自定义镜像
+## Images
+
+### official images
 
 镜像可以从官方获取，比如我们以 centos 镜像启动一个仓库，命令是：
 
@@ -533,6 +535,17 @@ RUN pwd
 
 结果会是`/path/$DIRNAME`
 
+### use saved image
+
+we can save image to a file, and load it in another machine.
+
+```shell
+# save image to a file
+docker save -o my_image.tar my_image:tag
+# load image from a file
+docker load -i my_image.tar
+```
+
 ## 使用 Docker 构建服务
 
 - 构建 Flask web 应用
@@ -741,4 +754,38 @@ input the password enter mysql client shell
 
 <https://gist.github.com/y0ngb1n/7e8f16af3242c7815e7ca2f0833d3ea6>  
 <https://docker.aityp.com/image/docker.io/node:18-alpine>
+
+create `/etc/docker/daemon.json` file, add the following content:
+
+```json
+{
+    "runtimes": {
+        "nvidia": {
+            "args": [],
+            "path": "nvidia-container-runtime"
+        }
+    },
+    "registry-mirrors": ["https://docker.registry.cyou",
+        "https://docker-cf.registry.cyou",
+        "https://dockercf.jsdelivr.fyi",
+        "https://docker.jsdelivr.fyi",
+        "https://dockertest.jsdelivr.fyi",
+        "https://mirror.aliyuncs.com",
+        "https://dockerproxy.com",
+        "https://mirror.baidubce.com",
+        "https://docker.m.daocloud.io",
+        "https://docker.nju.edu.cn",
+        "https://docker.mirrors.sjtug.sjtu.edu.cn",
+        "https://docker.mirrors.ustc.edu.cn",
+        "https://mirror.iscas.ac.cn",
+        "https://docker.rainbond.cc"]
+}
+```
+
+then restart docker service:
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+```
 
