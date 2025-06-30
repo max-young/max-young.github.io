@@ -2,7 +2,7 @@
 layout: post
 title: "MySQL Common operation commands"
 subtitle: ""
-date: 2025-06-12
+date: 2025-06-30
 categories: Database
 tags:
   - MySQL
@@ -254,7 +254,7 @@ tags:
 
 <a id="markdown-查询" name="查询"></a>
 
-### 查询
+### query
 
 - 查询格式化显示  
   加上`\G`  
@@ -303,13 +303,24 @@ tags:
   > select companys_new.id,companys_new.company_name,max(user_login_new.login_time) from companys_new, user_login_new where companys_new.id=user_login_new.company_id and user_login_new.login_time>="2016-07-01 00:00:00" and user_login_new.login_time<="2016-08-11 00:00:00" group by companys_new.id;
   ```
 
-- query where a filed contains any Chinese character
+- query where a field contains any Chinese character
 
   ```sql
   > SELECT * FROM your_table WHERE your_column REGEXP '[一-龥]';
   ```
 
-<a id="markdown-索引" name="索引"></a>
+- query where a field not contains multiple words
+
+  ```sql
+  > SELECT * FROM your_table WHERE your_column NOT REGEXP 'word1|word2|word3';
+  ```
+
+- query where a field matches a regex and one of the matches is larger than a certain value
+
+  ```sql
+  > SELECT * from your_table WHERE version REGEXP '^3\\.[0-9]+\\.[0-9]+(\\.[0-9]+)?$' AND CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(version, '.', 2), '.', -1) AS UNSIGNED) >= 40;
+  ```
+
 
 ### 索引
 
