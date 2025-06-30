@@ -11,7 +11,7 @@ tags:
 - [Basic command](#basic-command)
 - [创建](#创建)
 - [update](#update)
-- [查询](#查询)
+- [query](#query)
 - [索引](#索引)
 - [状态](#状态)
 - [administration](#administration)
