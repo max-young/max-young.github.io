@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Linux command"
-date: 2025-06-09
+date: 2025-07-02
 categories: Linux
 tags:
   - CentOS
@@ -33,6 +33,8 @@ tags:
   - [根据文件路径获取文件名](#根据文件路径获取文件名)
   - [preview image](#preview-image)
   - [check two file is same](#check-two-file-is-same)
+- [Commands](#commands)
+  - [nohup python HttpConsumer.py \> out.log 2\>\&1 \&](#nohup-python-httpconsumerpy--outlog-21-)
 - [Process](#process)
   - [查看网络状态](#查看网络状态)
   - [重新读取配置文件并重启](#重新读取配置文件并重启)
@@ -572,8 +574,26 @@ md5sum file1.txt
 md5sum file2.txt
 ```
 
----
+### Commands
 
+#### nohup python HttpConsumer.py > out.log 2>&1 &
+
+- nohup
+  
+  means no hang up, it is used to run a command in the background, even if the terminal is closed.
+
+- \> /dev/null
+
+  means redirect the output to /dev/null, which is a special file that discards all data written to it. It is used to suppress the output of a command.
+
+- 2>&1
+
+  means redirect the standard error (stderr) to the standard output (stdout). This is useful when you want to capture both the output and error messages of a command.
+
+- &
+  
+  means run the command in the background, so that you can continue to use the terminal while the command is running.
+  
 ### Process
 
 #### 查看网络状态
