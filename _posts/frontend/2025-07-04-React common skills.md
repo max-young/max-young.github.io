@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "React common skills"
-date: 2023-07-04
+date: 2025-07-04
 categories: Frontend
 tags:
   - React
@@ -16,9 +16,9 @@ tags:
 - [drag and drop](#drag-and-drop)
 - [resize](#resize)
 - [useEffect](#useeffect)
-  - [提示: React Hook useEffect has a missing dependency: 'xxx'. Either include it or remove the dependency array react-hooks/exhaustive-deps](#提示-react-hook-useeffect-has-a-missing-dependency-xxx-either-include-it-or-remove-the-dependency-array-react-hooksexhaustive-deps)
 - [split panel](#split-panel)
 - [input in modal auto focus when modal is shown](#input-in-modal-auto-focus-when-modal-is-shown)
+- [startTransition](#starttransition)
 
 ### tools
 
@@ -79,7 +79,7 @@ this package is also cool: <https://github.com/react-grid-layout/react-draggable
 
 ### useEffect
 
-#### 提示: React Hook useEffect has a missing dependency: 'xxx'. Either include it or remove the dependency array react-hooks/exhaustive-deps
+- 提示: React Hook useEffect has a missing dependency: 'xxx'. Either include it or remove the dependency array react-hooks/exhaustive-deps
 
 <https://stackoverflow.com/questions/55840294/how-to-fix-missing-dependency-warning-when-using-useeffect-react-hook>
 在函数里加上:
@@ -118,4 +118,16 @@ const App = () => {
     </>
   );
 };
+```
+
+### startTransition
+
+several setState could refresh page multi times, use `startTransition` to batch them into one refresh.
+
+```js
+React.startTransition(() => {
+  setCases(cases.slice());
+  setTags(updatedTags);
+  setCategories(updatedCategories);
+});
 ```
