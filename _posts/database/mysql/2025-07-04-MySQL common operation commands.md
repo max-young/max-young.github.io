@@ -2,7 +2,7 @@
 layout: post
 title: "MySQL Common operation commands"
 subtitle: ""
-date: 2025-06-30
+date: 2025-07-04
 categories: Database
 tags:
   - MySQL
@@ -21,10 +21,13 @@ tags:
 - create database
 
   `CREATE DATABASE menagerie`  
+
   注意字符集, 可能默认是 ladin 不支持中文, 所以创建 database 时可以指定字符集:  
   `CREATE DATABASE menagerie DEFAULT CHARACTER SET utf8`  
+
   如果已经创建了 database 想修改呢?  
   `ALTER DATABASE surge CHARACTER SET utf8;`  
+
   另外, 如果数据表已经创建了, 数据表的字符集还是原来的, 我们还需要修改表:  
   `alter table collection_case CONVERT TO CHARACTER SET utf8;`
 
@@ -354,7 +357,7 @@ show processlist
 
 - 显示用户
 
-  `select host, user, password from mysql.user`
+  `select host, user from mysql.user`
 
 - query user privileges
 
@@ -394,3 +397,10 @@ show processlist
 - 查看端口
 
   `show global variables like 'port'`
+
+- set character set
+
+  if the data you query contains Chinese characters but display ?, then you need to set the character set to utf8mb4, which supports all Unicode characters including emojis. 
+  ```sql
+  > SET NAMES 'utf8mb4';
+  ```
