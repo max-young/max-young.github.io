@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Linux command"
-date: 2025-07-02
+date: 2025-07-28
 categories: Linux
 tags:
   - CentOS
@@ -360,6 +360,12 @@ sshpass -p {password}
 rsync -azh --info=progress2 --delete --partial 
 -e 'ssh -J {user}@{ip}:{port}' 
 {local_dir}/ {wlan_user}@{wlan_ip}:{wlan_remote_dir}
+```
+
+#### show status of a network interface
+
+```bash
+sudo iftop -i eth0
 ```
 
 ---
