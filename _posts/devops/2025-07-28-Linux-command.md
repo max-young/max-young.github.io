@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Linux command"
-date: 2025-07-28
+date: 2025-08-01
 categories: Linux
 tags:
   - CentOS
@@ -21,6 +21,7 @@ tags:
   - [curl 请求](#curl-请求)
   - [net status](#net-status)
   - [Rsync](#rsync)
+  - [show status of a network interface](#show-status-of-a-network-interface)
 - [about file](#about-file)
   - [mv file](#mv-file)
   - [查找文件](#查找文件)
@@ -402,6 +403,12 @@ mv -f file1 file2
 - 在当前路径下根据文件名查找文件
   ```bash
   find . -name app.bundle.js
+  ```
+
+- find a directory by name
+
+  ```bash
+  find / -type d -name "mydir"
   ```
 
 #### file display
