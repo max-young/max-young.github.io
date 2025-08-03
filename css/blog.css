@@ -201,38 +201,137 @@ img {
 .sidebox {
   overflow: auto;
   position: fixed;
-  right: 0%;
-  top: 0;
+  left: 20px;
+  top: 100px;
   display: block;
-  float: right !important;
-  font-size: 90%;
+  float: left !important;
+  font-size: 85%;
   margin-top: 1px;
   margin-bottom: 1px;
-  margin-left: 6px;
+  margin-right: 6px;
   visibility: visible;
-  max-width: 50%;
-  background-color: #f3f3f3;
+  max-width: 250px;
+  width: 250px;
+  background-color: #f9f9f9;
+  border: 1px solid #e1e1e1;
+  border-radius: 5px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  z-index: 100;
 }
 
-.sidebox toc ol {
-  border-left: 3px;
+.sidebox .toc {
+  max-height: 70vh;
+  overflow-y: auto;
 }
 
-.sidebox ol .active {
-  border-left: 3px solid #c1272d;
+.sidebox .toc ol {
+  margin: 0;
+  padding-left: 15px;
+  border-left: none;
 }
 
-.sidebox ol li {
+.sidebox .toc ol li {
   list-style: none;
-  line-height: 25px;
+  line-height: 22px;
+  margin: 5px 0;
+  padding: 2px 0;
 }
 
-.sidebox ol a {
+.sidebox .toc ol li a {
+  color: #666;
+  text-decoration: none;
+  font-size: 13px;
+  display: block;
+  padding: 2px 5px;
+  border-radius: 3px;
+  transition: all 0.2s ease;
+}
+
+.sidebox .toc ol li a:hover {
+  background-color: #e8e8e8;
+  color: #333;
+}
+
+.sidebox .toc ol .active a {
+  background-color: #227d51;
+  color: white;
+  border-left: 3px solid #1a5d3b;
 }
 
 .sidebox .sidebar {
   color: #666;
   border-left: 0.4em solid #227d51;
+  padding: 10px;
+  background-color: #f0f8f4;
+  margin-bottom: 15px;
+  border-radius: 3px;
+}
+
+/* TOC hierarchy styles */
+.toc ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc li {
+  margin: 3px 0;
+  line-height: 1.4;
+}
+
+.toc a {
+  display: block;
+  padding: 4px 8px;
+  text-decoration: none;
+  color: #555;
+  border-radius: 3px;
+  transition: all 0.2s ease;
+}
+
+.toc a:hover {
+  background-color: #e8e8e8;
+  color: #333;
+}
+
+.toc .toc-h1 a {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.toc .toc-h2 a {
+  padding-left: 16px;
+  font-size: 13px;
+}
+
+.toc .toc-h3 a {
+  padding-left: 24px;
+  font-size: 12px;
+}
+
+.toc .toc-h4 a {
+  padding-left: 32px;
+  font-size: 12px;
+}
+
+.toc .toc-h5 a,
+.toc .toc-h6 a {
+  padding-left: 40px;
+  font-size: 11px;
+}
+
+/* Hide TOC on smaller screens */
+@media (max-width: 1200px) {
+  .sidebox {
+    display: none;
+  }
+}
+
+/* Add margin to content when TOC is visible */
+@media (min-width: 1201px) {
+  .post {
+    margin-left: 80px;
+  }
 }
 
 ul.posts li {
