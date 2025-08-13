@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "my Docker manual"
-date: 2025-06-24
+date: 2025-08-13
 categories: Docker
 tags:
   - Docker
@@ -11,7 +11,8 @@ tags:
 - [DEMO](#demo)
 - [Docker Achitecture](#docker-achitecture)
 - [command](#command)
-- [创建自定义镜像](#创建自定义镜像)
+- [Images](#images)
+  - [official images](#official-images)
   - [Dockerfile](#dockerfile)
     - [基本格式](#基本格式)
     - [Parser directives](#parser-directives)
@@ -28,6 +29,7 @@ tags:
     - [VOLUME](#volume)
     - [USER](#user)
     - [WORKDIR](#workdir)
+  - [use saved image](#use-saved-image)
 - [使用 Docker 构建服务](#使用-docker-构建服务)
 - [Docker 编配](#docker-编配)
   - [Docker Compose](#docker-compose)
@@ -35,7 +37,7 @@ tags:
     - [docker compose mysql](#docker-compose-mysql)
     - [docker compose 的基本命令](#docker-compose-的基本命令)
   - [Examples](#examples)
-- [docker 国内镜像](#docker-国内镜像)
+- [docker image in China](#docker-image-in-china)
 
 ## installation
 
@@ -686,6 +688,50 @@ input the password enter mysql client shell
    可以加`-f`实时查看
 - 停止服务  
    `docker compose stop`
+
+要让修改后的 docker-compose.yml 生效，按需执行以下命令：
+
+- 基本应用（自动重建变更的服务）
+````bash
+docker compose up -d
+````
+
+- 改了 Dockerfile/构建参数
+````bash
+docker compose up -d --build
+````
+
+- 改了环境变量/命令/端口，确保重建
+````bash
+docker compose up -d --force-recreate
+````
+
+- 移除了/重命名了服务，清理孤儿容器
+````bash
+docker compose up -d --remove-orphans
+````
+
+- 只重启指定服务（例如 rabbitmq、mosquitto）
+````bash
+docker compose up -d rabbitmq mosquitto
+````
+
+- 校验与查看
+````bash
+docker compose config
+docker compose ps
+docker compose logs -f
+````
+
+- 大改网络/卷需要先停（谨慎，-v 会清数据）
+````bash
+docker compose down
+# 或
+docker compose down -v
+docker compose up -d
+````
+
+注意文件名应为 docker-compose.yml 或 compose.yaml。
 
 ### Examples
 
