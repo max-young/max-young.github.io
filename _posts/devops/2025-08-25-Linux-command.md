@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Linux command"
-date: 2025-08-01
+date: 2025-08-25
 categories: Linux
 tags:
   - CentOS
@@ -22,13 +22,17 @@ tags:
   - [net status](#net-status)
   - [Rsync](#rsync)
   - [show status of a network interface](#show-status-of-a-network-interface)
+- [disk](#disk)
+  - [查看路径挂载在哪个磁盘下](#查看路径挂载在哪个磁盘下)
+  - [check disk info](#check-disk-info)
+  - [format disk to another file system](#format-disk-to-another-file-system)
+  - [check disk state](#check-disk-state)
 - [about file](#about-file)
   - [mv file](#mv-file)
   - [查找文件](#查找文件)
   - [file display](#file-display)
   - [archive \& unarchive](#archive--unarchive)
   - [路径](#路径)
-  - [disk](#disk)
   - [创建随机临时文件](#创建随机临时文件)
   - [获取当前路径下某文件的完整路径](#获取当前路径下某文件的完整路径)
   - [根据文件路径获取文件名](#根据文件路径获取文件名)
@@ -49,7 +53,7 @@ tags:
 - [bash](#bash)
 - [grammar](#grammar)
 
-### shell 以及 bash
+## shell 以及 bash
 
 参考书：[Linux 命令行与 shell 脚本编程大全](https://book.douban.com/subject/11589828/)
 
@@ -68,10 +72,10 @@ tags:
 ---
 
 
-### 系统相关
+## 系统相关
 
 
-#### 查看 Linux 内核版本和 CentOS 版本
+### 查看 Linux 内核版本和 CentOS 版本
 
 1. 查看 CentOS 版本
 
@@ -130,7 +134,7 @@ tags:
 
 ---
 
-#### User
+### User
 
 - 显示用户
 
@@ -173,9 +177,9 @@ tags:
 ---
 
 
-### Network
+## Network
 
-#### SSH
+### SSH
 
 [How To Use SSH to Connect to a Remote Server in Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-use-ssh-to-connect-to-a-remote-server-in-ubuntu)
 
@@ -275,7 +279,7 @@ some problems:
       User apollo
   ```
 
-#### 网络 IP 相关命令
+### 网络 IP 相关命令
 
 参考资料：<http://www.cnblogs.com/kaiye/archive/2013/05/25/3099393.html>
 
@@ -293,7 +297,7 @@ some problems:
   $ hostname -I
   ```
 
-#### SCP 文件传输
+### SCP 文件传输
 
 安装(CentOS)：
 
@@ -303,7 +307,7 @@ $ yum -y install openssh-clients
 
 需要相互通信的服务器都要安装
 
-#### 开通端口
+### 开通端口
 
 Ubuntu
 
@@ -320,7 +324,7 @@ sudo ufw reload
 sudo ufw status
 ```
 
-#### 下载文件
+### 下载文件
 
 ```shell
 # 下载到当前路径
@@ -329,7 +333,7 @@ wget http://www.domain.com/filename-4.0.1.zip
 wget -O filename.zip http://www.domain.com/filename-4.0.1.zip
 ```
 
-#### curl 请求
+### curl 请求
 
 curl post 请求
 
@@ -337,7 +341,7 @@ curl post 请求
 curl -X POST -H "Content-Type: application/json" -d '{"date": "2022-08-03", "car_id_list": ["white-rhino-013"]}' http://192.168.199.102:8802/api/case/
 ```
 
-#### net status
+### net status
 
 nethogs command is useful:
 
@@ -346,7 +350,7 @@ sudo apt install nethogs
 sudo nethogs -s
 ```
 
-#### Rsync
+### Rsync
 
 send a dir to remote server using rsync
 ```shell
@@ -363,17 +367,67 @@ rsync -azh --info=progress2 --delete --partial
 {local_dir}/ {wlan_user}@{wlan_ip}:{wlan_remote_dir}
 ```
 
-#### show status of a network interface
+### show status of a network interface
 
 ```bash
 sudo iftop -i eth0
 ```
 
+## disk
+
+### 查看路径挂载在哪个磁盘下
+  ```shell
+  # df -h再加上路径
+  $ df -h /tmp
+    Filesystem      Size  Used Avail Use% Mounted on
+    /dev/sde2       439G   21G  395G   6% /
+  ```
+
+### check disk info
+  
+  ```shell
+  $ lsblk -f
+  NAME   FSTYPE LABEL UUID                                 MOUNTPOINT
+  sda
+    ├─sda1 vfat         12345678-1234-1234-1234-123456789012 /
+  ```
+
+### format disk to another file system
+
+  for example, format from vfat to exfat(exfat is better for large files):
+
+  1. install exfat-utils
+
+     ```shell
+     # ubuntu 18 or 20
+     sudo apt install exfat-utils
+     # ubuntu > 20
+     sudo apt install exfatprogs
+     ```
+  2. unmount the disk
+
+     ```shell
+     sudo umount /dev/sda1
+     ```
+  3. format the disk
+
+     ```shell
+     sudo mkfs.exfat -n rino /dev/sda1
+     ```
+### check disk state
+
+```shell
+iostat -dx 1
+iostat -dx /dev/sdd 1
+```
+
+
+
 ---
 
-### about file
+## about file
 
-#### mv file
+### mv file
 
 ```shell
 mv file1 file2
@@ -385,7 +439,7 @@ move and overwrite
 mv -f file1 file2
 ```
 
-#### 查找文件
+### 查找文件
 
 - which 查找可执行文件，根据可执行文件的文件名。例如：
 
@@ -411,7 +465,7 @@ mv -f file1 file2
   find / -type d -name "mydir"
   ```
 
-#### file display
+### file display
 
 - list file with date sort
 
@@ -450,7 +504,7 @@ mv -f file1 file2
   $ echo $? # 0表示包含，1表示不包含
   ```
 
-#### archive & unarchive
+### archive & unarchive
 
 - tar
 
@@ -492,7 +546,7 @@ mv -f file1 file2
     ```
 
 
-#### 路径
+### 路径
 
 - mkdir
 
@@ -508,52 +562,10 @@ mv -f file1 file2
   $ find . -path ./venv -prune -o -print
   ```
 
-#### disk
-
-- 查看路径挂载在哪个磁盘下
-  ```shell
-  # df -h再加上路径
-  $ df -h /tmp
-    Filesystem      Size  Used Avail Use% Mounted on
-    /dev/sde2       439G   21G  395G   6% /
-  ```
-
-- check disk info
-  
-  ```shell
-  $ lsblk -f
-  NAME   FSTYPE LABEL UUID                                 MOUNTPOINT
-  sda
-    ├─sda1 vfat         12345678-1234-1234-1234-123456789012 /
-  ```
-
-- format disk to another file system
-
-  for example, format from vfat to exfat(exfat is better for large files):
-
-  1. install exfat-utils
-
-     ```shell
-     # ubuntu 18 or 20
-     sudo apt install exfat-utils
-     # ubuntu > 20
-     sudo apt install exfatprogs
-     ```
-  2. unmount the disk
-
-     ```shell
-     sudo umount /dev/sda1
-     ```
-  3. format the disk
-
-     ```shell
-     sudo mkfs.exfat -n rino /dev/sda1
-     ```
-
 
   
 
-#### 创建随机临时文件
+### 创建随机临时文件
 
 ```bash
 # 创建临时文件
@@ -564,32 +576,32 @@ $ mktemp -d
 /tmp/tmp.3iwExbjajN
 ```
 
-#### 获取当前路径下某文件的完整路径
+### 获取当前路径下某文件的完整路径
 
 ```bash
 readlink -e <filename>
 ```
 
-#### 根据文件路径获取文件名
+### 根据文件路径获取文件名
 
 ```bash
 basename <path>
 ```
 
-#### preview image
+### preview image
 
 feh <https://feh.finalrewind.org/>
 
-#### check two file is same
+### check two file is same
 
 ```bash
 md5sum file1.txt
 md5sum file2.txt
 ```
 
-### Commands
+## Commands
 
-#### nohup python HttpConsumer.py > out.log 2>&1 &
+### nohup python HttpConsumer.py > out.log 2>&1 &
 
 - nohup
   
@@ -607,16 +619,16 @@ md5sum file2.txt
   
   means run the command in the background, so that you can continue to use the terminal while the command is running.
   
-### Process
+## Process
 
-#### 查看网络状态
+### 查看网络状态
 
 ```bash
 $ netstat -pln
 $ netstat -pln|grep python
 ```
 
-#### 重新读取配置文件并重启
+### 重新读取配置文件并重启
 
 一个进程, 我们修改了配置文件, 但是不想关闭它然后再启动, 想无缝重启, 那么可以用:
 
@@ -630,7 +642,7 @@ pid 怎么获取呢? 可以用`ps aux | grep <name>`, 也可以去读取其 pid 
 kill -HUP `cat /tmp/supervisord.pid`
 ```
 
-#### screen
+### screen
 
 screen 和 tmux 类似, 可以脱离 shell 运行程序, 不受 shell 退出的影响
 
@@ -648,9 +660,9 @@ $ screen -xS myscreen
 
 ---
 
-### 权限
+## 权限
 
-#### 无法 cd 到某些路径，Permission Denied
+### 无法 cd 到某些路径，Permission Denied
 
 [http://unix.stackexchange.com/questions/320011/permission-denied-cd-into-directory](http://unix.stackexchange.com/questions/320011/permission-denied-cd-into-directory)
 
@@ -658,7 +670,7 @@ $ screen -xS myscreen
 $ chmod go+rx /dir
 ```
 
-#### 更改文件的用户
+### 更改文件的用户
 
 `ll`可以看到文件的用户和组信息, 如果是 root 用户, 权限较高, 可能某些场景下会有问题.  
 我们可以修改成当前用户:
@@ -667,7 +679,7 @@ $ chmod go+rx /dir
 sudo chown -R max:max /data/product
 ```
 
-#### 文件权限
+### 文件权限
 
 用`ll`查看文件详细信息
 
@@ -695,22 +707,22 @@ sudo chmod 666 ××× （每个人都有读和写的权限）
 sudo chmod 777 ××× （每个人都有读和写以及执行的权限）
 ```
 
-### 日期
+## 日期
 
-#### 时间戳转换为日期
+### 时间戳转换为日期
 
 ```shell
 $ date -d @123456789
 Wed Dec 31 19:00:00 1969
 ```
 
-### bash
+## bash
 
 `bash -x [command]`可以打印出命令执行的详细信息
 
 `ldd [command]`可以查看命令依赖的库
 
-### grammar
+## grammar
 
 - `&&` and `||` and `;`
 
