@@ -19,6 +19,11 @@
 sudo apt-get install ruby ruby-all-dev
 sudo gem install bundler jekyll
 ```
+install packages:
+```shell
+bundle config set --local path 'vendor/bundle'
+bundle install
+```
 启动:
 ```shell
 bundle exec jekyll build
