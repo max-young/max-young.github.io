@@ -8,3 +8,5 @@ pythonplayground
 
 *venv*
 *.pyc
+
+vendor
