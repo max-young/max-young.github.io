@@ -12,25 +12,25 @@ if a disk is new, and could only be seen by 'lsvlk', we need to create a partiti
 
 1. create a partition
 
-```
-sudo parted /dev/sda
-```
+    ```
+    sudo parted /dev/sda
+    ```
 
-then in the parted shell:
+    then in the parted shell:
 
-```
-mklabel gpt
-mkpart primary ext4 0% 100%
-quit
-```
+    ```
+    mklabel gpt
+    mkpart primary ext4 0% 100%
+    quit
+    ```
 
 2. format the partition
 
-```
-sudo mkfs.exfat /dev/sda1
-```
-or
+    ```
+    sudo mkfs.exfat /dev/sda1
+    ```
+    or
 
-```
-sudo mkfs.ext4 /dev/sda1
-```
+    ```
+    sudo mkfs.ext4 /dev/sda1
+    ```
