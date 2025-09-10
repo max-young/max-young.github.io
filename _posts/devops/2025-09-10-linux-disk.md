@@ -20,7 +20,7 @@ then in the parted shell:
 
 ```
 mklabel gpt
-mkpart primary exfat 0% 100%
+mkpart primary ext4 0% 100%
 quit
 ```
 
@@ -28,4 +28,9 @@ quit
 
 ```
 sudo mkfs.exfat /dev/sda1
+```
+or
+
+```
+sudo mkfs.ext4 /dev/sda1
 ```
