@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "my Docker manual"
-date: 2025-09-10
+date: 2025-09-11
 categories: Docker
 tags:
   - Docker
@@ -197,6 +197,10 @@ image is a read-only template with instructions for creating a Docker container.
 - 容器和主机之间复制文件
 
   `$ docker cp <containerId>:/file/path/within/container /host/path/target`
+
+- check root dir
+  
+  `docker info | grep -E 'Docker Root Dir|Storage Driver|Backing Filesystem|Supports d_type'`
 
 ---
 
