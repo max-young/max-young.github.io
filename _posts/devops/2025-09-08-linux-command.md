@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Linux command"
-date: 2025-09-08
+date: 2025-10-10
 categories: Linux
 tags:
   - Ubuntu
@@ -87,12 +87,15 @@ tags:
    Red Hat Enterprise Linux Server release 7.2 (Maipo)
    ```
 
-2. 查看内核版本
+2. check Linux kernel version and framework
 
    ```shell
    $ uname -a
    Linux dscn3 3.10.0-327.el7.x86_64 #1 SMP Thu Oct 29 17:29:29 EDT 2015 x86_64 x86_64 x86_64 GNU/Linux
    ```
+   the framework is x86_64.
+   if the output is `aarch64`, then the framework is ARM64.  
+   x86_64 is also called amd64. amd64 and arm64 have different binary files, so we need to download different versions of software according to the framework.
 
 3. 查看 Ubuntu 版本
 
