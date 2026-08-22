@@ -395,6 +395,112 @@ pre code,
   line-height: 3.8em;
 }
 
+.home-intro {
+  padding: 1.5em 0 1em;
+}
+
+.home-intro h1 {
+  max-width: 680px;
+  margin: 0.25em 0 0.5em;
+  font-size: 2.25em;
+  line-height: 1.25;
+}
+
+.home-eyebrow {
+  color: #227d51;
+  font-size: 0.85em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.home-summary {
+  max-width: 700px;
+  font-size: 1.08em;
+  line-height: 1.75;
+}
+
+.home-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.8em 1.2em;
+  margin-top: 1.25em;
+  text-align-last: auto;
+  word-spacing: normal;
+}
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1em;
+  margin: 1em 0 2em;
+}
+
+.impact-grid article {
+  padding: 1.1em 1.25em;
+  border-left: 3px solid #227d51;
+  background: #f6f9f7;
+}
+
+.impact-grid strong,
+.impact-grid span {
+  display: block;
+}
+
+.impact-grid strong {
+  margin-bottom: 0.3em;
+  color: #3d4657;
+  font-size: 1.05em;
+}
+
+.skills-list {
+  margin: 0.5em 0 1.5em;
+}
+
+.skills-list div {
+  display: grid;
+  grid-template-columns: 145px 1fr;
+  gap: 1em;
+  padding: 0.55em 0;
+  border-bottom: 1px solid #edf0f2;
+}
+
+.skills-list dt {
+  color: #3d4657;
+  font-weight: 700;
+}
+
+.skills-list dd {
+  margin: 0;
+}
+
+.home-note {
+  padding: 1em 1.25em;
+  border-radius: 4px;
+  background: #f9f9f9;
+}
+
+.home-posts {
+  margin: 0 0 2em;
+  padding: 0;
+}
+
+@media (max-width: 600px) {
+  .home-intro h1 {
+    font-size: 1.8em;
+  }
+
+  .impact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-list div {
+    grid-template-columns: 1fr;
+    gap: 0.15em;
+  }
+}
+
 footer {
   font-size: small;
   line-height: 2em;

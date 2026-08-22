@@ -1,78 +1,96 @@
 ---
 layout: default
 category: about
-title: Max Young's homepage
-description: Max Young, an software engineer focus on computer graphics.
+title: Max Young | Senior Software Engineer
+description: Max Young is a senior software engineer specialising in autonomous-driving vehicle platforms, SOTA/FOTA, calibration tooling, and fleet operations.
 ---
 
 <section class="about-me inner">
-
-  <blockquote>
-    <p>
-      Vincit qui patitur</br>
+  <div class="home-intro">
+    <p class="home-eyebrow">Senior Software Engineer · Beijing, China</p>
+    <h1>Building reliable software for vehicles, factories, and fleets.</h1>
+    <p class="home-summary">
+      Hi, I'm <span itemprop="name">Max Young (Le Yang)</span>. I have 13+ years of experience building
+      production systems, including 4+ years in autonomous driving. I specialise in vehicle platforms,
+      SOTA/FOTA systems, calibration tooling, and fleet operations software, with end-to-end ownership
+      from product definition and architecture through implementation and production deployment.
     </p>
-  </blockquote>
+    <p class="home-actions">
+      <a class="btn" href="/assets/resume/max-resume-en.pdf" target="_blank" rel="noopener">View résumé</a>
+      <a href="mailto:alvysurvey@gmail.com">Email me</a>
+      <a href="https://www.linkedin.com/in/max-young-16b690143/" target="_blank" rel="noopener">LinkedIn</a>
+    </p>
+  </div>
 
+  <h2>Selected impact</h2>
+  <div class="impact-grid">
+    <article>
+      <strong>3× faster deployments</strong>
+      <span>Reduced average vehicle software deployment time from about 30 to 10 minutes.</span>
+    </article>
+    <article>
+      <strong>25× deployment scale</strong>
+      <span>Expanded SOTA deployment capacity from 200 to 5,000 vehicles.</span>
+    </article>
+    <article>
+      <strong>30+ vehicles per day</strong>
+      <span>Raised factory calibration throughput from 2–3 to more than 30 vehicles daily.</span>
+    </article>
+    <article>
+      <strong>Under 3 minutes</strong>
+      <span>Cut field calibration from 0.5–1 day to under three minutes.</span>
+    </article>
+  </div>
+
+  <h2>What I work on</h2>
   <p>
-    Hi, I'm <span itemprop="name">Max Young / Le Yang</span>, a software engineer with extensive experience in web
-    application development as a <strong>full-stack engineer</strong>.
+    At <strong>Rino.ai</strong>, I own architecture, product definition, and technical direction for a
+    vehicle-platform team. I have built reusable delivery infrastructure for R&amp;D, factory, and fleet
+    operations—including a distributed FOTA MVP for TBOX/ADCU nodes, an end-to-end vehicle calibration
+    platform, and fleet incident and route-delivery tools. The work spans failure recovery, power-loss
+    safety, large-map distribution, resumable transfers, deployment automation, service health, and
+    version/state consistency across thousands of vehicles.
   </p>
   <p>
-    I'm also passionate about <strong>mobile app development</strong>. I've published an app called <a href="https://readom.maxyoung.fun/" target="_blank"><strong>Readom</strong></a> on Google Play.
+    Earlier, I built backend and full-stack systems for online education, e-commerce, and B2B SaaS at
+    <strong>Dedao</strong> and <strong>Kaoshixing</strong>. My background began in geomatics and map quality,
+    which continues to inform my work on vehicle data, mapping, calibration, and field operations.
   </p>
-  <p>
-    <strong>
-      My technical toolkit: <br />
-    </strong>
-  <ul>
-    <li><strong>Python</strong>, Shell, Golang</li>
-    <li><strong>React</strong>, JavaScript, TypeScript, Tailwind CSS, etc.</li>
-    <li><strong>React Native</strong>, React Native Paper, Realm</li>
-    <li>MySQL, MongoDB, Memcache, Redis</li>
-    <li>RabbitMQ, MQTT, Kafka</li>
-    <li>Docker, Gunicorn, Nginx, Supervisor, etc.</li>
+
+  <h2>Technical focus</h2>
+  <dl class="skills-list">
+    <div>
+      <dt>Domain</dt>
+      <dd>Vehicle platforms, SOTA/FOTA, fleet operations, software/map/configuration delivery, calibration tooling, deployment reliability</dd>
+    </div>
+    <div>
+      <dt>Backend</dt>
+      <dd>Python, Flask, Django, REST APIs, RabbitMQ, MQTT, MySQL, MongoDB</dd>
+    </div>
+    <div>
+      <dt>Systems</dt>
+      <dd>Linux, Shell, Docker, Git, CI/CD</dd>
+    </div>
+    <div>
+      <dt>Frontend &amp; additional</dt>
+      <dd>React, Next.js, Go, C++, OpenCV, TDD, contract testing</dd>
+    </div>
+  </dl>
+
+  <p class="home-note">
+    I hold a bachelor's degree in Geomatics Engineering from Hohai University. I speak Mandarin Chinese,
+    English (IELTS Academic 6.5), and Japanese (JLPT N2).
+    Outside work, I used to a distance runner and a certified third-level amateur marathon athlete in Beijing.
+    Now I enjoy jogging, workout and yoga.
+  </p>
+
+  <h2>Latest articles</h2>
+  <ul class="home-posts">
+    {% for post in site.posts limit: 10 %}
+    <li class="post-list-in-index">
+      <small class="post-list-date-in-index">{{ post.date | date_to_string }}</small>
+      <a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+    </li>
+    {% endfor %}
   </ul>
-  </p>
-
-  <p>
-    Outside of work, I'm interested in <strong>computer graphics</strong>, where I focus on <strong>C++</strong> and <strong>OpenGL</strong>. <br>
-    Feel free to explore my learning resources: <br>
-    <i class="fa fa-hand-o-right" aria-hidden="true" style="color: black"></i> <a href="/computer_graphics/"
-      target="_blank">Computer Graphics Notes</a> <br>
-    <i class="fa fa-hand-o-right" aria-hidden="true" style="color: black"></i> <a href="/cpp_study" target="_blank">C++
-      Programming Notes</a>
-  </p>
-
-  <p>
-    Here's my resume: <a href="assets/resume/max-resume-en(full-stack engineer).pdf" target="_blank">Max Young Resume</a>
-  </p>
-  <p>
-    Contact me via
-    <a class="thumb" href="#">
-      wechat
-      <span>
-        <img src="images/wechat.jpeg" alt="" style="width: 70%">
-      </span>
-    </a>
-    or Email: alvysurvey@gmail.com
-  </p>
-
-  <p>latest articles:</p>
-  <blockquote>
-    <ul>
-
-      {% for post in site.posts limit: 20 %}
-      <li class="post-list-in-index">
-        <small class="post-list-date-in-index">{{ post.date | date_to_string }}</small><a
-          href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-      </li>
-      {% endfor %}
-
-      <!-- <li class="post-list-in-index">
-      <small class="post-list-date-in-index">25 Jun 2022</small>
-      <a href="https://maxyoung.fun/algorithm/#/docs/design_and_analysis_of_lgorithms/2_fundamentals_of_the_analysis_of_algorithm_efficiency/2.5_computing_the_nth_fibonacci_number" target="_blank">compute the nth fibonacci number</a>
-      </li> -->
-
-    </ul>
-  </blockquote>
 </section>
