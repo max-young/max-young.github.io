@@ -1,88 +1,146 @@
-- name: Kanban
-  image: kanban.png
-  url: ""
-  oneliner: 
-  role: Solo Full-Stack Developer
-  description: >
-    Independently developed a comprehensive Kanban-based project management system tailored for autonomous driving operations.
-    The system significantly improved accident management processes, contributing to a reduction in the accident rate from 13 to 7 per 10,000 kilometers within six months.
-    It facilitated efficient delivery of dozens of new routes and enhanced team collaboration by effectively bridging the communication gap between R&D and operations teams.
-    This solution streamlined workflow visibility and task tracking across departments, resulting in more coordinated project execution and improved safety outcomes.
-  technologies:
-    - Python(Flask)
-    - React(Create React App)
-    - Ant Design
-    - Tailwind CSS
-    - MySQL
-
-- name: OTA management system
+- name: Vehicle Software Delivery Platform
+  slug: vehicle-software-delivery
+  company: Rino.ai
+  period: 2022–Present
   image: OTA.jpg
   url: ""
-  oneliner: 
-  role: Solo Full-Stack Developer
-  description: >
-    Independently developed a comprehensive Over-The-Air (OTA) system for managing autonomous driving vehicles, software versions, and updates. 
-    The system automated software and map deployment processes, dramatically reducing average download time for hundreds of vehicles from hours to under 30 minutes while maintaining near-zero error rates.
-    Implemented a user-friendly interface for vehicle, series, and version management that modernized the fleet operations workflow.
-    This solution streamlined the entire update lifecycle, providing reliable monitoring capabilities and enhancing operational efficiency across the autonomous driving fleet.
+  oneliner: Fleet-scale SOTA/FOTA orchestration for autonomous vehicles
+  role: Architecture owner and lead platform engineer in a three-person vehicle-platform team
+  challenge: >
+    R&D, factory, and fleet teams relied on separate delivery tools while vehicle count, software
+    complexity, and map size were growing. Updates needed to remain observable and recoverable across
+    unreliable networks, constrained vehicle storage, and distributed TBOX/ADCU nodes.
+  contributions:
+    - Defined the product direction and architecture for reusable vehicle-delivery infrastructure.
+    - Architected and implemented a distributed FOTA MVP spanning orchestration, vehicle clients, backend services, web management, failure recovery, and power-loss safety.
+    - Designed delivery strategies for software, configuration, and map datasets reaching hundreds of gigabytes.
+    - Added resumable transfers, service-health monitoring, deployment automation, rollback safety, and version/state consistency.
+  outcomes:
+    - value: 30 → 10 min
+      label: Average software deployment time
+    - value: 200 → 5,000
+      label: Supported vehicle deployment capacity
   technologies:
-    - Python(Flask)
-    - React(Next.js)
-    - Material UI
-    - Celery + RabbitMQ
+    - Python
+    - Flask
+    - React
+    - Next.js
+    - Celery
+    - RabbitMQ
+    - MQTT
     - MySQL
+    - Linux
 
-- name: Vehicle Calibration Software
+- name: Vehicle Calibration Platform
+  slug: vehicle-calibration
+  company: Rino.ai
+  period: 2022–Present
   image: calibration.jpg
   url: ""
-  oneliner: 
-  role: Lead Developer
-  description: >
-    Independently developed a sophisticated calibration software system for autonomous vehicle sensors (cameras, radars), revolutionizing the process by automating operations and reducing communication overhead.
-    The solution significantly enhanced factory calibration efficiency for hundreds of new vehicles, increasing daily throughput from 2-3 to 10+ vehicles.
-    Streamlined field calibration procedures allowed maintenance teams to complete on-site calibrations in under 30 minutes, compared to the previous 0.5-1 day timeframe.
-    This comprehensive calibration platform bridged the gap between manufacturing and field operations, ensuring consistent sensor performance and improved safety for autonomous vehicle fleets.
+  oneliner: One calibration workflow for production lines and field operations
+  role: End-to-end owner and lead developer
+  challenge: >
+    Sensor calibration was slow, fragmented, and communication-heavy. The process limited factory
+    throughput and forced field teams to spend up to a full day completing work on one vehicle.
+  contributions:
+    - Built an automated workflow covering calibration execution, validation, and operational handoff.
+    - Integrated Python and Shell orchestration with C++ and OpenCV-based calibration capabilities.
+    - Designed the platform for both repeatable factory production and fast field maintenance.
+  outcomes:
+    - value: 2–3 → 30+
+      label: Vehicles calibrated per factory day
+    - value: 0.5–1 day → under 3 min
+      label: Field calibration time per vehicle
   technologies:
     - Python
     - Shell
     - C++
+    - OpenCV
+    - Linux
 
-- name: Hit Bricks Game
-  image: hitbricksgame.png
-  url: https://github.com/max-young/hit-bricks-game
-  oneliner: A simple 2D game
-  role: Lead Developer
-  description:
-    A 2D game developed with C++ and OpenGL, although it is 2D, it reflects a lot of knowledge of computer graphics and OpenGL development methods.
-    This project uses framebuffer and irrKlang to achieve some interesting effects, enjoy it.
-  technologies:
-    - C++
-    - OpenGL
-
-- name: OpenGL Rendering
-  image: opengl_rendering.png
-  url: https://github.com/max-young/opengl_study
-  oneliner: opengl rendering collection
-  role: Developer
-  description:
-    Realistic PBR is realized by using OpenGL and GLSL. Different spheres have different normal distribution and roughness, so as to calculate different NDF and mask functions, and then calculate different fresnel equation reflectivity according to different metallic, so as to calculate Different BRDFs get different lighting effects.
-    This also includes the effect of using cubemap to get skybox.
-  technologies:
-    - C++
-    - OpenGL
-
-- name: KaoShiXing
-  image: kaoshixing.png
-  url: https://www.kaoshixing.com/
-  oneliner: Online Exam System
-  role: Lead Developer
-  description: >
-    KaoShiXing is a toB online exam system, which can meet the requirements of employee training exams, dealer exams, recruitment exams, knowledge contests, homework, practice exams, etc.
-    I lead the design, construction and development of this project, and have gone through the process from zero to 1,000 enterprise users. The work includes system design, front-end and back-end development, deployment, operation and maintenance.
+- name: Fleet Operations Platform
+  slug: fleet-operations
+  company: Rino.ai
+  period: 2022–Present
+  image: kanban.png
+  url: ""
+  oneliner: Incident management and route delivery connecting R&D with operations
+  role: End-to-end product and full-stack engineer
+  challenge: >
+    Autonomous-driving incidents and route delivery crossed team boundaries, but fragmented workflows
+    made ownership, progress, and operational feedback difficult to track.
+  contributions:
+    - Built a shared workflow for incident intake, investigation, resolution, and delivery visibility.
+    - Connected R&D and operations around consistent ownership, status, and route-delivery information.
+    - Delivered the backend, frontend, data model, and production workflow as one integrated platform.
+  outcomes:
+    - value: 13 → 7
+      label: Incidents per 10,000 km within six months
+    - value: R&D ↔ Operations
+      label: Shared workflow and delivery visibility
   technologies:
     - Python
     - Flask
+    - React
+    - Ant Design
+    - Tailwind CSS
+    - MySQL
+
+- name: Commerce & Finance Backend Platforms
+  slug: commerce-finance-platforms
+  company: Dedao
+  period: 2017–2022
+  image: ""
+  url: ""
+  oneliner: Reliable order, inventory, settlement, and financial-recognition services
+  role: Backend engineer responsible for service design and delivery
+  challenge: >
+    Commerce and finance teams needed dependable integrations across internal systems and major
+    marketplaces, while manual office workflows created operational cost and reconciliation risk.
+  contributions:
+    - Designed backend systems for inventory, orders, distribution, and marketplace settlement across JD.com and Alibaba.
+    - Built financial recognition, settlement, and analytics services that replaced manual office workflows.
+    - Improved scalability and integration using asynchronous processing, event streams, GraphQL, TDD, and contract testing.
+  outcomes:
+    - value: Automated
+      label: Order ingestion and marketplace settlement
+    - value: Replaced
+      label: Manual finance recognition workflows
+  technologies:
+    - Python
+    - Django
+    - Flask
+    - Go
+    - Gin
+    - Celery
+    - RabbitMQ
+    - Kafka
+    - GraphQL
+
+- name: Kaoshixing B2B SaaS Platform
+  slug: kaoshixing
+  company: Kaoshixing
+  period: 2014–2017
+  image: kaoshixing.png
+  url: https://www.kaoshixing.com/
+  oneliner: Zero-to-scale online examination platform for enterprise customers
+  role: Architecture, full-stack development, DevOps, and engineering coordination
+  challenge: >
+    Build a production-ready online examination product from the ground up while supporting diverse
+    enterprise use cases, reliable delivery, and rapid customer growth.
+  contributions:
+    - Led system architecture and hands-on frontend and backend development from the initial product build.
+    - Owned deployment, operations, maintenance, and engineering coordination as the platform scaled.
+    - Supported enterprise training, recruitment, certification, practice, and knowledge-assessment workflows.
+  outcomes:
+    - value: 0 → 10,000+
+      label: Enterprise customers served
+    - value: End to end
+      label: Product, engineering, and production ownership
+  technologies:
+    - Python
+    - Flask
+    - JavaScript
     - MySQL
     - MongoDB
-    - JQuery
-    - AliYun
+    - Linux

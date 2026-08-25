@@ -1,35 +1,125 @@
 ---
 layout: portfolio
-title: Max Young - Portfolio
-description: Max Young - Portfolio
+title: Max Young | Software Engineering Portfolio
+description: Selected vehicle-platform, SOTA/FOTA, calibration, fleet-operations, and backend systems led by Max Young.
 category: portfolio
 ---
 
-<p class="fancy">
-  Here are some of the projects I worked on:
-</p>
+<div class="portfolio-page">
+  <header class="portfolio-hero">
+    <p class="portfolio-eyebrow">Selected case studies</p>
+    <h1>Platform engineering for autonomous vehicles and production systems.</h1>
+    <p class="portfolio-lead">
+      I turn operational bottlenecks into reliable software platforms—from product definition and
+      architecture to hands-on implementation and production rollout. My recent work connects vehicle,
+      backend, factory, and fleet workflows at meaningful scale.
+    </p>
+    <div class="portfolio-proof" aria-label="Career highlights">
+      <div><strong>13+</strong><span>years building production systems</span></div>
+      <div><strong>4+</strong><span>years in autonomous driving</span></div>
+      <div><strong>5,000</strong><span>vehicles supported by delivery infrastructure</span></div>
+      <div><strong>30+</strong><span>vehicles calibrated per factory day</span></div>
+    </div>
+    <p class="portfolio-actions">
+      <a class="btn" href="/assets/resume/max-resume-en.pdf" target="_blank" rel="noopener">View résumé</a>
+      <a href="mailto:alvysurvey@gmail.com">Email me</a>
+    </p>
+  </header>
 
-{% for product in site.data.products %}
-  <section class="project">
-    <a id="{{ product.name}}"></a>
-    {% if product.url != "" %}
-      <a href="{{ product.url }}" target="_blank">
-        <img class="inline pull-right" src="/images/portfolio/{{ product.image }}"
-             alt="{{ product.name }} Screenshot" width="280">
+  <section class="portfolio-capabilities" aria-labelledby="capabilities-title">
+    <h2 id="capabilities-title">Core strengths</h2>
+    <ul>
+      <li><strong>Vehicle delivery systems</strong><span>SOTA/FOTA, maps, configurations, version state, rollback, and unreliable-network recovery</span></li>
+      <li><strong>Operational platforms</strong><span>Factory calibration, incident management, route delivery, and cross-team workflows</span></li>
+      <li><strong>Backend &amp; systems engineering</strong><span>Python, Linux, distributed services, messaging, observability, automation, and reliability</span></li>
+      <li><strong>End-to-end ownership</strong><span>Product definition, architecture, implementation, deployment, and production iteration</span></li>
+    </ul>
+  </section>
+
+  <div class="portfolio-section-heading">
+    <p class="portfolio-eyebrow">Professional work</p>
+    <h2>Featured projects</h2>
+    <p>Internal product details are intentionally limited; the case studies focus on scope, decisions, and outcomes.</p>
+  </div>
+
+  {% for product in site.data.products %}
+  <article class="portfolio-case{% if product.image == '' %} portfolio-case--no-image{% endif %}" id="{{ product.slug }}">
+    <div class="portfolio-case__topline">
+      <span>{{ product.company }}</span>
+      <span>{{ product.period }}</span>
+    </div>
+    <div class="portfolio-case__heading">
+      <div>
+        <h2>
+          {% if product.url != '' %}
+          <a href="{{ product.url }}" target="_blank" rel="noopener">{{ product.name }}</a>
+          {% else %}
+          {{ product.name }}
+          {% endif %}
+        </h2>
+        <p>{{ product.oneliner }}</p>
+      </div>
+      {% if product.image != '' %}
+      <a class="portfolio-case__image" href="/images/portfolio/{{ product.image }}" aria-label="Enlarge {{ product.name }} image" aria-haspopup="dialog" aria-controls="portfolio-lightbox">
+        <img src="/images/portfolio/{{ product.image }}" alt="{{ product.name }} interface" loading="lazy">
       </a>
-    {% else %}
-      <a href="/images/portfolio/{{ product.image }}" target="_blank">
-        <img class="inline pull-right" src="/images/portfolio/{{ product.image }}"
-             alt="{{ product.name }} Screenshot" width="280">
-      </a>
-    {% endif %}
-    <h4><a href="{{ product.url }}" target="_blank">{{ product.name }}</a></h4>
-    <h5>{{ product.oneliner }}</h5>
-    <p><strong>My role:</strong> {{ product.role }}</p>
-    <p>{{ product.description}}</p>
+      {% endif %}
+    </div>
+
+    <p class="portfolio-role"><span>My scope</span>{{ product.role }}</p>
+
+    <div class="portfolio-case__body">
+      <div>
+        <h3>Challenge</h3>
+        <p>{{ product.challenge }}</p>
+      </div>
+      <div>
+        <h3>What I delivered</h3>
+        <ul>
+          {% for contribution in product.contributions %}
+          <li>{{ contribution }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+    <div class="portfolio-outcomes" aria-label="Project outcomes">
+      {% for outcome in product.outcomes %}
+      <div>
+        <strong>{{ outcome.value }}</strong>
+        <span>{{ outcome.label }}</span>
+      </div>
+      {% endfor %}
+    </div>
+
+    <ul class="portfolio-tech" aria-label="Technologies used">
+      {% for technology in product.technologies %}
+      <li>{{ technology }}</li>
+      {% endfor %}
+    </ul>
+  </article>
+  {% endfor %}
+
+  <section class="portfolio-footer-cta">
+    <p class="portfolio-eyebrow">What I am looking for</p>
+    <h2>Senior platform and backend engineering roles with real operational impact.</h2>
     <p>
-      <strong>Technologies:</strong> {{ product.technologies | join: ", " }}
+      I am open to international teams and relocation, particularly where vehicle software delivery,
+      fleet platforms, developer infrastructure, or dependable backend systems are central to the role.
+    </p>
+    <p>
+      <a class="btn" href="mailto:alvysurvey@gmail.com">Get in touch</a>
+      <a href="https://www.linkedin.com/in/max-young-16b690143/" target="_blank" rel="noopener">Connect on LinkedIn</a>
     </p>
   </section>
-  <div class="spacer"></div>
-{% endfor %}
+
+  <div class="portfolio-lightbox" id="portfolio-lightbox" role="dialog" aria-modal="true" aria-label="Project image preview" hidden>
+    <button class="portfolio-lightbox__close" type="button" aria-label="Close image preview">×</button>
+    <div class="portfolio-lightbox__content">
+      <img src="" alt="" tabindex="0">
+      <p>Click the image again or press Esc to close</p>
+    </div>
+  </div>
+</div>
+
+<script src="/js/portfolio-lightbox.js" defer></script>
